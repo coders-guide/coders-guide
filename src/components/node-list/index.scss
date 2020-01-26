@@ -251,9 +251,11 @@
 
   &__button {
     @extend %bluebutton;
-    font-size: 24px;
+    font-size: 20px;
+    font-weight: bold;
     pointer-events: all;
     width: 300px;
     position: relative;
+    text-transform: uppercase;
   }
 }

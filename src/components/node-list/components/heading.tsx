@@ -40,7 +40,7 @@ export const Heading: React.FC<{
             setActiveNode(index + 1);
           }}
         >
-          {index === 0 ? "Start!" : "Next"}
+          {index === 0 ? "Start" : "Next"}
         </button>
       )}
     </div>
