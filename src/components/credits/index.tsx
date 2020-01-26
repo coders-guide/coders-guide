@@ -22,6 +22,7 @@ export const Credits: React.FC<{
           Białystok, Poland
         </a>
       </li>
+
       <li>
         Using code from{" "}
         <a href="https://github.com/graphql-editor/diagram" target="_blank">
@@ -30,6 +31,12 @@ export const Credits: React.FC<{
         by{" "}
         <a href="https://graphqleditor.com" target="_blank">
           GraphQL editor
+        </a>
+      </li>
+      <li>
+        Testing and text fixes by{" "}
+        <a href="https://github.com/vveronika" target="_blank">
+          Weronika
         </a>
       </li>
       <li>

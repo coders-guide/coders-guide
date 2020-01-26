@@ -10,6 +10,7 @@ import { Credits } from "./components/credits";
 import { list as rawReactDataSet } from "./data/react";
 import { Map } from "immutable";
 import { RoadmapEntry, CheckedGoals } from "./types";
+import { gtagEvent } from "./utils/gtag.js";
 
 // TODO: make it dynamic
 const reactDataSet = prepareData(rawReactDataSet);
@@ -196,6 +197,8 @@ export const App = () => {
 
       setupNodes();
     }
+
+    gtagEvent(activeNode);
 
     if (activeNode > -1) {
       localStorage.setItem("activeNodeIndex", JSON.stringify(activeNode));
