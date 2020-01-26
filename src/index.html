@@ -20,16 +20,17 @@
     />
     <meta property="og:title" content="Coders.Guide" />
     <meta property="og:site_name" content="Coders.Guide" />
-    <meta property="og:url" content="https://www.coders.guide" />
+    <% if (htmlWebpackPlugin.options.targetEnv === "production") { %>
+    <meta property="og:url" content="https://coders.guide" />
+    <% } %> <% if (htmlWebpackPlugin.options.targetEnv === "staging") { %>
+    <meta property="og:url" content="https://staging.coders.guide" />
+    <% } %>
     <meta
       property="og:description"
-      content="Your personal roadmap to become a front-end developer. Made by developers for developers. Roll out your education plan, get links to materials, mark your progress."
+      content="Your personal roadmap to become a full-stack React developer. Made by developers for developers. Roll out your education plan, get links to materials, mark your progress."
     />
     <meta property="og:type" content="website" />
-    <meta
-      property="og:image"
-      content="https://www.coders.guide/static/logo.jpg"
-    />
+    <meta property="og:image" content="https://coders.guide/static/logo.jpg" />
     <link
       rel="apple-touch-icon"
       sizes="57x57"

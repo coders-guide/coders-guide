@@ -7,7 +7,7 @@
     "build:staging": "cross-env TARGET_ENV=staging webpack --mode=production",
     "build:production": "cross-env TARGET_ENV=production webpack --mode=production",
     "deploy:s3:staging": "aws s3 sync dist $CG_DEPLOY_STAGING --delete",
-    "deploy:s3:production": "aws s3 sync dist $CG_DEPLOY_PRODUCTION --delete",
+    "deploy:s3:production": "aws s3 sync dist $CG_DEPLOY_PRODUCTION",
     "invalidate:staging": "aws cloudfront create-invalidation --distribution-id $CG_DISTRIBUTION_STAGING --paths '/*'",
     "invalidate:production": "aws cloudfront create-invalidation --distribution-id $CG_DISTRIBUTION_PRODUCTION --paths '/*'",
     "deploy:staging": "npm run deploy:s3:staging && npm run invalidate:staging",
