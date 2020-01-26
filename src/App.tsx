@@ -260,10 +260,6 @@ export const App = () => {
         <div className="background-container" ref={bgRef} />
         <div
           onWheel={e => {
-
-            if (!!Number.isInteger && !Number.isInteger(e.deltaY)) {
-              return;
-            }
             e.nativeEvent.stopImmediatePropagation();
           }}
           className={`sidepane is-active`}
@@ -336,6 +332,7 @@ export const App = () => {
         )}
         {currentDataSet.map(node => (
           <div
+            key={node.id}
             className={`progressbar__node ${
               node.type === "node" && isNodeChecked(node) ? "is-completed" : ""
             } ${node.type === "heading" ? "is-heading" : ""}`}

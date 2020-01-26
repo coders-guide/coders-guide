@@ -1183,7 +1183,8 @@ export const list: RoadmapEntry[] = [
     category: 1,
     type: "node",
     title: "Functional programming",
-    description: "https://12factor.net/config",
+    description:
+      "As stated before, JavaScript is a multi-paradigm language. One of possible approaches of composing the code is a functional one - which is tightly related to how the application will behave and how its state and data will be treated.\nLearn concepts behind functional programming and expand your coding possibilities.",
     topics: [
       "Pure functions and side effects",
       "Currying and function composing, higher-order functions"

@@ -71,7 +71,7 @@ export const Intro: React.FC<{ onClose: () => void }> = ({ onClose }) => {
               categories displayed as columns.
             </p>
 
-            <p>
+            <section>
               Subjects can be marked with following symbols:
               <ul>
                 <li>
@@ -87,7 +87,7 @@ export const Intro: React.FC<{ onClose: () => void }> = ({ onClose }) => {
                   and if possible, should not be skipped
                 </li>
               </ul>
-            </p>
+            </section>
             <div className="intro__bottom">
               <button className="intro__button" onClick={() => setStep(2)}>
                 Continue
@@ -103,7 +103,7 @@ export const Intro: React.FC<{ onClose: () => void }> = ({ onClose }) => {
           </div>
           <div className="intro__column is-wide">
             <h1>How to use it (2/2)</h1>
-            <p>
+            <section>
               In each box, you will se a summary of the subject. After clicking
               on it, few things will appear on the left:
               <ul>
@@ -111,23 +111,23 @@ export const Intro: React.FC<{ onClose: () => void }> = ({ onClose }) => {
                 <li>Proposed practices that you should exercise</li>
                 <li>List of curated links to educational material</li>
               </ul>
-            </p>
-            <p>
+            </section>
+            <section>
               You can{" "}
               <strong>mark selected topics and practices as done</strong>, so
               you can track your progress with time.
-            </p>
-            <p>
+            </section>
+            <section>
               <strong>
                 On the bottom, you can click "resources" in order to see curated
                 list of useful links related to the subject.
               </strong>
-            </p>
-            <p>
+            </section>
+            <section>
               Your progress is saved locally in your browser.
               <br />
               Have fun!
-            </p>
+            </section>
             <div className="intro__bottom">
               <button className="intro__button" onClick={onClose}>
                 Begin!
