@@ -17,7 +17,7 @@ export const list: RoadmapEntry[] = [
     type: "node",
     title: "Basics of HTML markup",
     summary:
-      "Begin with essentials of creating websites.\nLearn how to format text, embed images and create lists.\nUnderstand HTML document structure. See, how your code reflects in the browser window's content.",
+      "Begin with essentials of creating websites.\nLearn how to format text, embed images and create lists.\nUnderstand HTML document structure. See, how your code reflects in the browser's window content.",
     description:
       "Start with opening any text editor and creating your first HTML document. Learn text formatting, embedding images and creating lists. Study HTML document structure.\nYou can use online HTML editor so you can immediately see how result changes.",
     topics: [
@@ -62,7 +62,7 @@ export const list: RoadmapEntry[] = [
     description:
       "Websites are a piece of art - and you need to become an artist.\nLearn how to make your HTML beautiful. Discover basic CSS rules, selectors and stylesheets.\nUnderstand sizes and units on the screen.",
     topics: [
-      "Basic CSS styling using inline styles (`style` attribute):",
+      "Basic CSS styling using inline styles (`style` attribute)",
       "Essential text attributes: `color`, `font-weight`, `background-color`",
       "Basic element selectors using <head> stylesheet (`<style>` tag)",
       "Styling with classes given to elements (`class` attribute)",
@@ -132,7 +132,7 @@ export const list: RoadmapEntry[] = [
     type: "heading",
     title: "First milestone: you can code elementary websites!",
     description:
-      "Good job, you should be able to utilize your newly acquired skills in order to create simple websites.\nFor instance, you can create a homepage for yourself or your parents' business - as long, as someone will take care of hosting it on the internet. Keep going!"
+      "Good job, you should be able to utilize your newly acquired skills in order to create simple websites.\nFor instance, you can create a homepage for yourself or your parents' business - as long as someone will take care of hosting it on the internet. Keep going!"
   },
   {
     id: 5,
@@ -140,9 +140,9 @@ export const list: RoadmapEntry[] = [
     type: "node",
     title: "Basics of the internet",
     summary:
-      "Since we are dealing with websites, you should understand basics of internet mechanisms.\n Learn about servers and browsers, understand how do requests work and when documents are being served.",
+      "Since we are dealing with websites, you should understand the basics of the internet mechanisms.\n Learn about servers and browsers, understand how do requests work and when documents are being served.",
     description:
-      "Read about basic internet mechanisms and become familiar with unerlying mechanisms.",
+      "Read about basic internet mechanisms and become familiar with underlying mechanisms.",
     topics: [
       "Communication between server and browser",
       "Idea and lifecycle of browser request",
@@ -566,10 +566,10 @@ export const list: RoadmapEntry[] = [
     type: "node",
     title: "Error handling",
     description:
-      "_When you invent the ship, you also invent the shipwreck._\nTime to break something in your code. Invoke an error and learn how to handle it.\nUnderstand that while writing apps, it's important to predict various scenarios and if necessary, to inform its user about the failure.",
+      "_When you invent the ship, you also invent the shipwreck._\nTime to break something in your code. Invoke an error and learn how to handle it.\nUnderstand that while writing apps, it's important to predict various scenarios and, if necessary, to inform its user about the failure.",
     topics: ["Exceptions and `try..catch` clauses"],
     practices: [
-      "Experiment with your web application, gracefully inform the user if his actions end up with code failure"
+      "Experiment with your web application, gracefully inform the user if his actions ended up with code failure"
     ],
     links: [
       {
@@ -597,7 +597,7 @@ export const list: RoadmapEntry[] = [
       "Differences between arrow and regular functions",
       "Passing functions as a parameters to another function",
       "`call` and `apply` methods",
-      "Variable scoping, hierarchy of variable visibility",
+      "Variables scoping, hierarchy of variables visibility",
       "Concept of closures"
     ],
     links: [
@@ -770,7 +770,7 @@ export const list: RoadmapEntry[] = [
       "Local and remote repositories"
     ],
     practices: [
-      "Read about basics, attach a local repository to your project",
+      "Read about the basics, attach a local repository to your project",
       "Cover the topic of commits by committing some code",
       "Branch your code and try to merge it, deliberately try to make conflict and solve it"
     ],
@@ -794,7 +794,7 @@ export const list: RoadmapEntry[] = [
     type: "node",
     title: "Working with a remote GIT repository in the cloud",
     description:
-      "Exercise your GIT skills with well-known cloud repositories like GitHub or Bitbucket. Learn how to make pull requests and code review process.",
+      "Exercise your GIT skills with well-known cloud repositories like GitHub or Bitbucket. Learn about a code review process and how to make a pull request",
     customList: ["GitHub", "BitBucket"],
     links: [
       { title: "GitHub", url: "https://github.com/" },
@@ -1065,7 +1065,7 @@ export const list: RoadmapEntry[] = [
     type: "node",
     title: "Principles of reliable programming: SOLID",
     description:
-      "_Talk is cheap. Show me the code._ - Linus Torvalds\nProgramming is hard piece of engineering work with established rules and standards. Those are not petty hallucinations of formalist programmers, but rather useful conventions that will surely make your code more reliable and maintainable.\nThe sooner you will grasp them, the better.",
+      "_Talk is cheap. Show me the code._ - Linus Torvalds\nProgramming is a hard piece of engineering work with established rules and standards. Those are not petty hallucinations of formalist programmers, but rather useful conventions that will surely make your code more reliable and maintainable.\nThe sooner you will grasp them, the better.",
     topics: [
       "S: Single responsibility principle",
       "O: Open–closed principle",
@@ -1140,7 +1140,7 @@ export const list: RoadmapEntry[] = [
     summary:
       "Before you take a deeper dive into React, understand an important subject of managing complex data using immutable data structures.\nGrasp the basics and learn useful tools.",
     description:
-      "Before you take a deeper dive into React, understand an important subject of managing complex data using immutable data structures.\nGrasp the basics and learn useful tools. Understand how much data is really changing and which is being rewritten with references. Finally, think on how easy would be to react to particular subset of changes.",
+      "Before you take a deeper dive into React, understand an important subject of managing complex data using immutable data structures.\nGrasp the basics and learn useful tools. Understand how much data is really changing and which is being rewritten with references. Finally, think on how easy would it be to react to particular subset of changes.",
     topics: [
       "Refresh your knowledge on JS reference and primitive types",
       "Immutable state concept",
@@ -1390,7 +1390,7 @@ export const list: RoadmapEntry[] = [
     practices: ["Try to replace redux store in your application with mobx"],
     links: [
       {
-        title: "Ten minute introduction to MobX and React",
+        title: "Ten minutes introduction to MobX and React",
         url: "https://mobx.js.org/getting-started.html"
       },
       {
@@ -1412,9 +1412,9 @@ export const list: RoadmapEntry[] = [
     type: "node",
     title: "Mobx state tree basics",
     summary:
-      "Broaden your knowledge with even more organized data structures powered by mobx: `mobx-state-tree`.\nLearn how to strongly type your data and how to reference one objects to another while retaining simplicity of using plain observers.",
+      "Broaden your knowledge with even more organized data structures powered by mobx: `mobx-state-tree`.\nLearn how to strongly type your data and how to reference one object to another while retaining simplicity of using plain observers.",
     description:
-      "Broaden your knowledge with even more organized data structures powered by mobx: `mobx-state-tree`.\nLearn how to strongly type your data and how to reference one objects to another while retaining simplicity of using plain observers.\nVisit mobx-state-tree website and introduce this library to your web application.",
+      "Broaden your knowledge with even more organized data structures powered by mobx: `mobx-state-tree`.\nLearn how to strongly type your data and how to reference one object to another while retaining simplicity of using plain observers.\nVisit mobx-state-tree website and introduce this library to your web application.",
     topics: [
       "Data schema with `mobx-state-tree`",
       "Integrating MST with react using `mobx-react`"
@@ -1430,7 +1430,7 @@ export const list: RoadmapEntry[] = [
           "https://medium.com/mr-frontend-community/mobx-state-tree-a-step-by-step-guide-for-react-apps-e65716a219d2"
       },
       {
-        title: "Video: Manage application atate with Mobx-state-tree",
+        title: "Video: Manage application state with Mobx-state-tree",
         url:
           "https://egghead.io/courses/manage-application-state-with-mobx-state-tree"
       },
@@ -1545,7 +1545,7 @@ export const list: RoadmapEntry[] = [
     type: "node",
     title: "Basics of website optimization",
     description:
-      "Internet is not only fiber-based and broadband connections.\nThere are a bunch of users that use mobile 3G/4G connections and still want to use your app - you're the one that need to keep it in mind and make your websites as optimized as possible.",
+      "Internet is not only fiber-based and broadband connections.\nThere are a bunch of users that use mobile 3G/4G connections and still want to use your app - you're the one that needs to keep it in mind and make your websites as optimized as possible.",
     topics: [
       "Code minification and bundling",
       "Responsive image `srcset`s",
@@ -1618,7 +1618,7 @@ export const list: RoadmapEntry[] = [
     type: "node",
     title: "Code linting",
     description:
-      'If you will start coding professionally, there is a very small chance that you will work alone. More probably, you will be part of a team consisting of other developers as well - which means that you will need to work on the same codebase.\nThis is why industry established certain rules for code style so it becomes more consistent and clear. It\'s not only a philosophy - there are number of tools that help with the process of maintaining well-written and understandable code - learn them and become a "better human" to your future co-workers.',
+      'If you will start coding professionally, there is a very small chance that you will work alone. More probably, you will be a part of a team consisting of other developers as well - which means that you will need to work on the same codebase.\nThis is why industry established certain rules for code style so it becomes more consistent and clear. It\'s not only a philosophy - there are number of tools that help with the process of maintaining well-written and understandable code - learn them and become a "better human" to your future co-workers.',
     topics: ["`eslint`: concept and configuration"],
     practices: [
       "Install some opinionated set of `eslint` rules (e.g. `airbnb`). Introduce them to your project using webpack loaders and code editor plugins."
@@ -1659,7 +1659,7 @@ export const list: RoadmapEntry[] = [
     type: "node",
     title: "Networking basics",
     description:
-      "Web and websites sit on the top of pretty complex networking system. While it's not crucial (or even possible) to know literally everything about the technical details and underlying mechanics, it's essential to understand few things like addressing and protocol layers.\nThis way, you will be able to understand your applications better and debug them faster.",
+      "Web and websites sit on the top of pretty complex networking system. While it's not crucial (or even possible) to know literally everything about the technical details and underlying mechanics, it's essential to understand a few things like addressing and protocol layers.\nThis way, you will be able to understand your applications better and debug them faster.",
     topics: [
       "IP addresses, LAN/WAN networks",
       "Ports",
@@ -1698,7 +1698,7 @@ export const list: RoadmapEntry[] = [
     type: "node",
     title: "Introduction to full stack development in JS",
     description:
-      '_Never criticize an expert of a field that you do not fully understand._ - Steven Magee\nYour path is to be a well-versed front-end developer, but it can be difficult to do so without covering the fundamentals of back-end development. *The more you will know what happens on the "other side", the better understanding of the system as a whole you will have.*\nIt is pretty convenient to get into, considering you already know JavaScript which node.js already uses and which is suitable environment to create server applications.',
+      '_Never criticize an expert of a field that you do not fully understand._ - Steven Magee\nYour path is to be a well-versed front-end developer, but it can be difficult to do so without covering the fundamentals of back-end development. *The more you will know what happens on the "other side", the better understanding of the system as a whole you will have.*\nIt is pretty convenient to get into, considering you already know JavaScript, which node.js already uses and which is suitable environment to create server applications.',
     topics: [
       "Basics of `express.js`: routes, handlers",
       "HTTP headers",
@@ -1799,7 +1799,7 @@ export const list: RoadmapEntry[] = [
     type: "node",
     title: "Basics of security: authorization in the web applications",
     description:
-      "While tightly securing a system is usually a responsibility of a specialized back-end engineer, even front-end engineers are obligated to know how the security is being handled and understand fundamental mechanics.\nLearn most common methods for authenticating in the client-server method and practice it a bit in your own solution.",
+      "While tightly securing a system is usually a responsibility of a specialized back-end engineer, even front-end engineers are obligated to know how the security is being handled and understand fundamental mechanism.\nLearn most common methods for authenticating in the client-server method and practice it a bit in your own solution.",
     topics: ["Token-based authentication", "OAuth basics"],
     practices: [
       "Restrict the access to your application. In the database, add a table with users. Add a token authentication system to your application. Test it using Postman.",
@@ -1844,7 +1844,7 @@ export const list: RoadmapEntry[] = [
     type: "node",
     title: "WebSockets",
     description:
-      "Traditionally, communication in most web apps represent request-response model: the client (browser) requests for the data and the server responds with something.\nHowever, there are scenarios where the server must asynchronously provide its client(s) with some information - without prior asking. For those scenarios, there is a standarized mechanism named WebSocket - learn how to use it, it's not difficult.",
+      "Traditionally, communication in most web apps represents request-response model: the client (browser) requests for the data and the server responds with something.\nHowever, there are scenarios where the server must asynchronously provide its client(s) with some information - without prior asking. For those scenarios, there is a standarized mechanism named WebSocket - learn how to use it, it's not difficult.",
     topics: [
       "Pure WebSockets and their JavaScript API",
       "Assisting library: `socket.io`"
