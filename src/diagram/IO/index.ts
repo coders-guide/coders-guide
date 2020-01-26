@@ -46,7 +46,7 @@ export class IO {
     document.addEventListener(
       "wheel",
       e => {
-        if (!Number.isInteger(e.deltaY)) {
+        if (!!Number.isInteger && !Number.isInteger(e.deltaY)) {
           e.preventDefault();
         }
 

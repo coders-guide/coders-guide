@@ -1,11 +1,15 @@
 import * as React from "react";
 import demoImage1 from "../../assets/tutorial1.jpg";
 import demoImage2 from "../../assets/tutorial2.jpg";
+import { isInternetExplorer } from "../../utils";
 
 import "./index.scss";
 
 export const Intro: React.FC<{ onClose: () => void }> = ({ onClose }) => {
   const [step, setStep] = React.useState(0);
+  if (isInternetExplorer()) {
+    return null;
+  }
   return (
     <div
       className="intro"

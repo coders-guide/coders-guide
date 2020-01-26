@@ -62,7 +62,7 @@ export const App = () => {
   };
 
   const toggleGoal = (subjectId: string, taskIndex?: number) => {
-    if (checkedGoals.get(subjectId)?.includes(taskIndex || 0)) {
+    if ((checkedGoals.get(subjectId)?.indexOf(taskIndex || 0) || 0) > -1) {
       markGoalUnchecked(subjectId, taskIndex || 0);
     } else {
       markGoalChecked(subjectId, taskIndex || 0);
@@ -260,7 +260,8 @@ export const App = () => {
         <div className="background-container" ref={bgRef} />
         <div
           onWheel={e => {
-            if (!Number.isInteger(e.deltaY)) {
+
+            if (!!Number.isInteger && !Number.isInteger(e.deltaY)) {
               return;
             }
             e.nativeEvent.stopImmediatePropagation();

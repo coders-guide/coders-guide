@@ -1,5 +1,6 @@
 import * as React from "react";
 import { RoadmapEntry } from "../../types";
+import { isInternetExplorer } from "../../utils";
 
 import "./index.scss";
 
@@ -8,6 +9,10 @@ export const Arrow: React.FC<{
   nextNode: RoadmapEntry;
   isActive?: boolean;
 }> = ({ node, nextNode, isActive }) => {
+  if (isInternetExplorer()) {
+    return null;
+  }
+
   return (
     <div className="arrowContainer">
       <div

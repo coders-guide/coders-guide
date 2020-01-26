@@ -1,5 +1,7 @@
 import { RoadmapEntry } from "../types";
 
+export const isInternetExplorer = () => window.navigator.userAgent.indexOf("Trident") > -1;
+
 export const transformFormattedText = (text: string) =>
   text
     .replace(/\</g, "&lt;")

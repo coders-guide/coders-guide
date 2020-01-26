@@ -4,6 +4,8 @@ import FontFaceObserver from "fontfaceobserver";
 import demoImage1 from "./assets/tutorial1.jpg";
 import demoImage2 from "./assets/tutorial2.jpg";
 
+import "./utils/polyfills";
+
 import { App } from "./App";
 
 const loadImage = (url: string) =>
