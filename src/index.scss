@@ -1,0 +1,211 @@
+@import url("https://fonts.googleapis.com/css?family=Lato:300,400,700,900&display=swap&subset=latin-ext");
+
+@import "./common/icons.scss";
+@import "./common/common.scss";
+
+html,
+body {
+  touch-action: none;
+  margin: 0;
+  font-family: sans-serif;
+  overflow: hidden;
+  height: 100%;
+  width: 100%;
+  overscroll-behavior-x: contain;
+  font-family: Lato;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.vignette {
+  box-shadow: inset 0 0 200px rgba(0, 0, 0, 0.6);
+  pointer-events: none;
+  position: fixed;
+  top: 0;
+  height: 100vh;
+  width: 100vw;
+  left: 0;
+}
+
+.separator {
+  width: calc(600% + 300px);
+  margin-top: 40px;
+  margin-bottom: 40px;
+  border-bottom: 1px dashed rgba(255, 255, 255, 0.3);
+}
+
+.progressbar {
+  flex: 0 0 8px;
+  transition: background-color 0.15s ease, margin-top 0.15s ease;
+  background-color: rgba(0, 0, 0, 0.7);
+  position: relative;
+  display: flex;
+  margin-top: 4px;
+
+  &:hover {
+    margin-top: 0;
+  }
+
+  &__node {
+    height: 8px;
+    flex: 1;
+    margin: 0;
+    transition: background-color 0.15s ease;
+    &.is-completed {
+      background-color: rgba(#73ffa5, 0.4);
+    }
+    &.is-heading {
+      background-color: rgba(white, 0.4);
+    }
+    &:hover {
+      background-color: rgba(white, 0.4);
+    }
+  }
+
+  &:hover &__node.is-completed {
+    background-color: rgba(#73ffa5, 0.8);
+  }
+  &:hover &__node.is-heading {
+    background-color: rgba(white, 0.8);
+  }
+
+  cursor: pointer;
+
+  &:hover &__bar {
+    background-color: rgba(76, 76, 156, 0.8);
+  }
+
+  &__bar {
+    position: absolute;
+    transition: width 0.15s ease, background-color 0.15s ease;
+    background-color: rgba(255, 255, 255, 0.4);
+    top: 0;
+    height: 0;
+    left: 0;
+    height: 12px;
+  }
+}
+
+.diagram-container {
+  position: relative;
+  flex: 3;
+  overflow: hidden;
+  height: calc(100% + 4px);
+}
+
+.global-wrapper {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  width: 100vw;
+}
+
+.help-pane {
+  position: fixed;
+  top: 36px;
+  right: 4px;
+  background-color: black;
+  color: white;
+  z-index: 10;
+  padding: 8px 16px 8px 8px;
+  font-size: 10px;
+  min-width: 300px;
+
+  &__list {
+    padding-inline-start: 20px;
+    > li {
+      line-height: 16px;
+    }
+  }
+
+  &__close {
+    position: absolute;
+    top: 4px;
+    right: 4px;
+    background-color: black;
+    border: 1px solid white;
+    color: white;
+    width: 20px;
+    height: 20px;
+    padding: 0;
+    font-size: 10px;
+    font-weight: bold;
+    cursor: pointer;
+
+    &:hover {
+      background-color: #333;
+    }
+  }
+
+  a {
+    color: white;
+  }
+
+  p {
+    margin: 0;
+    margin-bottom: 4px;
+  }
+
+  h2 {
+    font-size: 14px;
+    margin: 0 0 8px 0;
+    font-weight: bold;
+  }
+}
+
+.main-wrapper {
+  flex: 1;
+  position: relative;
+  display: flex;
+  width: 100vw;
+  height: calc(100vh - 40px);
+}
+
+.background-container {
+  will-change: transform;
+  position: absolute;
+  left: -1040px;
+  top: -1040px;
+  width: calc(100vw + 2080px);
+  height: calc(100vh + 2080px);
+  pointer-events: none;
+  background-image: url("./assets/bg_gray.png");
+}
+
+.diagram-element {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  cursor: grab;
+}
+
+.markup-container {
+  position: absolute;
+  will-change: transform;
+  transform: scale(0.3);
+}
+
+.node-list-wrapper {
+  position: absolute;
+  left: 0;
+  top: 0;
+  pointer-events: none;
+}
+
+.scale-indicator {
+  position: absolute;
+  bottom: 14px;
+  right: 8px;
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 10px;
+}
+
+.scale-help {
+  position: absolute;
+  bottom: 6px;
+  right: 8px;
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 8px;
+}

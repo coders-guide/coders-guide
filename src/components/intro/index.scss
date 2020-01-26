@@ -1,0 +1,96 @@
+@import "../../common/common.scss";
+
+.intro {
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  background-color: rgba(0, 0, 0, 0.95);
+  display: flex;
+  z-index: 20;
+  color: white;
+
+  &__wrapper {
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    display: flex;
+    opacity: 0;
+    transition: opacity 0.12s linear;
+    pointer-events: none;
+
+    &.is-active {
+      opacity: 1;
+      pointer-events: all;
+    }
+  }
+
+  &__column:first-child {
+    display: flex;
+    align-items: stretch;
+  }
+  &__column:first-child {
+    margin-right: 16px;
+  }
+
+  &__column {
+    flex: 1;
+    &.is-wide {
+      flex: 2;
+    }
+  }
+  &__interior {
+    margin: auto;
+    max-width: 50vw;
+    align-items: stretch;
+
+    &.is-flex {
+      display: flex;
+    }
+  }
+
+  &__title {
+    color: rgba(86, 86, 166, 1);
+  }
+
+  &__bottom {
+    text-align: right;
+  }
+
+  &__button {
+    @extend %bluebutton;
+    font-size: 10px;
+    padding-left: 32px;
+    padding-right: 32px;
+    text-transform: uppercase;
+  }
+
+  p {
+    font-size: 14px;
+    line-height: 24px;
+  }
+
+  h1 {
+    margin: 0;
+    font-size: 26px;
+  }
+
+  strong {
+    color: #73ffa5;
+  }
+
+  .record {
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    box-shadow: 0 0 3px 1px rgba(255, 255, 255, 0.6);
+  }
+
+  img {
+    max-height: 40vh;
+  }
+}

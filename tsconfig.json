@@ -1,0 +1,16 @@
+{
+  "include": ["./src/**/*.ts", "./src/**/*.tsx"],
+  "exclude": ["node_modules", "sandbox", "./src/**/*.spec.ts"],
+  "compilerOptions": {
+    "target": "es5",
+    "outDir": "lib",
+    "declaration": true,
+    "esModuleInterop": true,
+    "rootDirs": ["src", "sandbox"],
+    "module": "commonjs",
+    "lib": ["es6", "dom"],
+    "jsx": "react",
+    "strict": true,
+    "noUnusedLocals": true
+  }
+}

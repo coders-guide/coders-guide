@@ -1,0 +1,40 @@
+.icon {
+  width: 15px;
+  height: 15px;
+  display: inline-block;
+
+  &.shrinking {
+    @media (max-width: 1150px) {
+      width: 10px;
+      height: 10px;
+    }
+  }
+
+  &.margin-left {
+    margin-left: 6px;
+  }
+
+  &.large {
+    width: 25px;
+    height: 25px;
+  }
+}
+
+.icon-arrow {
+  background: url("./assets/arrow.svg");
+}
+
+.icon-repeat {
+  background: url("./assets/repeat.svg");
+}
+
+.icon-check {
+  background: url("./assets/check.svg");
+}
+
+.icon-star {
+  width: 15px;
+  height: 15px;
+  display: inline-block;
+  background: url("./assets/star.svg");
+}

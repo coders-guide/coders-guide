@@ -1,0 +1,256 @@
+@import "../../common/common.scss";
+
+.record {
+  user-select: none;
+  position: relative;
+  left: 0px;
+  pointer-events: all;
+  width: 400px;
+  margin-bottom: 30px;
+  opacity: 0.6;
+  transition: opacity 0.12s linear, box-shadow 0.12s linear;
+  z-index: 1;
+  box-shadow: 0 0 8px 0 transparent;
+
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+
+  &__bottom {
+    display: flex;
+  }
+
+  &__progress {
+    flex: 0 0 100px;
+    text-align: left;
+    padding: 0 16px;
+    line-height: 43px;
+    font-size: 16px;
+    position: relative;
+    background-color: rgba(64, 64, 64, 1);
+    transition: background-color 0.12s linear, color 0.12s linear;
+    color: white;
+    border-bottom-left-radius: 5px;
+
+    &::after {
+      content: "";
+      position: absolute;
+      right: 10px;
+      height: 43px;
+      top: 0;
+      width: 16px;
+      display: block;
+      background: url("../../assets/check.svg");
+      margin-right: 8px;
+      opacity: 0.3;
+      transition: opacity 0.12s linear;
+      background-position: center;
+      background-repeat: no-repeat;
+    }
+
+    &.is-completed::after {
+      opacity: 1;
+    }
+    &.is-single {
+      color: rgba(255, 255, 255, 0.3);
+      text-transform: uppercase;
+      font-size: 14px;
+    }
+    &.is-completed {
+      color: #73ffa5;
+      font-weight: bold;
+    }
+  }
+
+  &__index {
+    position: absolute;
+    left: -400px;
+    width: 400px;
+    pointer-events: none;
+    top: 0;
+    padding-right: 40px;
+    color: rgba(255, 255, 255, 0.4);
+    text-align: right;
+
+    &__counter {
+      font-size: 32px;
+      margin-bottom: 16px;
+    }
+
+    &__indication {
+      & + & {
+        margin-top: 4px;
+      }
+    }
+  }
+
+  &.is-active &__index {
+    color: rgba(255, 255, 255, 0.8);
+  }
+
+  &:hover:not(.is-active) {
+    opacity: 0.9;
+    cursor: pointer;
+  }
+
+  h1 {
+    background-color: rgba(0, 0, 0, 0.7);
+    padding: 8px 10px 10px 10px;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+    font-size: 24px;
+    margin: 0;
+    font-weight: normal;
+    color: white;
+    position: relative;
+    z-index: 1;
+    transition: color 0.12s linear, background-color 0.12s linear;
+
+    &.is-completed {
+      color: #73ffa5;
+      background-color: #2f4d30;
+    }
+  }
+  &__content {
+    position: relative;
+    padding: 10px;
+    font-size: 20px;
+    line-height: 32px;
+    background: linear-gradient(
+      to bottom,
+      rgba(255, 255, 255, 1) 0%,
+      rgba(237, 237, 237, 1) 100%
+    );
+
+    // TODO: consider if not too much colour
+    // transition: background-color 0.12s linear;
+    // background-color: white;
+    // &.is-completed {
+    //   background-color: #cbdbd2;
+    // }
+  }
+
+  &.is-active {
+    opacity: 1;
+    // box-shadow: 0 0 100px 20px rgba(0, 0, 0, 0.35); // TODO: consider instead of the one below
+  }
+  &.is-active &__content {
+    box-shadow: 0 0 100px 24px rgba(0, 0, 0, 0.35);
+  }
+
+  &__button {
+    width: 100%;
+    background: #34347d;
+    cursor: pointer;
+    color: white;
+    border: 0;
+    display: block;
+    padding: 12px;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    font-family: Lato;
+    font-weight: bold;
+    font-size: 16px;
+    height: 43px;
+
+    div + & {
+      border-bottom-left-radius: 0;
+    }
+  }
+
+  &.category-0 &__button {
+    background: rgba(128, 0, 0, 1);
+
+    &:hover {
+      background: rgba(148, 20, 20, 1);
+    }
+  }
+  &.category-1 &__button {
+    background: rgba(0, 96, 0, 1);
+    &:hover {
+      background: rgba(20, 116, 20, 1);
+    }
+  }
+  &.category-2 &__button {
+    background: rgba(128, 96, 0, 1);
+    &:hover {
+      background: rgba(148, 116, 20, 1);
+    }
+  }
+  &.category-3 &__button {
+    background: rgba(0, 0, 96, 1);
+    &:hover {
+      background: rgba(20, 20, 116, 1);
+    }
+  }
+  &.category-4 &__button {
+    background: rgba(0, 64, 0, 1);
+    &:hover {
+      background: rgba(20, 84, 20, 1);
+    }
+  }
+  &.category-5 &__button {
+    background: rgba(32, 32, 32, 1);
+    &:hover {
+      background: rgba(52, 52, 52, 1);
+    }
+  }
+}
+
+.heading {
+  width: 1320px;
+  padding: 32px;
+  cursor: pointer;
+  pointer-events: all;
+  user-select: none;
+  padding-left: 48px;
+  margin-bottom: 28px;
+  border-radius: 20px;
+  background-color: rgba(0, 0, 0, 0.45);
+  position: relative;
+
+  &__star {
+    width: 30px;
+    height: 30px;
+    margin-right: 8px;
+  }
+
+  h1 {
+    margin: 0 0 18px 0;
+    width: 100%;
+    font-size: 52px;
+    color: rgba(255, 255, 255, 0.8);
+    position: relative;
+  }
+
+  h2 {
+    margin: 0 0 18px 0;
+    width: 100%;
+    font-size: 38px;
+    color: rgba(255, 255, 255, 0.8);
+    position: relative;
+  }
+
+  h3 {
+    margin: 0;
+    display: inline;
+    position: relative;
+  }
+
+  &__content {
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 24px;
+    line-height: 36px;
+    margin: 0 0 18px 0;
+    position: relative;
+  }
+
+  &__button {
+    @extend %bluebutton;
+    font-size: 24px;
+    pointer-events: all;
+    width: 300px;
+    position: relative;
+  }
+}

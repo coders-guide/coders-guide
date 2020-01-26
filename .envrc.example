@@ -1,0 +1,5 @@
+export CG_DEPLOY_STAGING=s3://coders-guide-staging
+export CG_DEPLOY_PRODUCTION=s3://coders-guide-production
+export CG_DISTRIBUTION_STAGING=XYZ123
+export CG_DISTRIBUTION_PRODUCTION=XYZ123
+export CG_GA_UID=UA-123456789-1

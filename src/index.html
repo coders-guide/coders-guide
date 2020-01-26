@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <% if (htmlWebpackPlugin.options.targetEnv === "production") { %>
+    <script async src="https://www.googletagmanager.com/gtag/js"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "<%= htmlWebpackPlugin.options.gaUid %>");
+    </script>
+    <% } %>
+
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"
+    />
+    <meta property="og:title" content="Coders.Guide" />
+    <meta property="og:site_name" content="Coders.Guide" />
+    <meta property="og:url" content="https://www.coders.guide" />
+    <meta
+      property="og:description"
+      content="Your personal roadmap to become a front-end developer. Made by developers for developers. Roll out your education plan, get links to materials, mark your progress."
+    />
+    <meta property="og:type" content="website" />
+    <meta
+      property="og:image"
+      content="https://www.coders.guide/static/logo.jpg"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="57x57"
+      href="/static/apple-icon-57x57.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="60x60"
+      href="/static/apple-icon-60x60.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="72x72"
+      href="/static/apple-icon-72x72.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="76x76"
+      href="/static/apple-icon-76x76.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="114x114"
+      href="/static/apple-icon-114x114.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="120x120"
+      href="/static/apple-icon-120x120.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="144x144"
+      href="/static/apple-icon-144x144.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="152x152"
+      href="/static/apple-icon-152x152.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="/static/apple-icon-180x180.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="192x192"
+      href="/static/android-icon-192x192.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="/static/favicon-32x32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="96x96"
+      href="/static/favicon-96x96.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="/static/favicon-16x16.png"
+    />
+    <link rel="manifest" href="/static/manifest.json" />
+    <meta name="msapplication-TileColor" content="#ffffff" />
+    <meta
+      name="msapplication-TileImage"
+      content="/static/ms-icon-144x144.png"
+    />
+    <meta name="theme-color" content="#ffffff" />
+    <meta charset="UTF-8" />
+    <style>
+      #mobile-warning-logo {
+        line-height: 32px;
+        font-weight: bold;
+        padding: 0 8px;
+        margin-right: 8px;
+        width: 200px;
+        margin: 0 auto;
+        font-size: 12px;
+        border-radius: 10px;
+        margin-bottom: 24px;
+        color: white;
+        background: linear-gradient(
+          to bottom,
+          rgba(76, 76, 156, 0.8) 0%,
+          rgba(46, 46, 126, 0.8) 100%
+        );
+      }
+
+      #mobile-warning {
+        display: none;
+        position: absolute;
+        left: 0;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        background-color: black;
+        color: white;
+        text-align: center;
+        font-size: 14px;
+        z-index: 9000;
+        padding: 48px;
+      }
+
+      #mobile-warning.is-forced {
+        display: block;
+      }
+
+      #mobile-warning strong {
+        font-size: 18px;
+      }
+
+      @media (max-width: 799px) {
+        #mobile-warning {
+          display: block;
+        }
+      }
+    </style>
+    <title>CODERS.GUIDE - roadmap for react and front-end development</title>
+  </head>
+  <body>
+    <div id="root"></div>
+    <div id="mobile-warning">
+      <div id="mobile-warning-logo">CODERS.GUIDE</div>
+      <strong>Hello there!</strong><br /><br />Sadly, this app is not yet ready
+      for mobile browsers - give it a try on desktop!<br /><br />
+      <img
+        src="<%=require('./assets/no-mobile.svg').default %>"
+        width="100"
+        height="100"
+      />
+    </div>
+  </body>
+</html>
