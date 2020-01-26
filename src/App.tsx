@@ -62,7 +62,7 @@ export const App = () => {
   };
 
   const toggleGoal = (subjectId: string, taskIndex?: number) => {
-    if ((checkedGoals.get(subjectId)?.indexOf(taskIndex || 0) || 0) > -1) {
+    if (checkedGoals.get(subjectId)?.includes(taskIndex || 0)) {
       markGoalUnchecked(subjectId, taskIndex || 0);
     } else {
       markGoalChecked(subjectId, taskIndex || 0);

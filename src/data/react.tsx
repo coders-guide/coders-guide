@@ -39,11 +39,11 @@ export const list: RoadmapEntry[] = [
         url: "https://www.youtube.com/watch?v=bWPMSSsVdPk"
       },
       {
-        title: "HTML For Beginners The Easy Way on HTML.com",
+        title: "HTML For Beginners: The Easy Way",
         url: "https://html.com/"
       },
       {
-        title: "HTML Basic Elements on learn-html.org",
+        title: "HTML Basic Elements",
         url: "https://www.learn-html.org/en/Basic_Elements"
       },
       {
