@@ -7,7 +7,7 @@ export const list: RoadmapEntry[] = [
     type: "heading",
     title: "Web development with React: from zero to hero!",
     description:
-      "We will start from basic fundamentals of creating simple websites, then - step by step - you will be presented with more and more advanced concepts.\n^Let's start with junior developer level.^\nIn order to move to first subject, click the button below.",
+      "We will start from basic fundamentals of creating simple websites, then - step by step - you will be presented with more and more advanced concepts.\n^Let's start with junior developer level.^\nIn order to move to the first subject, click the button below.",
     repeatable: false,
     difficult: false
   },
@@ -25,7 +25,7 @@ export const list: RoadmapEntry[] = [
       "Embedding multimedia (`<img>`)",
       "Lists (`<ul>`, `<li>`)",
       "Nesting elements (`<p>`, `<div>`)",
-      "Structure of HTML document - `<head>`, `<body>`, `<title>`",
+      "Structure of HTML document (`<head>`, `<body>`, `<title>`)",
       "Linking to other documents (`<a>`)"
     ],
     links: [
@@ -132,7 +132,7 @@ export const list: RoadmapEntry[] = [
     type: "heading",
     title: "First milestone: you can code elementary websites!",
     description:
-      "Good job, you should be able to utilize your newly acquired skills in order to create simple websites.\nFor instance, you can create homepage for yourself or you parents' business - as long, as someone will take care of hosting it on the internet. Keep going!"
+      "Good job, you should be able to utilize your newly acquired skills in order to create simple websites.\nFor instance, you can create a homepage for yourself or your parents' business - as long, as someone will take care of hosting it on the internet. Keep going!"
   },
   {
     id: 5,
@@ -176,7 +176,7 @@ export const list: RoadmapEntry[] = [
     type: "node",
     title: "Improved HTML layouting",
     description:
-      "Enhance visual organization of your HTML website.\nUnderstand basic `grid` constructs, study differences between `flex` and `grid`. Know how and when to apply them.",
+      "Enhance visual organization of your HTML website.\nUnderstand basic `grid` constructs, study differences between `flex` and `grid`. Get to know how and when to apply them.",
     topics: [
       "How does `display: grid` work",
       "Fractions (`fr`) and explicit size values",
@@ -205,7 +205,7 @@ export const list: RoadmapEntry[] = [
     type: "node",
     title: "Basics of responsive design",
     description:
-      "Learn how to make you website to be readable and usable on any device.\nStudy how and when to use media queries. Understand how do different machines interpret sizes.",
+      "Learn how to make your website to be readable and usable on any device.\nStudy how and when to use media queries. Understand how do different machines interpret sizes.",
     topics: [
       "Media query syntax",
       "`min-width`, `max-width` clauses",
@@ -291,7 +291,7 @@ export const list: RoadmapEntry[] = [
       "`typeof` operator",
       "Primitive types - numbers, strings",
       "Reference types - arrays, objects",
-      "Changing object passed as parameter inside the function"
+      "Changing object passed as a parameter inside the function"
     ],
     links: [
       {
@@ -335,9 +335,9 @@ export const list: RoadmapEntry[] = [
     type: "node",
     title: "Boolean algebra basics",
     summary:
-      "It’s time for a lot of Venn diagrams.\n Understand logical functions. Know how to apply them in conditionals and array methods.\nStudy simple but useful boolean formulas like De Morgan’s laws.",
+      "It’s time for a lot of Venn diagrams.\n Understand logical functions. Get to know how to apply them in conditionals and array methods.\nStudy simple but useful boolean formulas like De Morgan’s laws.",
     description:
-      "Understand logical functions. Know how to apply them in conditionals and array methods.\nStudy simple but useful boolean formulas like De Morgan’s laws.",
+      "Understand logical functions. Get to know how to apply them in conditionals and array methods.\nStudy simple but useful boolean formulas like De Morgan’s laws.",
     topics: [
       "Revise knowledge about `NOT`, `OR` and `AND` operators",
       "`XOR` operator",
@@ -566,10 +566,10 @@ export const list: RoadmapEntry[] = [
     type: "node",
     title: "Error handling",
     description:
-      "_When you invent the ship, you also invent the shipwreck._\nTime to break something in your code. Invoke an error and learn how to handle it.\nUnderstand that while writing apps, it's important to predict various scenarios and if necessary, inform its user about the failure.",
+      "_When you invent the ship, you also invent the shipwreck._\nTime to break something in your code. Invoke an error and learn how to handle it.\nUnderstand that while writing apps, it's important to predict various scenarios and if necessary, to inform its user about the failure.",
     topics: ["Exceptions and `try..catch` clauses"],
     practices: [
-      "Experiment with your web application, gracefully inform the user if his actions end up in code failure"
+      "Experiment with your web application, gracefully inform the user if his actions end up with code failure"
     ],
     links: [
       {
@@ -591,7 +591,7 @@ export const list: RoadmapEntry[] = [
     type: "node",
     title: "Closures and functions as first-class entities",
     description:
-      "Understand that in Javascript functions are values just like others - they can be passed around, saved, reassigned and even modified.\nLearn how to use it to your advantage.",
+      "Understand that in Javascript functions are just values - they can be passed around, saved, reassigned and even modified.\nLearn how to use it to your advantage.",
     topics: [
       "Revise your information about functions",
       "Differences between arrow and regular functions",
@@ -771,7 +771,7 @@ export const list: RoadmapEntry[] = [
     ],
     practices: [
       "Read about basics, attach a local repository to your project",
-      "Cover the topic of commits, commit some code",
+      "Cover the topic of commits by committing some code",
       "Branch your code and try to merge it, deliberately try to make conflict and solve it"
     ],
     links: [
@@ -1138,9 +1138,9 @@ export const list: RoadmapEntry[] = [
     type: "node",
     title: "Immutable data structures",
     summary:
-      "Before you take a deeper dive in React, understand an important subject of managing complex data using immutable data structures.\nGrasp the basics and learn useful tools.",
+      "Before you take a deeper dive into React, understand an important subject of managing complex data using immutable data structures.\nGrasp the basics and learn useful tools.",
     description:
-      "Before you take a deeper dive in React, understand an important subject of managing complex data using immutable data structures.\nGrasp the basics and learn useful tools. Understand how much data is really changing and which is being rewritten with references. Finally, think on how easy would be to react to particular subset of changes.",
+      "Before you take a deeper dive into React, understand an important subject of managing complex data using immutable data structures.\nGrasp the basics and learn useful tools. Understand how much data is really changing and which is being rewritten with references. Finally, think on how easy would be to react to particular subset of changes.",
     topics: [
       "Refresh your knowledge on JS reference and primitive types",
       "Immutable state concept",
@@ -1148,7 +1148,7 @@ export const list: RoadmapEntry[] = [
       "Immer"
     ],
     practices: [
-      "Using JavaScript's spread operators, experiment with changing data in more complex structure, notice how many data is really being rewritten in memory",
+      "Use JavaScript's spread operators, experiment with changing data in a more complex structure, notice how many data is really being rewritten in memory",
       "Try to import and use `immer`, a library that simplifies using immutable structures"
     ],
     links: [
@@ -1251,7 +1251,7 @@ export const list: RoadmapEntry[] = [
     type: "node",
     title: "Further into React: Function components and basic hooks",
     description:
-      "Broaden your React skills by writing simplified function-based components.\nTry to rewrite your stateful classic components into functional components, learn using primitive hooks.",
+      "Broaden your React skills by writing simplified function-based components.\nTry to rewrite your stateful classic components into functional components, learn how to use primitive hooks.",
     topics: ["Functional components", "`useState` hook", "`useEffect` hook"],
     practices: [
       "Read about writing functional components, notice changes from class-based ones",
@@ -1322,7 +1322,7 @@ export const list: RoadmapEntry[] = [
     type: "node",
     title: "Redux as a state manager",
     description:
-      "Learn how to manage your application data in an organized way. Read about *redux* and its data lifecycle: state, actions and reducers.\nIntroduce react to your code and notice how and when particular application parts react to changes.",
+      "Learn how to manage your application data in an organized way. Read about *redux* and its data lifecycle: state, actions and reducers.\nIntroduce redux to your code and notice how and when particular application parts react to changes.",
     topics: ["Redux state and reducers", "Redux actions"],
     practices: [
       "Try to create synchronous application using redux - be it a simple item list",
@@ -2237,7 +2237,7 @@ export const list: RoadmapEntry[] = [
     ],
     practices: [
       "Create an account on one of the most popular cloud services providers listed above. Research basic service types: virtual machines, container engines, application runner engines. Learn how to store files and data using cloud's API. Study how its CDN (Content Delivery Network) system work.",
-      "Configure your CI/CD process to put your app in the cloud in a cloud application engine (e.g. EBS or Google App Engine). Next, configure your CI/CD process to containerize your app and deploy it to cloud's container engine.",
+      "Configure your CI/CD process to put your app in the cloud application engine (e.g. EBS or Google App Engine). Next, configure your CI/CD process to containerize your app and deploy it to cloud's container engine.",
       "Imagine creating large portal application. Mentally plan the architecture - how your front-end application should react to large volume of users. Think how and where data should be handled and cached, then plan SEO optimization.",
       "Read about scaling. Try to auto-scale your app. Wire up your front-end application to a CDN. Notice how and when it’s cached. Think of how and when the cache should be invalidated."
     ],
