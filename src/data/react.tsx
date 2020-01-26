@@ -2269,14 +2269,4 @@ export const list: RoadmapEntry[] = [
     repeatable: false,
     difficult: false
   }
-  // {
-  //   id: 86,
-  //   category: 0,
-  //   type: "node",
-  //   title: "12 factor apps",
-  //   description: "https://12factor.net/config",
-  //   topics: [],
-  //   repeatable: false,
-  //   difficult: false
-  // },
 ];

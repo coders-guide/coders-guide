@@ -7,7 +7,8 @@ export const Heading: React.FC<{
   activeNode: number;
   setActiveNode: (n: number) => void;
   index: number;
-}> = ({ node, activeNode, setActiveNode, index }) => {
+  hideButton?: boolean;
+}> = ({ node, activeNode, setActiveNode, index, hideButton }) => {
   return (
     <div
       onClick={() => setActiveNode(index)}
@@ -31,15 +32,17 @@ export const Heading: React.FC<{
         className="heading__content"
         dangerouslySetInnerHTML={{ __html: node.description }}
       />
-      <button
-        className="heading__button"
-        onClick={e => {
-          e.stopPropagation();
-          setActiveNode(index + 1);
-        }}
-      >
-        {index === 0 ? "Start!" : "Next"}
-      </button>
+      {!hideButton && (
+        <button
+          className="heading__button"
+          onClick={e => {
+            e.stopPropagation();
+            setActiveNode(index + 1);
+          }}
+        >
+          {index === 0 ? "Start!" : "Next"}
+        </button>
+      )}
     </div>
   );
 };

@@ -23,6 +23,7 @@ export const NodeList: React.FC<{
               index={index}
               activeNode={activeNode}
               setActiveNode={setActiveNode}
+              hideButton={index === nodeList.length - 1}
             />
           )}
           {node.type !== "heading" && (
