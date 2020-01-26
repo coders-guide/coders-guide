@@ -2,6 +2,7 @@
 
 .record {
   user-select: none;
+  -ms-user-select: none;
   position: relative;
   left: 0px;
   pointer-events: all;
@@ -204,6 +205,7 @@
   cursor: pointer;
   pointer-events: all;
   user-select: none;
+  -ms-user-select: none;
   padding-left: 48px;
   margin-bottom: 28px;
   border-radius: 20px;
