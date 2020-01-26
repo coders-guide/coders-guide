@@ -118,6 +118,7 @@ export class UIManager {
       this.state.panY = this.state.targetPanY;
 
       this.state.animatingPan = false;
+      this.eventBus.publish(Events.DiagramEvents.PanAnimationFinished);
       return false;
     }
 

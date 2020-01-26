@@ -177,7 +177,6 @@ export class Renderer {
       this.previousFrameTime = timePassed;
     } else {
       this.resetTimeCounter();
-      this.eventBus.publish(DiagramEvents.PanAnimationFinished);
     }
   };
 }

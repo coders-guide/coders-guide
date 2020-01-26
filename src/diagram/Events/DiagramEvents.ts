@@ -36,7 +36,6 @@ export enum DiagramEvents {
   MenuRequested = "MenuRequested",
   MenuItemClicked = "MenuItemClicked",
   CenterOnNode = "CenterOnNode",
-  ScreenShotRendered = "ScreenShotRendered",
   PanAnimationFinished = "PanAnimationFinished"
   // ...
 }
