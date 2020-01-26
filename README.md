@@ -2,14 +2,17 @@
 
 ### Interactive roadmap for learning how to code, including progress tracker and curated resource links.
 
-- _What is this?_
-  This is a repository for _coders.guide_ website - an interactive roadmap for learning coding. Project is intended to provide many different roadmaps for different programming career paths in the future, currently it has only one for React web development.
+- **What is this?**
 
-- _Is it free and open source?_
-  Yes, the service is currently free for use. The source is open so everyone can contribute.
+This is a repository for **coders.guide** website - an interactive roadmap for learning coding. Project is intended to provide many different roadmaps for different programming career paths in the future, currently it has only one for React web development.
 
-- _How can I contribute?_
-  Take a look at `src/data/template.tsx` file - this is how the roadmap data is organized. All roadmap entries follow the pattern:
+- **Is it free and open source?**
+
+Yes, the service is currently free for use. The source is open so everyone can contribute.
+
+- **How can I contribute?**
+
+Take a look at `src/data/template.tsx` file - this is how the roadmap data is organized. All roadmap entries follow the pattern:
 
 ```
 export interface RoadmapEntry {
