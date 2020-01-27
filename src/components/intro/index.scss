@@ -30,9 +30,7 @@
 
   &__column:first-child {
     display: flex;
-    align-items: stretch;
-  }
-  &__column:first-child {
+    align-items: center;
     margin-right: 16px;
   }
 
@@ -44,8 +42,13 @@
   }
   &__interior {
     margin: auto;
-    max-width: 50vw;
+    max-width: 1000px;
+    padding: 20px;
     align-items: stretch;
+
+    &.is-narrow {
+      max-width: 800px;
+    }
 
     &.is-flex {
       display: flex;

@@ -21,7 +21,7 @@ export const Intro: React.FC<{ onClose: () => void }> = ({ onClose }) => {
       }}
     >
       <div className={`intro__wrapper ${step === 0 ? "is-active" : ""}`}>
-        <div className={`intro__interior`}>
+        <div className="intro__interior is-narrow">
           <h1>
             <span className="intro__title">coders.guide</span> - your roadmap
             for learning full-stack web development using React
