@@ -1,6 +1,7 @@
 import { RoadmapEntry } from "../types";
 
-export const isInternetExplorer = () => window.navigator.userAgent.indexOf("Trident") > -1;
+export const isInternetExplorer = () =>
+  window.navigator.userAgent.indexOf("Trident") > -1;
 
 export const transformFormattedText = (text: string) =>
   text
@@ -10,6 +11,16 @@ export const transformFormattedText = (text: string) =>
     .replace(/\_(.+?)\_/g, "<em>$1</em>")
     .replace(/\^(.+?)\^/g, "<h3>$1</h3>")
     .replace(/\*(.+?)\*/g, "<strong>$1</strong>");
+
+export const preloadImage = (url: string) =>
+  new Promise((resolve, reject) => {
+    let img = new Image();
+    img.addEventListener("load", e => resolve(img));
+    img.addEventListener("error", () => {
+      reject(new Error(`Failed to load image's URL: ${url}`));
+    });
+    img.src = url;
+  });
 
 export const prepareData = (rawInputData: RoadmapEntry[]) =>
   rawInputData.map(r => {

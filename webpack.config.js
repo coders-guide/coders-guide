@@ -33,8 +33,11 @@ module.exports = (env, argv) => {
           use: ["style-loader", "css-loader", "sass-loader"]
         },
         {
-          test: /\.(png|svg|jpe?g)$/,
-          use: ["file-loader"]
+          test: /\.(png|svg|jpe?g|mp4)$/,
+          loader: "file-loader",
+          options: {
+            name: "assets/[name]-[hash].[ext]"
+          }
         },
         {
           test: /\.tsx?$/,

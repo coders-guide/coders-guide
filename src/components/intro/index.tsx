@@ -1,12 +1,15 @@
 import * as React from "react";
-import demoImage1 from "../../assets/tutorial1.jpg";
-import demoImage2 from "../../assets/tutorial2.jpg";
 import { isInternetExplorer } from "../../utils";
+
+import demoVideo1 from "../../assets/demo1.mp4";
+import demoVideo2 from "../../assets/demo2.mp4";
 
 import "./index.scss";
 
 export const Intro: React.FC<{ onClose: () => void }> = ({ onClose }) => {
   const [step, setStep] = React.useState(0);
+  // IE would need completely rewritten styles
+  // for the intro, so it is ditched for now
   if (isInternetExplorer()) {
     return null;
   }
@@ -58,7 +61,10 @@ export const Intro: React.FC<{ onClose: () => void }> = ({ onClose }) => {
       <div className={`intro__wrapper ${step === 1 ? "is-active" : ""}`}>
         <div className={`intro__interior is-flex`}>
           <div className="intro__column">
-            <img src={demoImage1} />
+            {/* <img src={demoImage1} /> */}
+            <video muted autoPlay loop>
+              <source src={demoVideo1} type="video/mp4" />
+            </video>
           </div>
           <div className="intro__column is-wide">
             <h1>How to use it (1/2)</h1>
@@ -99,7 +105,9 @@ export const Intro: React.FC<{ onClose: () => void }> = ({ onClose }) => {
       <div className={`intro__wrapper ${step === 2 ? "is-active" : ""}`}>
         <div className={`intro__interior is-flex`}>
           <div className="intro__column">
-            <img src={demoImage2} />
+            <video muted autoPlay loop>
+              <source src={demoVideo2} type="video/mp4" />
+            </video>
           </div>
           <div className="intro__column is-wide">
             <h1>How to use it (2/2)</h1>
