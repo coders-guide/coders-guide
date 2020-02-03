@@ -3,8 +3,8 @@
 @import "./common/icons.scss";
 @import "./common/common.scss";
 
-html,
-body {
+html.desktop,
+body.desktop {
   touch-action: none;
   margin: 0;
   font-family: sans-serif;
@@ -12,7 +12,15 @@ body {
   height: 100%;
   width: 100%;
   overscroll-behavior-x: contain;
-  font-family: Lato;
+  font-family: Lato, sanf-serif;
+}
+
+html.mobile,
+body.mobile {
+  background-color: #222;
+  margin: 0;
+  overscroll-behavior-x: contain;
+  font-family: Lato, sanf-serif;
 }
 
 * {

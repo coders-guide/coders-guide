@@ -2,11 +2,7 @@ import * as React from "react";
 
 import "./index.scss";
 import { RoadmapEntry } from "../../types";
-import { getUrlDomain } from "../../utils";
-
-const isVideoLink = (url: string) => {
-  return url.indexOf("Video:") === 0;
-};
+import { getUrlDomain, isVideoLink } from "../../utils";
 
 const ListHeader: React.FC<{
   goalsChecked?: number[];
