@@ -3,6 +3,7 @@ import * as React from "react";
 import "./index.scss";
 import { HelpDisplayMode } from "../../types";
 
+import productLogo from "../../assets/logo_updated.svg";
 import githubIcon from "../../assets/github.svg";
 
 export const TopBar: React.FC<{
@@ -11,7 +12,7 @@ export const TopBar: React.FC<{
 }> = ({ setHelpDisplayMode, helpDisplayMode }) => {
   return (
     <div className="top-bar">
-      <div className="top-bar__product-name">CODERS.GUIDE</div>
+      <img className="top-bar__product-logo" src={productLogo} />
       <div className="top-bar__title">
         roadmap from junior developer towards seniority{" "}
         <span className="top-bar__subtitle">AKA</span> your interactive
