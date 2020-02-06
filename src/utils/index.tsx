@@ -97,3 +97,7 @@ export const mobileAndTabletCheck = () => {
   })(navigator.userAgent || navigator.vendor || (window as any).opera);
   return check;
 };
+
+export const isVideoLink = (url: string) => {
+  return url.indexOf("Video:") === 0;
+};

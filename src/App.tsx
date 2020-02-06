@@ -8,67 +8,32 @@ import { TopBar } from "./components/top-bar";
 import { Sidepane } from "./components/sidepane";
 import { Credits } from "./components/credits";
 import { list as rawReactDataSet } from "./data/react";
-import { Map } from "immutable";
-import { RoadmapEntry, CheckedGoals } from "./types";
 import { gtagEvent } from "./utils/gtag.js";
+import { useGoals } from "./utils/hooks/useGoals";
+import { useActiveNode } from "./utils/hooks/useActiveNode";
 
 // TODO: make it dynamic
 const reactDataSet = prepareData(rawReactDataSet);
 
 // TODO: break down this component into smaller ones
-export const App = () => {
+export const DesktopApp = () => {
   const [helpDisplayMode, setHelpDisplayMode] = React.useState<
     HelpDisplayMode
   >();
   const divRef = React.useRef<HTMLDivElement | null>(null);
   const containerRef = React.useRef<HTMLDivElement | null>(null);
   const bgRef = React.useRef<HTMLDivElement | null>(null);
-  const [checkedGoals, setCheckedGoals] = React.useState<CheckedGoals>(Map());
-  const [activeNode, setActiveNode] = React.useState<number>(-1);
   const hasStarted = React.useRef<boolean>(false);
-
-  let diagram = React.useRef<Diagram | null>(null);
-  let globalNodes = React.useRef<Node<{}>[] | null>(null);
 
   const currentDataSet = reactDataSet;
 
-  const markGoalChecked = (subjectId: string, taskIndex: number) => {
-    setCheckedGoals(
-      checkedGoals.set(subjectId.toString(), [
-        ...(checkedGoals.get(subjectId.toString()) || []),
-        taskIndex
-      ])
-    );
-  };
+  const { checkedGoals, isNodeChecked, toggleGoal } = useGoals();
+  const { jumpToNode, changeNode, activeNode, setActiveNode } = useActiveNode(
+    currentDataSet
+  );
 
-  const markGoalUnchecked = (subjectId: string, taskIndex: number) => {
-    setCheckedGoals(
-      checkedGoals.set(
-        subjectId.toString(),
-        (checkedGoals.get(subjectId.toString()) || []).filter(
-          goal => goal !== taskIndex
-        )
-      )
-    );
-  };
-
-  const isNodeChecked = (node: RoadmapEntry) => {
-    if (node.isSingleGoal) {
-      return (checkedGoals.get(node.id.toString())?.length || 0) > 0;
-    }
-    return (
-      (checkedGoals.get(node.id.toString())?.length || 0) >=
-      (node.topics?.length || 0) + (node.practices?.length || 0)
-    );
-  };
-
-  const toggleGoal = (subjectId: string, taskIndex?: number) => {
-    if (checkedGoals.get(subjectId)?.includes(taskIndex || 0)) {
-      markGoalUnchecked(subjectId, taskIndex || 0);
-    } else {
-      markGoalChecked(subjectId, taskIndex || 0);
-    }
-  };
+  let diagram = React.useRef<Diagram | null>(null);
+  let globalNodes = React.useRef<Node<{}>[] | null>(null);
 
   const setupNodes = () => {
     window.requestAnimationFrame(() => {
@@ -130,19 +95,6 @@ export const App = () => {
 
   React.useEffect(() => {
     if (divRef.current) {
-      try {
-        const localStoragecheckedGoals = JSON.parse(
-          localStorage.getItem("checkedGoals") || "{}"
-        );
-        setCheckedGoals(Map<string, number[]>(localStoragecheckedGoals));
-      } catch {}
-
-      const activeNodeIndexString =
-        localStorage.getItem("activeNodeIndex") || "";
-      const activeNodeIndex = parseInt(activeNodeIndexString);
-      if (!isNaN(activeNodeIndex)) {
-        setActiveNode(activeNodeIndex);
-      }
       diagram.current = new Diagram(divRef.current);
       diagram.current.setReadOnly(true);
       diagram.current.setNodes([]);
@@ -171,20 +123,6 @@ export const App = () => {
     }
   }, []);
 
-  React.useEffect(() => {
-    localStorage.setItem("checkedGoals", JSON.stringify(checkedGoals.toJSON()));
-  }, [checkedGoals]);
-
-  const changeNode = (direction: number = 1) => {
-    if (
-      activeNode + direction < 0 ||
-      activeNode + direction > currentDataSet.length - 1
-    ) {
-      return;
-    }
-    setActiveNode(activeNode + direction);
-  };
-
   const setActiveNodeAndCenter = (nodeIndex: number) => {
     setActiveNode(nodeIndex);
     centerOnActiveNode(nodeIndex);
@@ -199,22 +137,6 @@ export const App = () => {
     }
 
     gtagEvent(activeNode);
-
-    if (activeNode > -1) {
-      localStorage.setItem("activeNodeIndex", JSON.stringify(activeNode));
-    }
-
-    const listener = (e: KeyboardEvent) => {
-      if (e.key === "ArrowDown" || e.key === "ArrowRight") {
-        changeNode();
-      }
-      if (e.key === "ArrowUp" || e.key === "ArrowLeft") {
-        changeNode(-1);
-      }
-    };
-    document.addEventListener("keydown", listener);
-
-    return () => document.removeEventListener("keydown", listener);
   }, [activeNode]);
 
   const centerOnActiveNode = (nodeIndex?: number) => {
@@ -236,19 +158,6 @@ export const App = () => {
   React.useEffect(() => {
     centerOnActiveNode();
   }, [activeNode]);
-
-  const jumpToNode = (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
-    const mouseX = e.clientX;
-    const elementWidth = e.currentTarget.getBoundingClientRect().width;
-    const percentage = mouseX / elementWidth;
-    const targetNodeIndex = Math.max(
-      0,
-      Math.ceil(currentDataSet.length * percentage) - 1
-    );
-    if (currentDataSet[targetNodeIndex]) {
-      setActiveNode(targetNodeIndex);
-    }
-  };
 
   return (
     <div className="global-wrapper">

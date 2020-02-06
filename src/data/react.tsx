@@ -139,10 +139,8 @@ export const list: RoadmapEntry[] = [
     category: 0,
     type: "node",
     title: "Basics of the internet",
-    summary:
-      "Since we are dealing with websites, you should understand the basics of the internet mechanisms.\n Learn about servers and browsers, understand how do requests work and when documents are being served.",
     description:
-      "Read about basic internet mechanisms and become familiar with underlying mechanisms.",
+      "Since we are dealing with websites, you should understand the basics of the internet mechanisms.\n Learn about servers and browsers, understand how do requests work and when documents are being served.",
     topics: [
       "Communication between server and browser",
       "Idea and lifecycle of browser request",
@@ -813,7 +811,6 @@ export const list: RoadmapEntry[] = [
     title: "Milestone: software developer",
     description:
       "Congratulations - you have acquired your first developer skills and with proper guidance, you can add new functionalities to web applications. From now on, you will learn how to become more and more autonomous by learning new tools and approaches.\nKeep going!",
-    topics: [],
     repeatable: false,
     difficult: false
   },
@@ -1648,7 +1645,6 @@ export const list: RoadmapEntry[] = [
     title: "Milestone: front-end React developer",
     description:
       "Congratulations! You are now capable of creating front-end applications using one of the most popular approaches in the world. While it's not the end of your journey, having knowledge described above should allow you to find a job in the programming field so you can start gaining more and more experience.\nKeep going!",
-    topics: [],
 
     repeatable: false,
     difficult: false
@@ -2263,7 +2259,7 @@ export const list: RoadmapEntry[] = [
     id: 85,
     category: 0,
     type: "heading",
-    title: "Towards seniority and beyond",
+    title: "Finish line - towards seniority and beyond!",
     description:
       "Whew. We're at the end - that's it for know.\nIf you are at this point with your knowledge, you should already be self-sufficent and experienced developer that is capable of developing great web applications. Should you call yourself a senior developer? It depends - if you know all of the stuff above, can work independently and use your knowledge with *confidence*, then I would say yes. But it's up to you - don't focus on titles, aim your attention at being better developer. Don't even think of settling down - development is pretty dynamic industry where you need to keep up with latest technologies all the time.\nBe up-to-date and cautious. Be smart and never stop learning. *Be a better developer every day.*\n^Good luck!^",
     repeatable: false,
