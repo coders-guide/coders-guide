@@ -297,7 +297,7 @@ export const App = () => {
               />
             </div>
           </div>
-          <div className="vignette" />
+          {/* <div className="vignette" /> */}
         </div>
       </div>
       {(activeNode === -1 || helpDisplayMode === "help") && (

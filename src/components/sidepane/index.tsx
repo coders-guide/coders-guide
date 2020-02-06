@@ -8,6 +8,18 @@ const isVideoLink = (url: string) => {
   return url.indexOf("Video:") === 0;
 };
 
+const SidepaneNav: React.FC = () => {
+  return (
+    <div className="sidepane__nav">
+      <span className="fill-start" />
+      <button className="is-active">Topics</button>
+      <button>Practices</button>
+      <button>Links</button>
+      <span className="fill-start" />
+    </div>
+  );
+};
+
 const ListHeader: React.FC<{
   goalsChecked?: number[];
   activeNode: RoadmapEntry;
@@ -23,6 +35,114 @@ const ListHeader: React.FC<{
     );
   }
   return <>{defaultLabel}</>;
+};
+
+const List: React.FC<{
+  activeNode: RoadmapEntry;
+  list?: string[];
+  header?: string;
+  hasGoals: boolean;
+  goalsChecked?: number[];
+  onItemChecked?: (index: number) => void;
+}> = ({
+  activeNode,
+  list,
+  header,
+  hasGoals = false,
+  goalsChecked,
+  onItemChecked
+}) => {
+  if (!list) {
+    return null;
+  }
+
+  return (
+    <>
+      {hasGoals && goalsChecked ? (
+        <p
+          className={`sidepane__checklist-caption ${
+            goalsChecked.length >= list.length ? "is-completed" : ""
+          }`}
+        >
+          <ListHeader
+            activeNode={activeNode}
+            goalsChecked={goalsChecked}
+            totalItems={list.length}
+            defaultLabel={header}
+          />
+        </p>
+      ) : (
+        <p className={`sidepane__checklist-caption`}>
+          <ListHeader activeNode={activeNode} defaultLabel={header} />
+        </p>
+      )}
+
+      {hasGoals && onItemChecked ? (
+        <ul className="sidepane__goal-list">
+          {list.map((listItem, index) => (
+            <li
+              className={`sidepane__goal is-checkable ${
+                goalsChecked?.includes(index) ? "is-checked" : ""
+              }`}
+              onClick={() => onItemChecked(index)}
+              key={`${activeNode.id}-${index}`}
+              dangerouslySetInnerHTML={{ __html: listItem }}
+            />
+          ))}
+        </ul>
+      ) : (
+        <ul className="sidepane__goal-list">
+          {list.map((listItem, index) => (
+            <li
+              className={`sidepane__goal`}
+              key={`${activeNode.id}-${index}`}
+              dangerouslySetInnerHTML={{ __html: listItem }}
+            />
+          ))}
+        </ul>
+      )}
+    </>
+  );
+};
+
+export const LinkList: React.FC<{
+  activeNode: RoadmapEntry;
+}> = ({ activeNode }) => {
+  if (!activeNode.links) {
+    return null;
+  }
+  return (
+    <>
+      <h3 className="sidepane__link-header">
+        {activeNode.linksHeader || "Links to useful resources:"}
+      </h3>
+      <ul className="sidepane__link-list">
+        {activeNode.links.map((listItem, index) =>
+          typeof listItem === "object" ? (
+            <li
+              className={`sidepane__link ${
+                isVideoLink(listItem.title) ? "is-video" : ""
+              }`}
+              key={index}
+            >
+              <a href={listItem.url} target="_blank">
+                {listItem.title}
+              </a>
+              <span className="sidepane__link-domain">
+                {getUrlDomain(listItem.url)}
+              </span>
+            </li>
+          ) : (
+            <li className="sidepane__link" key={index}>
+              <a href={listItem} target="_blank">
+                {listItem}
+              </a>
+            </li>
+          )
+        )}
+      </ul>
+    </>
+  );
 };
 
 export const Sidepane: React.FC<{
@@ -48,11 +168,10 @@ export const Sidepane: React.FC<{
     setSidepaneMode("checklist");
   }, [activeNode]);
 
-  const canRewind = () => activeNodeIndex > 0;
-  const canForward = () => activeNodeIndex < nodesCount - 1;
+  // const canRewind = () => activeNodeIndex > 0;
+  // const canForward = () => activeNodeIndex < nodesCount - 1;
 
-  const shouldDisplayContent = activeNode.type === "node";
-  const containsResources = Boolean(activeNode.links?.length);
+  const isSubjectNode = activeNode.type === "node";
 
   const topicsChecked = goalsChecked.filter(
     goal => goal < (activeNode.topics?.length || 0)
@@ -63,149 +182,75 @@ export const Sidepane: React.FC<{
 
   return (
     <>
-      {shouldDisplayContent && (
+      {isSubjectNode && (
         <>
           <h1 className="sidepane__header">{activeNode.title}</h1>
+
+          <div className="sidepane__scrollable">
+            <p
+              className="sidepane__description"
+              dangerouslySetInnerHTML={{ __html: activeNode.description }}
+            />
+
+            {activeNode.isSingleGoal && (
+              <ul className="sidepane__goal-list is-single">
+                <li
+                  className={`sidepane__goal ${
+                    goalsChecked?.includes(0) ? "is-checked" : ""
+                  } is-checkable`}
+                  onClick={() => onItemChecked()}
+                >
+                  Mark as done
+                </li>
+              </ul>
+            )}
+
+            <SidepaneNav />
+            <div className="sidepane__content">
+              <List
+                activeNode={activeNode}
+                list={activeNode.customList}
+                hasGoals={false}
+                header={activeNode.customListHeader}
+              />
+
+              <List
+                activeNode={activeNode}
+                list={activeNode.topics}
+                hasGoals={true}
+                header={activeNode.topicsHeader || "Topics to cover"}
+                goalsChecked={topicsChecked}
+                onItemChecked={onItemChecked}
+              />
+
+              <List
+                activeNode={activeNode}
+                list={activeNode.practices}
+                hasGoals={true}
+                header={activeNode.practicesHeader || "Practices"}
+                goalsChecked={practicesChecked.map(
+                  goal => goal - (activeNode.topics?.length || 0)
+                )}
+                onItemChecked={i =>
+                  onItemChecked(i + (activeNode.topics?.length || 0))
+                }
+              />
+              <LinkList activeNode={activeNode} />
+            </div>
+          </div>
         </>
       )}
-      {sidepaneMode === "checklist" && shouldDisplayContent && (
-        <div className="sidepane__content">
-          <p dangerouslySetInnerHTML={{ __html: activeNode.description }} />
-          {/* Custom list */}
-          {activeNode.customList && (
-            <p className={`sidepane__checklist-caption`}>
-              <ListHeader
-                activeNode={activeNode}
-                defaultLabel={activeNode.customListHeader}
-              />
-            </p>
-          )}
-          <ul className="sidepane__goal-list">
-            {activeNode.customList?.map((listItem, index) => (
-              <li
-                className={`sidepane__goal`}
-                key={`${activeNode.id}-${index}`}
-                dangerouslySetInnerHTML={{ __html: listItem }}
-              />
-            ))}
-          </ul>
-          {/* Topics to cover */}
-          {activeNode.topics && (
-            <p
-              className={`sidepane__checklist-caption ${
-                topicsChecked.length >= activeNode.topics.length
-                  ? "is-completed"
-                  : ""
-              }`}
-            >
-              <ListHeader
-                activeNode={activeNode}
-                goalsChecked={topicsChecked}
-                totalItems={activeNode.topics.length}
-                defaultLabel={activeNode.topicsHeader || "Topics to cover"}
-              />
-            </p>
-          )}
-          <ul className="sidepane__goal-list">
-            {activeNode.topics?.map((listItem, index) => (
-              <li
-                className={`sidepane__goal is-checkable ${
-                  goalsChecked?.includes(index) ? "is-checked" : ""
-                }`}
-                onClick={() => onItemChecked(index)}
-                key={`${activeNode.id}-${index}`}
-                dangerouslySetInnerHTML={{ __html: listItem }}
-              />
-            ))}
-          </ul>
-          {/* Practices */}
-          {activeNode.practices && (
-            <p
-              className={`sidepane__checklist-caption ${
-                practicesChecked.length >= activeNode.practices.length
-                  ? "is-completed"
-                  : ""
-              }`}
-            >
-              <ListHeader
-                activeNode={activeNode}
-                goalsChecked={practicesChecked}
-                totalItems={activeNode.practices.length}
-                defaultLabel={activeNode.practicesHeader || "Practices"}
-              />
-            </p>
-          )}
-          <ul className="sidepane__goal-list">
-            {activeNode.practices?.map((listItem, index) => (
-              <li
-                className={`sidepane__goal is-checkable ${
-                  goalsChecked?.includes(
-                    index + (activeNode.topics?.length || 0)
-                  )
-                    ? "is-checked"
-                    : ""
-                }`}
-                onClick={() =>
-                  onItemChecked(index + (activeNode.topics?.length || 0))
-                }
-                key={`${activeNode.id}-${index}`}
-                dangerouslySetInnerHTML={{ __html: listItem }}
-              />
-            ))}
-          </ul>
-
-          {activeNode.isSingleGoal && (
-            <ul className="sidepane__goal-list is-single">
-              <li
-                className={`sidepane__goal ${
-                  goalsChecked?.includes(0) ? "is-checked" : ""
-                } is-checkable`}
-                onClick={() => onItemChecked()}
-              >
-                Mark as done
-              </li>
-            </ul>
-          )}
-        </div>
+      {sidepaneMode === "resources" && isSubjectNode && (
+        <div className="sidepane__content"></div>
       )}
-      {sidepaneMode === "resources" && shouldDisplayContent && (
-        <div className="sidepane__content">
-          <h3>{activeNode.linksHeader || "Links to useful resources:"}</h3>
-          <ul className="sidepane__link-list">
-            {activeNode.links?.map((listItem, index) =>
-              typeof listItem === "object" ? (
-                <li
-                  className={`sidepane__link ${
-                    isVideoLink(listItem.title) ? "is-video" : ""
-                  }`}
-                  key={index}
-                >
-                  <a href={listItem.url} target="_blank">
-                    {listItem.title}
-                  </a>
-                  <span className="sidepane__link-domain">
-                    {getUrlDomain(listItem.url)}
-                  </span>
-                </li>
-              ) : (
-                <li className="sidepane__link" key={index}>
-                  <a href={listItem} target="_blank">
-                    {listItem}
-                  </a>
-                </li>
-              )
-            )}
-          </ul>
-        </div>
-      )}
-      {!shouldDisplayContent && (
-        <div className="sidepane__content is-heading">
+      {!isSubjectNode && (
+        <div className="sidepane__milestone">
           Select a subject to see its description
         </div>
       )}
-      <div className="sidepane__actions">
+      {/* <div className="sidepane__actions">
         <div className="sidepane__actions--left">
-          {shouldDisplayContent && (
+          {isSubjectNode && (
             <>
               <button
                 className={sidepaneMode === "checklist" ? "is-active" : ""}
@@ -240,7 +285,7 @@ export const Sidepane: React.FC<{
             <span className="icon icon-arrow shrinking" />
           </button>
         </div>
-      </div>
+      </div> */}
     </>
   );
 };

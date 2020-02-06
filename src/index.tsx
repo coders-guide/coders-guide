@@ -9,6 +9,12 @@ import "./index.scss";
 
 const font = new FontFaceObserver("Lato");
 
+const xyz = () => {
+  return 1 + 6
+};
+
+const aa = xyz();
+
 const render = () => {
   ReactDOM.render(<App />, document.getElementById("root"));
 };

@@ -1,10 +1,17 @@
 @import "../../common/common.scss";
 
+$sidepane-padding-left: 24px;
+$sidepane-padding-right: 24px;
+
+@mixin sidepane-padding {
+  padding-left: $sidepane-padding-left;
+  padding-right: $sidepane-padding-right;
+}
+
 .sidepane {
   flex: 1;
-  min-width: 280px;
-  padding: 24px;
-  padding-left: 32px;
+  min-width: 320px;
+  padding: 0;
   background-color: rgba(255, 0, 0, 0.1);
   color: white;
   transition: background-color 0.15s ease;
@@ -22,57 +29,161 @@
     margin: 0 3px;
   }
 
+  &__nav {
+    width: 100%;
+    height: 24px;
+    margin: 0;
+    // background-color: rgba(76, 76, 156, 1);
+    background-color: transparent;
+    display: flex;
+    //padding: 0 24px;
+    .fill-start {
+      flex: 0 0 24px;
+    }
+
+    button {
+      flex: 1;
+      background-color: rgba(76, 76, 156, 1);
+      border: 0;
+      color: rgba(255, 255, 255, 0.6);
+      // margin: 0 2px;
+      // border-top-left-radius: 3px;
+      // border-top-right-radius: 3px;
+      // background: linear-gradient(
+      //   to bottom,
+      //   rgba(76, 76, 156, 0.4) 0%,
+      //   rgba(76, 76, 156, 0) 40%
+      // );
+      // background-color: rgba(76, 76, 156, 0.4);
+      background-color: rgb(53, 52, 85);
+      border-top: 1px solid rgba(255, 255, 255, 0.4);
+      border-left: 1px solid rgba(255, 255, 255, 0.4);
+      border-right: 1px solid rgba(255, 255, 255, 0.4);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.4);
+
+      &:first-of-type {
+        border-top-left-radius: 4px;
+        border-bottom-left-radius: 4px;
+        border-right: none;
+      }
+
+      &:last-of-type {
+        border-top-right-radius: 4px;
+        border-bottom-right-radius: 4px;
+        border-left: none;
+      }
+
+      &.is-active {
+        color: white;
+        // background: linear-gradient(
+        //   to bottom,
+        //   rgba(76, 76, 156, 1) 0%,
+        //   rgba(76, 76, 156, 0.3) 100%
+        // );
+        background-color: rgba(76, 76, 156, 1);
+        font-weight: bold;
+        // border-top: 1px solid rgba(255, 255, 255, 0.8);
+      }
+    }
+  }
+
+  &__description {
+    font-size: 13px;
+    line-height: 24px;
+    @include sidepane-padding;
+  }
+
   &__header {
     flex: 0 0 auto;
     font-size: 32px;
+    @include sidepane-padding;
+
     @media (max-width: 1150px) {
       font-size: 24px;
     }
   }
 
-  &__checklist-caption {
+  &__checklist-caption,
+  &__link-header {
     font-weight: bold;
     position: relative;
     font-size: 18px;
     color: white;
     // padding-left: 20px;
-    border-top: 1px dashed rgba(255, 255, 255, 0.3);
+    // border-top: 1px dashed rgba(255, 255, 255, 0.3);
     padding-top: 16px;
-    &::before {
-      content: "";
-      position: absolute;
-      left: 0px;
-      top: 18px;
-      width: 12px;
-      height: 12px;
-      display: block;
-      // background: url("../../assets/arrow.svg");
-      margin-right: 8px;
-      opacity: 1;
-    }
+
+    @include sidepane-padding;
+
     &.is-completed {
       color: #73ffa5;
     }
   }
 
-  &__content {
+  &__milestone {
+    flex: 1;
+    font-size: 14px;
+    line-height: 24px;
+    padding-top: 60px;
+    text-align: center;
+    font-size: 24px;
+    line-height: 34px;
+    font-weight: bold;
+    color: rgba(255, 255, 255, 0.4);
+  }
+
+  &__scrollable {
+    margin-right: 0px;
     flex: 1;
     overflow: hidden;
     overflow-y: auto;
+    &::-webkit-scrollbar {
+      width: 6px;
+      position: relative;
+    }
+    &::-webkit-scrollbar::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      right: 0;
+      background-color: hotpink;
+    }
+
+    /* Track */
+    &::-webkit-scrollbar-track {
+      // -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+      // box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+      background-color: rgba(0, 0, 0, 0.5);
+      // -webkit-border-radius: 10px;
+      // border-radius: 10px;
+    }
+
+    /* Handle */
+    &::-webkit-scrollbar-thumb {
+      -webkit-border-radius: 10px;
+      border-radius: 10px;
+      background-color: rgba(255, 255, 255, 0.25);
+      transition: background-color 0.12s linear;
+    }
+    &:hover::-webkit-scrollbar-thumb {
+      -webkit-border-radius: 10px;
+      border-radius: 10px;
+      background-color: rgba(255, 255, 255, 0.6);
+    }
+    &::-webkit-scrollbar-thumb:window-inactive {
+      background-color: rgba(255, 255, 255, 0.25);
+    }
+  }
+
+  &__content {
     padding-bottom: 5px;
     font-size: 14px;
     line-height: 24px;
+    background-color: rgba(0, 0, 0, 0.5);
     @media (max-width: 1150px) {
       font-size: 12px;
-    }
-
-    &.is-heading {
-      padding-top: 60px;
-      text-align: center;
-      font-size: 24px;
-      line-height: 34px;
-      font-weight: bold;
-      color: rgba(255, 255, 255, 0.4);
     }
   }
   &__goal-list,
@@ -81,8 +192,10 @@
     margin-block-start: 0;
     margin-block-end: 0;
     padding-inline-start: 20px;
+    margin: 0 20px 0 24px;
     &.is-single {
-      border-top: 1px dashed rgba(255, 255, 255, 0.3);
+      // border-top: 1px dashed rgba(255, 255, 255, 0.3);
+      line-height: 24px;
       padding-top: 12px;
     }
   }
@@ -141,7 +254,7 @@
       content: "";
       position: absolute;
       left: -20px;
-      top: 6px;
+      top: 5px;
       width: 12px;
       height: 12px;
       display: block;
@@ -252,6 +365,29 @@
         transform: scale(-1, 1);
         margin-right: 0;
       }
+    }
+  }
+
+  // Simple scrollbar overload
+
+  .ss-content {
+    padding-right: 18px;
+  }
+
+  .ss-scroll {
+    background-color: transparent;
+    opacity: 0.3;
+    padding-right: 3px;
+    position: relative;
+    &::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      width: 6px;
+      background-color: rgba(255, 255, 255, 0.5);
+      border-radius: 4px;
     }
   }
 }

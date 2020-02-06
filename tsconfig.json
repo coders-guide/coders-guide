@@ -11,6 +11,7 @@
     "lib": ["es6", "dom"],
     "jsx": "react",
     "strict": true,
-    "noUnusedLocals": true
+    "noUnusedLocals": true,
+    "baseUrl": "./src/"
   }
 }

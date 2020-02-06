@@ -43,6 +43,7 @@
     "react-gtm-module": "^2.0.8",
     "sass": "^1.24.2",
     "sass-loader": "^8.0.0",
+    "simple-scrollbar": "^0.4.0",
     "style-loader": "^1.1.2",
     "ts-loader": "^6.2.1",
     "typescript-loader": "^1.1.3",

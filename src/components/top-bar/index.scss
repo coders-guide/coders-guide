@@ -2,12 +2,13 @@
 
 .top-bar {
   flex: 0 0 32px;
-  background-color: white;
+  // background-color: black;
+  background-color: rgba(76, 76, 156, 1);
   position: relative;
   display: flex;
   justify-content: space-between;
   z-index: 1;
-  box-shadow: 0 0 10px 3px rgba(0, 0, 0, 0.4);
+  // box-shadow: 0 0 10px 3px rgba(0, 0, 0, 0.4);
 
   &__github-icon {
     height: 20px;
@@ -34,7 +35,7 @@
   }
   &__product-logo {
     height: 32px;
-    max-width: 140px;
+    max-width: 137px;
     margin-right: 8px;
   }
   // Not used anymore
@@ -62,8 +63,8 @@
     flex: 0 0 auto;
     text-align: center;
     color: white;
-    border-left: 1px dotted rgba(0, 0, 0, 0.4);
-    border-right: 1px dotted rgba(0, 0, 0, 0.4);
+    border-left: 1px dotted rgba(255, 255, 255, 0.4);
+    border-right: 1px dotted rgba(255, 255, 255, 0.4);
   }
   &__subtitle {
     font-weight: normal;
@@ -80,8 +81,9 @@
       font-family: Lato;
 
       height: 24px;
-      background-color: black;
-      border: 1px solid white;
+      background-color: transparent;
+      border: 1px solid rgba(255, 255, 255, 0.4);
+      border-radius: 3px;
       font-size: 10px;
       margin-right: 4px;
       color: white;
@@ -89,7 +91,7 @@
 
       &:hover,
       &.is-active {
-        background-color: #333;
+        background-color: rgba(255, 255, 255, 0.2);
       }
     }
   }
