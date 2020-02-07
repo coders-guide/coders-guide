@@ -1,6 +1,7 @@
 import * as React from "react";
 import { Map } from "immutable";
 import { CheckedGoals, RoadmapEntry } from "../../types";
+import { LOCAL_STORAGE_KEY_CHECKED_GOALS } from "../../common/constants";
 
 export const useGoals = () => {
   const [checkedGoals, setCheckedGoals] = React.useState<CheckedGoals>(Map());
@@ -8,14 +9,17 @@ export const useGoals = () => {
   React.useEffect(() => {
     try {
       const localStoragecheckedGoals = JSON.parse(
-        localStorage.getItem("checkedGoals") || "{}"
+        localStorage.getItem(LOCAL_STORAGE_KEY_CHECKED_GOALS) || "{}"
       );
       setCheckedGoals(Map<string, number[]>(localStoragecheckedGoals));
     } catch {}
   }, []);
 
   React.useEffect(() => {
-    localStorage.setItem("checkedGoals", JSON.stringify(checkedGoals.toJSON()));
+    localStorage.setItem(
+      LOCAL_STORAGE_KEY_CHECKED_GOALS,
+      JSON.stringify(checkedGoals.toJSON())
+    );
   }, [checkedGoals]);
 
   const markGoalChecked = (subjectId: string, taskIndex: number) => {

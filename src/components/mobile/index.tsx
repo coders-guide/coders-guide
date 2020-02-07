@@ -8,6 +8,7 @@ import { scrollIt as animateScroll } from "./utils";
 import { RoadmapEntry, MobileAnimationState } from "../../types";
 import { useGoals } from "../../utils/hooks/useGoals";
 import logoImage from "../../assets/logo_updated.svg";
+import logoImageTransparent from "../../assets/logo_updated_transparent.svg";
 
 const MobileListHeader: React.FC<{
   goalsChecked?: number[];
@@ -87,7 +88,11 @@ export const MobileSubject: React.FC<{
   return (
     <>
       <div className="m-subject__block">
-        <div className="m-subject__caption is-sticky">Subject description</div>
+        {subject.type !== "heading" && (
+          <div className="m-subject__caption is-sticky">
+            Subject description
+          </div>
+        )}
         <div
           className="m-subject__description"
           dangerouslySetInnerHTML={{ __html: subject.description }}
@@ -250,7 +255,7 @@ const MobileIntro: React.FC<{ onFinish: () => void }> = ({ onFinish }) => {
     <>
       <div className={`m-intro__step ${getStepClass(0)}`}>
         <span>
-          <header className="m-intro__logo" />
+          <img src={logoImageTransparent} className="m-intro__logo" />
           Interactive roadmap for learning coding, including progress tracker
           and curated resource links.
           <button
@@ -517,15 +522,27 @@ export const MobileApp = () => {
         </div>
       )}
       {/* ACTIVE SUBJECT */}
-      {activeSubject && (
-        <MobileSubject
-          subject={activeSubject}
-          canRewind={canRewind}
-          canForward={canForward}
-          goalsChecked={checkedGoals.get(activeSubject.id.toString()) || []}
-          onItemChecked={i => toggleGoal(activeSubject.id.toString(), i)}
-        />
-      )}
+      <div
+        className={`m-current-subject
+          ${
+            animatedChange === MobileAnimationState.RIGHT ||
+            animatedChange === MobileAnimationState.LEFT
+              ? "is-deactivated"
+              : ""
+          }
+        `}
+      >
+        {activeSubject && (
+          <MobileSubject
+            key={activeNode}
+            subject={activeSubject}
+            canRewind={canRewind}
+            canForward={canForward}
+            goalsChecked={checkedGoals.get(activeSubject.id.toString()) || []}
+            onItemChecked={i => toggleGoal(activeSubject.id.toString(), i)}
+          />
+        )}
+      </div>
       {/* NEXT SUBJECT */}
       {currentDataSet[activeNode + 1] && (
         <div

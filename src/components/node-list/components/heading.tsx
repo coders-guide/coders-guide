@@ -12,7 +12,7 @@ export const Heading: React.FC<{
   return (
     <div
       onClick={() => setActiveNode(index)}
-      className="heading"
+      className={`heading ${index === activeNode ? "is-active" : ""} `}
       data-category={0}
       data-node={index}
       style={

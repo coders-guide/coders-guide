@@ -1,0 +1,112 @@
+.intro-animation__cls-1,
+.intro-animation__cls-3 {
+  fill: none;
+  stroke: #fff;
+}
+
+.intro-animation__cls-1 {
+  stroke-width: 4px;
+  opacity: 0.4;
+}
+
+.intro-animation__cls-2 {
+  opacity: 0.7;
+}
+
+.intro-animation__cls-2,
+.intro-animation__cls-3 {
+  fill-rule: evenodd;
+}
+
+.intro-animation__cls-3 {
+  stroke-width: 3px;
+  opacity: 0.2;
+}
+
+$step: 0.45s;
+
+.intro-animation {
+  &__node {
+    opacity: 0.2;
+    transition: opacity 0.2s linear, stroke-dasharray 0.2s linear 0.3s;
+    stroke-dasharray: 6px 6px;
+    background-color: white;
+    rect {
+      transition: fill 0.2s linear 0.3s;
+      fill: rgba(255, 255, 255, 0);
+    }
+
+    .intro-animation__text {
+      transition: fill 0.4s ease 0.4s, stroke 0.4s ease 0.4s,
+        stroke-dasharray 0.4s ease;
+      fill: rgba(255, 255, 255, 0);
+      stroke: rgba(255, 255, 255, 1);
+      stroke-width: 1px;
+      stroke-dasharray: 50px 50px;
+      stroke-dashoffset: 0;
+    }
+
+    &.is-active {
+      opacity: 1;
+      stroke-dasharray: 12px 0px;
+      rect {
+        fill: rgba(255, 255, 255, 0.3);
+      }
+
+      .intro-animation__text {
+        fill: rgba(255, 255, 255, 1);
+        stroke: rgba(255, 255, 255, 0);
+        stroke-width: 1px;
+        stroke-dasharray: 50px 0;
+      }
+    }
+  }
+
+  &__node-path {
+    transition: stroke-dashoffset $step linear, opacity 0.25s linear $step,
+      stroke-dasharray $step linear $step;
+    opacity: 1;
+    // stroke-dasharray: 0;
+    stroke-dasharray: 300;
+    stroke-dashoffset: 300;
+    &.is-active {
+      // stroke-dasharray: 5px 5px;
+      stroke-dashoffset: 0;
+      opacity: 0;
+    }
+
+    &.is-long {
+      stroke-dasharray: 500;
+      stroke-dashoffset: 500;
+      &.is-active {
+        // stroke-dasharray: 5px 5px;
+        stroke-dashoffset: 0;
+        opacity: 0;
+      }
+    }
+  }
+
+  &__node-path-over {
+    transition: opacity 0.25s linear $step;
+    opacity: 0;
+    // stroke-dasharray: 0;
+    stroke-dasharray: 4px 4px;
+    &.is-active {
+      // stroke-dasharray: 5px 5px;
+      opacity: 0.3;
+    }
+  }
+
+  &__check {
+    opacity: 0.3;
+
+    transition: opacity 0.2s linear,
+      transform 0.4s cubic-bezier(0.61, -0.57, 0.295, 2.9);
+    transform: scale(0.7);
+
+    &.is-active {
+      opacity: 0.8;
+      transform: scale(1);
+    }
+  }
+}

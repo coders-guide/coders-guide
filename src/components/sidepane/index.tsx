@@ -3,15 +3,57 @@ import * as React from "react";
 import "./index.scss";
 import { RoadmapEntry } from "../../types";
 import { getUrlDomain, isVideoLink } from "../../utils";
+import targetIcon from "../../assets/target.svg";
+import gymIcon from "../../assets/gym.svg";
+import linkIcon from "../../assets/link2.svg";
 
-const SidepaneNav: React.FC = () => {
+type SidepaneMode = "topics" | "practices" | "links";
+
+const SidepaneNav: React.FC<{
+  activeNode: RoadmapEntry;
+  sidepaneMode: SidepaneMode;
+  setSidepaneMode: (mode: SidepaneMode) => void;
+}> = ({ activeNode, sidepaneMode, setSidepaneMode }) => {
+  const tabsCount =
+    (activeNode.topics?.length ? 1 : 0) +
+    (activeNode.practices?.length ? 1 : 0) +
+    (activeNode.links?.length ? 1 : 0);
+
   return (
     <div className="sidepane__nav">
-      <span className="fill-start" />
-      <button className="is-active">Topics</button>
-      <button>Practices</button>
-      <button>Links</button>
-      <span className="fill-start" />
+      {(activeNode.topics?.length || activeNode.customList?.length) && (
+        <button
+          className={`is-one-of-${tabsCount} ${
+            sidepaneMode === "topics" ? "is-active" : ""
+          }`}
+          onClick={() => setSidepaneMode("topics")}
+        >
+          <img src={targetIcon} />
+          <span>Topics</span>
+        </button>
+      )}
+      {activeNode.practices?.length && (
+        <button
+          className={`is-one-of-${tabsCount} ${
+            sidepaneMode === "practices" ? "is-active" : ""
+          }`}
+          onClick={() => setSidepaneMode("practices")}
+        >
+          <img src={gymIcon} />
+          <span>Practices</span>
+        </button>
+      )}
+      {activeNode.links?.length && (
+        <button
+          className={`is-one-of-${tabsCount} ${
+            sidepaneMode === "links" ? "is-active" : ""
+          }`}
+          onClick={() => setSidepaneMode("links")}
+        >
+          <img src={linkIcon} />
+          <span>Links</span>
+        </button>
+      )}
     </div>
   );
 };
@@ -156,15 +198,20 @@ export const Sidepane: React.FC<{
   onItemChecked,
   goalsChecked
 }) => {
-  const [sidepaneMode, setSidepaneMode] = React.useState<
-    "checklist" | "resources"
-  >("resources");
+  const initialMode: SidepaneMode =
+    activeNode.topics?.length || activeNode.customList?.length
+      ? "topics"
+      : "practices";
+
+  const [sidepaneMode, setSidepaneMode] = React.useState<SidepaneMode>(
+    initialMode
+  );
 
   React.useEffect(() => {
-    setSidepaneMode("checklist");
+    setSidepaneMode(initialMode);
   }, [activeNode]);
 
-  // const canRewind = () => activeNodeIndex > 0;
+  const canRewind = () => activeNodeIndex > 0;
   // const canForward = () => activeNodeIndex < nodesCount - 1;
 
   const isSubjectNode = activeNode.type === "node";
@@ -180,6 +227,7 @@ export const Sidepane: React.FC<{
     <>
       {isSubjectNode && (
         <>
+          <h3 className="sidepane__index">subject #{activeNodeIndex}</h3>
           <h1 className="sidepane__header">{activeNode.title}</h1>
 
           <div className="sidepane__scrollable">
@@ -201,87 +249,61 @@ export const Sidepane: React.FC<{
               </ul>
             )}
 
-            <SidepaneNav />
+            <SidepaneNav
+              key={activeNodeIndex}
+              activeNode={activeNode}
+              sidepaneMode={sidepaneMode}
+              setSidepaneMode={setSidepaneMode}
+            />
             <div className="sidepane__content">
-              <List
-                activeNode={activeNode}
-                list={activeNode.customList}
-                hasGoals={false}
-                header={activeNode.customListHeader}
-              />
+              {sidepaneMode === "topics" && (
+                <List
+                  activeNode={activeNode}
+                  list={activeNode.customList}
+                  hasGoals={false}
+                  header={activeNode.customListHeader}
+                />
+              )}
 
-              <List
-                activeNode={activeNode}
-                list={activeNode.topics}
-                hasGoals={true}
-                header={activeNode.topicsHeader || "Topics to cover"}
-                goalsChecked={topicsChecked}
-                onItemChecked={onItemChecked}
-              />
+              {sidepaneMode === "topics" && (
+                <List
+                  activeNode={activeNode}
+                  list={activeNode.topics}
+                  hasGoals={true}
+                  header={activeNode.topicsHeader || "Topics to cover"}
+                  goalsChecked={topicsChecked}
+                  onItemChecked={onItemChecked}
+                />
+              )}
 
-              <List
-                activeNode={activeNode}
-                list={activeNode.practices}
-                hasGoals={true}
-                header={activeNode.practicesHeader || "Practices"}
-                goalsChecked={practicesChecked.map(
-                  goal => goal - (activeNode.topics?.length || 0)
-                )}
-                onItemChecked={i =>
-                  onItemChecked(i + (activeNode.topics?.length || 0))
-                }
-              />
-              <LinkList activeNode={activeNode} />
+              {sidepaneMode === "practices" && (
+                <List
+                  activeNode={activeNode}
+                  list={activeNode.practices}
+                  hasGoals={true}
+                  header={activeNode.practicesHeader || "Practices"}
+                  goalsChecked={practicesChecked.map(
+                    goal => goal - (activeNode.topics?.length || 0)
+                  )}
+                  onItemChecked={i =>
+                    onItemChecked(i + (activeNode.topics?.length || 0))
+                  }
+                />
+              )}
+
+              {sidepaneMode === "links" && <LinkList activeNode={activeNode} />}
             </div>
           </div>
         </>
       )}
-      {sidepaneMode === "resources" && isSubjectNode && (
-        <div className="sidepane__content"></div>
-      )}
+
       {!isSubjectNode && (
         <div className="sidepane__milestone">
-          Select a subject to see its description
+          {!canRewind()
+            ? "click start button to begin"
+            : "select a subject to see its description"}
         </div>
       )}
-      {/* <div className="sidepane__actions">
-        <div className="sidepane__actions--left">
-          {isSubjectNode && (
-            <>
-              <button
-                className={sidepaneMode === "checklist" ? "is-active" : ""}
-                onClick={() => setSidepaneMode("checklist")}
-              >
-                Description
-              </button>
-              {containsResources && (
-                <button
-                  className={sidepaneMode === "resources" ? "is-active" : ""}
-                  onClick={() => setSidepaneMode("resources")}
-                >
-                  Resources
-                </button>
-              )}
-            </>
-          )}
-        </div>
-        <div className="sidepane__actions--right">
-          <button
-            className="is-active is-arrow"
-            disabled={!canRewind()}
-            onClick={() => changeNode(-1)}
-          >
-            <span className="icon icon-arrow shrinking" />
-          </button>
-          <button
-            disabled={!canForward()}
-            className="is-active is-arrow is-last"
-            onClick={() => changeNode(1)}
-          >
-            <span className="icon icon-arrow shrinking" />
-          </button>
-        </div>
-      </div> */}
     </>
   );
 };

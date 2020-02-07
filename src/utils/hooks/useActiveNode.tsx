@@ -1,9 +1,11 @@
 import * as React from "react";
 import { RoadmapEntry } from "../../types";
+import { LOCAL_STORAGE_KEY_ACTIVE_NODE_INDEX } from "../../common/constants";
 
 export const useActiveNode = (currentDataSet: RoadmapEntry[]) => {
   const [activeNode, setActiveNode] = React.useState<number>(() => {
-    const activeNodeIndexString = localStorage.getItem("activeNodeIndex") || "";
+    const activeNodeIndexString =
+      localStorage.getItem(LOCAL_STORAGE_KEY_ACTIVE_NODE_INDEX) || "";
     const activeNodeIndex = parseInt(activeNodeIndexString);
     if (!isNaN(activeNodeIndex)) {
       return activeNodeIndex;
@@ -22,17 +24,13 @@ export const useActiveNode = (currentDataSet: RoadmapEntry[]) => {
     setActiveNode(activeNode + direction);
   };
 
-  // React.useEffect(() => {
-  //   const activeNodeIndexString = localStorage.getItem("activeNodeIndex") || "";
-  //   const activeNodeIndex = parseInt(activeNodeIndexString);
-  //   if (!isNaN(activeNodeIndex)) {
-  //     setActiveNode(activeNodeIndex);
-  //   }
-  // }, []);
   React.useEffect(() => {
-    // if (activeNode > -1) {
-    localStorage.setItem("activeNodeIndex", JSON.stringify(activeNode));
-    // }
+    if (activeNode > -1) {
+      localStorage.setItem(
+        LOCAL_STORAGE_KEY_ACTIVE_NODE_INDEX,
+        JSON.stringify(activeNode)
+      );
+    }
 
     const listener = (e: KeyboardEvent) => {
       if (e.key === "ArrowDown" || e.key === "ArrowRight") {

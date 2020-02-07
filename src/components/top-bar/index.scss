@@ -23,11 +23,11 @@
     left: 4px;
     top: 4px;
     font-size: 12px;
-    color: white;
+    color: rgba(255, 255, 255, 0.8);
     margin-right: 8px;
 
     @media (max-width: 1150px) {
-      font-size: 8px;
+      // font-size: 10px;
     }
     @media (max-width: 1000px) {
       font-size: 0;
@@ -38,20 +38,7 @@
     max-width: 137px;
     margin-right: 8px;
   }
-  // Not used anymore
-  // &__product-name {
-  //   line-height: 32px;
-  //   font-weight: bold;
-  //   padding: 0 10px;
-  //   margin-right: 8px;
-  //   font-size: 12px;
-  //   color: white;
-  //   background: linear-gradient(
-  //     to bottom,
-  //     rgba(76, 76, 156, 0.8) 0%,
-  //     rgba(46, 46, 126, 0.8) 100%
-  //   );
-  // }
+  // Not u
   &__status {
     flex: 0 0 150px;
     position: relative;
@@ -65,11 +52,17 @@
     color: white;
     border-left: 1px dotted rgba(255, 255, 255, 0.4);
     border-right: 1px dotted rgba(255, 255, 255, 0.4);
+
+    @media (max-width: 1000px) {
+      border-left: 0;
+    }
   }
   &__subtitle {
-    font-weight: normal;
+    font-weight: 900;
 
-    color: rgba(255, 255, 255, 0.5);
+    // color: rgba(255, 255, 255, 0.5);
+    // color: #6cff95; // experimental
+    color: white; // experimental
   }
   &__buttons {
     display: flex;

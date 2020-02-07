@@ -97,6 +97,14 @@ body.is-scroll-blocked {
   }
 }
 
+.m-current-subject {
+  opacity: 1;
+  &.is-deactivated {
+    transition: opacity 0.5s ease;
+    opacity: 0;
+  }
+}
+
 .m-intro {
   position: fixed;
   top: 0;
@@ -104,12 +112,24 @@ body.is-scroll-blocked {
   right: 0;
   bottom: 0;
   opacity: 0;
+
+  transition: opacity 0.2s linear;
+  font-size: 18px;
+  line-height: 30px;
+  min-height: calc(100vh - 48px);
+  max-height: calc(100vh);
+  padding: 24px;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(76, 76, 156, 0.95);
+  // color: #73ffa5;
+  color: white;
+  z-index: 50;
+
   &__start-button {
-    background: linear-gradient(
-      to bottom,
-      rgba(76, 76, 156, 1) 0%,
-      rgba(46, 46, 126, 1) 100%
-    );
+    background-color: lighten(rgba(76, 76, 156, 0.95), 10%);
     color: white;
     border: 0;
     display: block;
@@ -118,18 +138,12 @@ body.is-scroll-blocked {
     width: 180px;
     margin: 0 auto;
     text-transform: uppercase;
-    text-shadow: 0 0 4px rgba(0, 0, 0, 0.5);
-    border-radius: 4px;
     font-size: 12px;
     font-weight: bold;
     margin-top: 12px;
   }
   &__logo {
-    background: url("../../assets/logo.jpg");
-    width: 128px;
-    height: 128px;
-    background-size: 100%;
-    margin: 0 auto 12px auto;
+    width: 100%;
   }
   &__highlight {
     color: white;
@@ -142,21 +156,6 @@ body.is-scroll-blocked {
   &.is-visible {
     opacity: 1;
   }
-
-  transition: opacity 0.2s linear;
-  font-size: 18px;
-  line-height: 30px;
-  min-height: calc(100vh - 48px);
-  max-height: calc(100vh);
-  padding: 24px;
-  text-align: center;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: rgba(0, 0, 0, 0.9);
-  // color: #73ffa5;
-  color: white;
-  z-index: 50;
 
   &__step {
     padding: 24px;

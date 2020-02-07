@@ -11,6 +11,7 @@ import { list as rawReactDataSet } from "./data/react";
 import { gtagEvent } from "./utils/gtag.js";
 import { useGoals } from "./utils/hooks/useGoals";
 import { useActiveNode } from "./utils/hooks/useActiveNode";
+import { LOCAL_STORAGE_KEY_CURRENT_PAN } from "./common/constants";
 
 // TODO: make it dynamic
 const reactDataSet = prepareData(rawReactDataSet);
@@ -24,13 +25,12 @@ export const DesktopApp = () => {
   const containerRef = React.useRef<HTMLDivElement | null>(null);
   const bgRef = React.useRef<HTMLDivElement | null>(null);
   const hasStarted = React.useRef<boolean>(false);
-
   const currentDataSet = reactDataSet;
-
-  const { checkedGoals, isNodeChecked, toggleGoal } = useGoals();
   const { jumpToNode, changeNode, activeNode, setActiveNode } = useActiveNode(
     currentDataSet
   );
+  const { checkedGoals, isNodeChecked, toggleGoal } = useGoals();
+  const showIntro = activeNode === -1 || helpDisplayMode === "help";
 
   let diagram = React.useRef<Diagram | null>(null);
   let globalNodes = React.useRef<Node<{}>[] | null>(null);
@@ -102,7 +102,7 @@ export const DesktopApp = () => {
 
       try {
         const localStoragePan = JSON.parse(
-          localStorage.getItem("currentPan") || "null"
+          localStorage.getItem(LOCAL_STORAGE_KEY_CURRENT_PAN) || "null"
         );
         if (localStoragePan) {
           diagram.current.panTo(-localStoragePan.panX, -localStoragePan.panY);
@@ -115,7 +115,10 @@ export const DesktopApp = () => {
           return;
         }
         const { panX, panY } = diagram.current.getDirectTransform();
-        localStorage.setItem("currentPan", JSON.stringify({ panX, panY }));
+        localStorage.setItem(
+          LOCAL_STORAGE_KEY_CURRENT_PAN,
+          JSON.stringify({ panX, panY })
+        );
       });
 
       setupNodes();
@@ -209,7 +212,7 @@ export const DesktopApp = () => {
           {/* <div className="vignette" /> */}
         </div>
       </div>
-      {(activeNode === -1 || helpDisplayMode === "help") && (
+      {showIntro && (
         <Intro
           onClose={() => {
             if (helpDisplayMode === "help") {
@@ -218,6 +221,7 @@ export const DesktopApp = () => {
             }
             setActiveNode(0);
           }}
+          fadeOut={activeNode === -1}
         />
       )}
       <div

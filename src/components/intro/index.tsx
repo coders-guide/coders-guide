@@ -3,54 +3,92 @@ import { isInternetExplorer } from "../../utils";
 
 import demoVideo1 from "../../assets/demo1.mp4";
 import demoVideo2 from "../../assets/demo2.mp4";
+import logo from "../../assets/logo_updated_transparent.svg";
+import { Intro as IntroComponent } from "../intro-animation";
 
 import "./index.scss";
 
-export const Intro: React.FC<{ onClose: () => void }> = ({ onClose }) => {
+export const Intro: React.FC<{ onClose: () => void; fadeOut?: boolean }> = ({
+  onClose,
+  fadeOut = false
+}) => {
   const [step, setStep] = React.useState(0);
-  // IE would need completely rewritten styles
-  // for the intro, so it is ditched for now
+  const [fadingOut, setFadingOut] = React.useState(false);
+
+  const close = () => {
+    if (fadeOut) {
+      setFadingOut(true);
+      setStep(3);
+      setTimeout(() => {
+        onClose();
+      }, 250);
+    } else {
+      onClose();
+    }
+  };
+
+  const getStepClass = (stepIndex: number) => {
+    if (step === stepIndex) {
+      return "is-active";
+    }
+
+    if (step > stepIndex) {
+      return "is-left";
+    }
+
+    return "is-right";
+  };
+
   if (isInternetExplorer()) {
     return null;
   }
   return (
     <div
-      className="intro"
+      className={`intro ${fadingOut ? "is-fading-out" : ""}`}
       onWheel={e => {
         e.nativeEvent.stopImmediatePropagation();
       }}
     >
-      <div className={`intro__wrapper ${step === 0 ? "is-active" : ""}`}>
+      <div className={`intro__wrapper ${getStepClass(0)}`}>
         <div className="intro__interior is-narrow">
-          <h1>
-            <span className="intro__title">coders.guide</span> - your roadmap
-            for learning full-stack web development using React
-          </h1>
-          <p>
-            <br />
-            Welcome to coders.guide - which is <strong>NOT</strong> another
-            learning platform. Internet is already full of well written
-            knowledge in a form of articles, videos and various educational
-            platforms.
-          </p>
-          <p>
-            This application have another purpose -{" "}
-            <strong>
-              it was created to provide you a structured roadmap of learning how
-              to code full-stack apps.
-            </strong>{" "}
-            From the start to the end, <strong>from zero to hero.</strong>
-          </p>
-          <p>
-            Step by step, you will get guidelines describing what should be your
-            next subject to cover.{" "}
-            <strong>
-              Also, you will get a curated list of links to educational material
-              to as well.
-            </strong>{" "}
-            One topic at once. Give it a try!
-          </p>
-          <p>Have fun!</p>
+          <header className="intro__column-set">
+            <div className="intro__column-1">
+              <img className="intro__logo" alt="Logo" src={logo} />
+            </div>
+            <div className="intro__column-1" />
+          </header>
+          <div className="intro__column-set">
+            <div className="intro__column-1 intro__animation">
+              <IntroComponent />
+            </div>
+            <div className="intro__column-1 intro__description">
+              <div className="intro__title">
+                <span>
+                  interactive roadmap to help you learn{" "}
+                  <strong className="intro__highlight">how to code</strong>
+                </span>
+              </div>
+              <p>
+                <br />
+                welcome to{" "}
+                <strong className="intro__highlight">coders.guide</strong> - it
+                is <strong>NOT</strong> another learning platform. Internet is
+                already full of well written knowledge in a form of articles,
+                videos and various educational platforms.
+              </p>
+              <p>
+                this application have another purpose -{" "}
+                <strong className="intro__highlight">
+                  it provides you a structured roadmap of learning how to code
+                  full-stack apps.
+                </strong>{" "}
+              </p>
+              <p>
+                from the start to the end,{" "}
+                <strong className="intro__highlight">from zero to hero.</strong>
+              </p>
+            </div>
+          </div>
           <div className="intro__bottom">
             <button className="intro__button" onClick={() => setStep(1)}>
               Continue
@@ -58,7 +96,7 @@ export const Intro: React.FC<{ onClose: () => void }> = ({ onClose }) => {
           </div>
         </div>
       </div>
-      <div className={`intro__wrapper ${step === 1 ? "is-active" : ""}`}>
+      <div className={`intro__wrapper ${getStepClass(1)}`}>
         <div className={`intro__interior is-flex`}>
           <div className="intro__column">
             {/* <img src={demoImage1} /> */}
@@ -66,19 +104,27 @@ export const Intro: React.FC<{ onClose: () => void }> = ({ onClose }) => {
               <source src={demoVideo1} type="video/mp4" />
             </video>
           </div>
-          <div className="intro__column is-wide">
-            <h1>How to use it (1/2)</h1>
+          <div className="intro__column intro__description is-wide">
+            <div className="intro__title">
+              <span>
+                how to use it&nbsp;&nbsp;&nbsp;
+                <strong className="intro__highlight">(1 of 2)</strong>
+              </span>
+            </div>
             <p>
-              After this tutorial you will face long, interactive infographic -{" "}
-              <strong>the roadmap for your education</strong>. It is composed of
-              many boxes. Each box describes <strong>one subject</strong> that
-              is relevant to your education in a given moment. The roadmap is
-              linear, so there is only one path - spanning across many
-              categories displayed as columns.
+              <br />
+              after the start you will face long, interactive infographic -{" "}
+              <strong>the roadmap for your education</strong>. it is composed of
+              many boxes - each describes <strong>one subject</strong> that is
+              relevant to you at a given moment.
+            </p>
+            <p>
+              the roadmap is linear, so there is only one path - spanning across
+              many categories displayed as columns.
             </p>
 
             <section>
-              Subjects can be marked with following symbols:
+              subjects can be marked with following symbols:
               <ul>
                 <li>
                   <span className="icon icon-repeat" />
@@ -95,50 +141,67 @@ export const Intro: React.FC<{ onClose: () => void }> = ({ onClose }) => {
               </ul>
             </section>
             <div className="intro__bottom">
+              <button className="intro__button" onClick={() => setStep(0)}>
+                back
+              </button>
               <button className="intro__button" onClick={() => setStep(2)}>
-                Continue
+                continue
               </button>
             </div>
           </div>
         </div>
       </div>
-      <div className={`intro__wrapper ${step === 2 ? "is-active" : ""}`}>
+      <div className={`intro__wrapper ${getStepClass(2)}`}>
         <div className={`intro__interior is-flex`}>
           <div className="intro__column">
             <video muted autoPlay loop>
               <source src={demoVideo2} type="video/mp4" />
             </video>
           </div>
-          <div className="intro__column is-wide">
-            <h1>How to use it (2/2)</h1>
+          <div className="intro__column intro__description is-wide">
+            <h1 className="intro__title">
+              <span>
+                how to use it&nbsp;&nbsp;&nbsp;
+                <strong className="intro__highlight">(2 of 2)</strong>
+              </span>
+            </h1>
+            <p>
+              <br />
+              in the each box, you will see a summary of the subject. After
+              clicking on it, few things will appear on the left:
+            </p>
             <section>
-              In each box, you will se a summary of the subject. After clicking
-              on it, few things will appear on the left:
-              <ul>
-                <li>List of topics to cover</li>
-                <li>Proposed practices that you should exercise</li>
-                <li>List of curated links to educational material</li>
+              <ul className="intro__list">
+                <li>list of topics to cover</li>
+                <li>proposed practices that you should exercise</li>
+                <li>list of curated links to educational material</li>
               </ul>
             </section>
-            <section>
-              You can{" "}
+
+            <p>
+              you can{" "}
               <strong>mark selected topics and practices as done</strong>, so
               you can track your progress with time.
-            </section>
-            <section>
-              <strong>
-                On the bottom, you can click "resources" in order to see curated
-                list of useful links related to the subject.
+            </p>
+            <p>
+              <strong className="intro__highlight">
+                choose "resources" in order to see curated list of useful links
+                related to the subject.
               </strong>
-            </section>
-            <section>
-              Your progress is saved locally in your browser.
+            </p>
+            <p>
+              your progress is saved locally in your browser.
               <br />
-              Have fun!
-            </section>
+              <strong className="intro__title intro__highlight">
+                have fun!
+              </strong>
+            </p>
             <div className="intro__bottom">
-              <button className="intro__button" onClick={onClose}>
-                Begin!
+              <button className="intro__button" onClick={() => setStep(1)}>
+                back
+              </button>
+              <button className="intro__button" onClick={close}>
+                start
               </button>
             </div>
           </div>

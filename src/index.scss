@@ -1,5 +1,6 @@
 @import url("https://fonts.googleapis.com/css?family=Lato:300,400,700,900&display=swap&subset=latin-ext");
 
+@import "./common/reset.scss";
 @import "./common/icons.scss";
 @import "./common/common.scss";
 
@@ -125,6 +126,7 @@ body.mobile {
     padding-inline-start: 20px;
     > li {
       line-height: 16px;
+      list-style-type: circle;
     }
   }
 

@@ -23,6 +23,7 @@ $sidepane-padding-right: 24px;
   overflow: hidden;
   height: calc(100vh - 32px);
   flex-direction: column;
+  padding-top: 24px;
 
   code {
     background-color: rgba(255, 255, 255, 0.15);
@@ -31,58 +32,66 @@ $sidepane-padding-right: 24px;
 
   &__nav {
     width: 100%;
-    height: 24px;
+    flex: 0 0 auto;
+    height: 32px;
     margin: 0;
-    // background-color: rgba(76, 76, 156, 1);
-    background-color: transparent;
+    margin-top: 24px;
+    overflow: hidden;
     display: flex;
-    //padding: 0 24px;
     .fill-start {
       flex: 0 0 24px;
     }
 
     button {
-      flex: 1;
+      transition: background-color 0.12s ease;
+      width: 100%;
+      font-size: 10px;
+      text-transform: uppercase;
       background-color: rgba(76, 76, 156, 1);
       border: 0;
       color: rgba(255, 255, 255, 0.6);
-      // margin: 0 2px;
-      // border-top-left-radius: 3px;
-      // border-top-right-radius: 3px;
-      // background: linear-gradient(
-      //   to bottom,
-      //   rgba(76, 76, 156, 0.4) 0%,
-      //   rgba(76, 76, 156, 0) 40%
-      // );
-      // background-color: rgba(76, 76, 156, 0.4);
       background-color: rgb(53, 52, 85);
-      border-top: 1px solid rgba(255, 255, 255, 0.4);
-      border-left: 1px solid rgba(255, 255, 255, 0.4);
-      border-right: 1px solid rgba(255, 255, 255, 0.4);
-      border-bottom: 1px solid rgba(255, 255, 255, 0.4);
+      background-color: rgba(76, 76, 156, 0.4);
+      // padding-left: 12px;
+      font-weight: bold;
+      display: flex;
+      align-items: center;
+      padding-top: 0;
+      padding-bottom: 0;
+      text-align: center;
+      justify-content: center;
 
-      &:first-of-type {
-        border-top-left-radius: 4px;
-        border-bottom-left-radius: 4px;
-        border-right: none;
+      img {
+        height: 16px;
+        width: 16px;
+        margin-right: 4px;
+        vertical-align: middle;
+        opacity: 0.3;
+      }
+
+      span {
+        line-height: 32px;
+        height: 32px;
+        display: block;
       }
 
       &:last-of-type {
-        border-top-right-radius: 4px;
-        border-bottom-right-radius: 4px;
         border-left: none;
+      }
+
+      &:hover {
+        background-color: rgba(76, 76, 156, 0.6);
       }
 
       &.is-active {
         color: white;
-        // background: linear-gradient(
-        //   to bottom,
-        //   rgba(76, 76, 156, 1) 0%,
-        //   rgba(76, 76, 156, 0.3) 100%
-        // );
+
+        img {
+          opacity: 1;
+        }
+
         background-color: rgba(76, 76, 156, 1);
-        font-weight: bold;
-        // border-top: 1px solid rgba(255, 255, 255, 0.8);
+        z-index: 1;
       }
     }
   }
@@ -90,13 +99,22 @@ $sidepane-padding-right: 24px;
   &__description {
     font-size: 13px;
     line-height: 24px;
+    flex: 0 0 auto;
     @include sidepane-padding;
   }
 
+  &__index {
+    @include sidepane-padding;
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.25);
+    margin-bottom: 12px;
+  }
   &__header {
     flex: 0 0 auto;
     font-size: 32px;
     @include sidepane-padding;
+    margin-bottom: 12px;
+    line-height: 38px;
 
     @media (max-width: 1150px) {
       font-size: 24px;
@@ -107,11 +125,12 @@ $sidepane-padding-right: 24px;
   &__link-header {
     font-weight: bold;
     position: relative;
-    font-size: 18px;
+    font-size: 16px;
     color: white;
     // padding-left: 20px;
     // border-top: 1px dashed rgba(255, 255, 255, 0.3);
-    padding-top: 16px;
+    padding-top: 20px;
+    margin-bottom: 12px;
 
     @include sidepane-padding;
 
@@ -137,6 +156,9 @@ $sidepane-padding-right: 24px;
     flex: 1;
     overflow: hidden;
     overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+
     &::-webkit-scrollbar {
       width: 6px;
       position: relative;
@@ -182,6 +204,7 @@ $sidepane-padding-right: 24px;
     font-size: 14px;
     line-height: 24px;
     background-color: rgba(0, 0, 0, 0.5);
+    flex: 1;
     @media (max-width: 1150px) {
       font-size: 12px;
     }
@@ -197,6 +220,7 @@ $sidepane-padding-right: 24px;
       // border-top: 1px dashed rgba(255, 255, 255, 0.3);
       line-height: 24px;
       padding-top: 12px;
+      flex: 0 0 auto;
     }
   }
 

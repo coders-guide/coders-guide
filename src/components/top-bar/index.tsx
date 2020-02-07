@@ -14,9 +14,9 @@ export const TopBar: React.FC<{
     <div className="top-bar">
       <img className="top-bar__product-logo" src={productLogo} />
       <div className="top-bar__title">
-        roadmap from junior developer towards seniority{" "}
-        <span className="top-bar__subtitle">AKA</span> your interactive
-        education plan
+        interactive roadmap to help you learn{" "}
+        <span className="top-bar__subtitle">how to code</span>
+        {/* <span className="top-bar__subtitle">AKA</span> your coding education plan */}
       </div>
 
       <div className="top-bar__plan-select">
