@@ -100,15 +100,15 @@ export const DesktopApp = () => {
       diagram.current.setNodes([]);
       diagram.current.on("RenderRequested", refreshUI);
 
-      try {
-        const localStoragePan = JSON.parse(
-          localStorage.getItem(LOCAL_STORAGE_KEY_CURRENT_PAN) || "null"
-        );
-        if (localStoragePan) {
-          diagram.current.panTo(-localStoragePan.panX, -localStoragePan.panY);
-          diagram.current.setShouldRenderCaptions(true);
-        }
-      } catch {}
+      // try {
+      //   const localStoragePan = JSON.parse(
+      //     localStorage.getItem(LOCAL_STORAGE_KEY_CURRENT_PAN) || "null"
+      //   );
+      //   if (localStoragePan) {
+      //     diagram.current.panTo(-localStoragePan.panX, -localStoragePan.panY);
+      //     diagram.current.setShouldRenderCaptions(true);
+      //   }
+      // } catch {}
 
       diagram.current.on("PanAnimationFinished", () => {
         if (!diagram.current) {

@@ -115,10 +115,19 @@
     }
   }
   &__content {
+    em {
+      font-style: italic;
+    }
+
+    strong {
+      font-weight: bold;
+    }
+
     position: relative;
     padding: 10px;
     font-size: 20px;
     line-height: 32px;
+
     background: linear-gradient(
       to bottom,
       rgba(255, 255, 255, 1) 0%,

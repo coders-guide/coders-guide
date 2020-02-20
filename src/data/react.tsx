@@ -244,7 +244,7 @@ export const list: RoadmapEntry[] = [
     summary:
       "Now, you will start to learn programming for real.\nTemporarily put aside your current HTML/CSS efforts. Write your first JavaScript code and learn the basics of scripting.\nUnderstand generic concepts and common building blocks of programming languages.",
     description:
-      "Start with extending your HTML code with `<script> tags. Step by step, try to put new code portions in your script and observe how does it work.",
+      "Start with extending your HTML code with `<script>` tags. Step by step, try to put new code portions in your script and observe how does it work.",
     topics: [
       "Basic console output (`console.log`)",
       "Assigning values to variables (`let`, `const`)",
@@ -810,7 +810,7 @@ export const list: RoadmapEntry[] = [
     type: "heading",
     title: "Milestone: software developer",
     description:
-      "Congratulations - you have acquired your first developer skills and with proper guidance, you can add new functionalities to web applications. From now on, you will learn how to become more and more autonomous by learning new tools and approaches.\nKeep going!",
+      "*Congratulations* - you have acquired your first developer skills and with proper guidance, you can add new functionalities to web applications.\nFrom now on, you will learn how to become more and more autonomous by learning new tools and approaches.\n*Keep going!*",
     repeatable: false,
     difficult: false
   },

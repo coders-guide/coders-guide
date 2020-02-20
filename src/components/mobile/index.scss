@@ -97,14 +97,6 @@ body.is-scroll-blocked {
   }
 }
 
-.m-current-subject {
-  opacity: 1;
-  &.is-deactivated {
-    transition: opacity 0.5s ease;
-    opacity: 0;
-  }
-}
-
 .m-intro {
   position: fixed;
   top: 0;
@@ -114,12 +106,12 @@ body.is-scroll-blocked {
   opacity: 0;
 
   transition: opacity 0.2s linear;
-  font-size: 18px;
+  font-size: 14px;
   line-height: 30px;
   min-height: calc(100vh - 48px);
   max-height: calc(100vh);
   padding: 24px;
-  text-align: center;
+  text-align: left;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -127,6 +119,28 @@ body.is-scroll-blocked {
   // color: #73ffa5;
   color: white;
   z-index: 50;
+
+  &__headline {
+    font-size: 18px;
+    text-align: center;
+    font-weight: bold;
+    line-height: 120%;
+    padding-bottom: 24px;
+    border-bottom: 1px dashed rgba(255, 255, 255, 0.3);
+    margin: 12px 0;
+  }
+
+  &__list {
+    text-align: left;
+    img {
+      width: 12px;
+      height: 12px;
+      margin-right: 8px;
+    }
+    width: auto;
+    padding-bottom: 24px;
+    border-bottom: 1px dashed rgba(255, 255, 255, 0.3);
+  }
 
   &__start-button {
     background-color: lighten(rgba(76, 76, 156, 0.95), 10%);
@@ -263,6 +277,14 @@ body.is-scroll-blocked {
     font-size: 14px;
     line-height: 24px;
 
+    strong {
+      font-weight: bold;
+    }
+
+    em {
+      font-style: italic;
+    }
+
     h3 {
       margin: 0;
     }
@@ -393,6 +415,28 @@ body.is-scroll-blocked {
   }
 }
 
+$transition-time: 0.2s;
+
+.m-current-subject {
+  opacity: 1;
+
+  transform: translate(0vw, 0);
+  &.is-deactivated,
+  &.is-moving-left {
+    transition: transform $transition-time linear,
+      opacity ($transition-time * 2) ease;
+  }
+  &.is-deactivated {
+    opacity: 0;
+  }
+  &.is-moving-left {
+    transform: translate(-100vw, 0);
+  }
+  &.is-moving-right {
+    transform: translate(100vw, 0);
+  }
+}
+
 .m-other-subject {
   position: fixed;
   top: 142px;
@@ -411,7 +455,7 @@ body.is-scroll-blocked {
   z-index: 2;
   opacity: 0;
   // transition: transform 2.8s linear, opacity 2.8s linear;
-  transition: opacity 0.2s linear, transform 0.2s linear;
+  transition: opacity $transition-time linear, transform $transition-time linear;
 
   &.is-activated {
     opacity: 1;

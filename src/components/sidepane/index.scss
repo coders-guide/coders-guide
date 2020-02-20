@@ -30,6 +30,10 @@ $sidepane-padding-right: 24px;
     margin: 0 3px;
   }
 
+  em {
+    font-style: italic;
+  }
+
   &__nav {
     width: 100%;
     flex: 0 0 auto;
@@ -106,8 +110,9 @@ $sidepane-padding-right: 24px;
   &__index {
     @include sidepane-padding;
     font-size: 14px;
-    color: rgba(255, 255, 255, 0.25);
+    color: rgba(255, 255, 255, 0.35);
     margin-bottom: 12px;
+    font-weight: lighter;
   }
   &__header {
     flex: 0 0 auto;
