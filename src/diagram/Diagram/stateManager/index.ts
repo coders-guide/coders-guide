@@ -106,7 +106,12 @@ export class StateManager {
       y: -this.theme.node.height * 3
     });
   };
-  centerOnNode = (node: Node, padX?: number, padY?: number) => {
+  centerOnNode = (
+    node: Node,
+    padX?: number,
+    padY?: number,
+    disableAnimation?: boolean
+  ) => {
     const foundIndex = this.state.nodes.indexOf(node);
 
     if (foundIndex > -1) {
@@ -114,7 +119,8 @@ export class StateManager {
         Events.DiagramEvents.CenterOnNode,
         node,
         padX,
-        padY
+        padY,
+        disableAnimation
       );
     }
   };

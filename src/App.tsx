@@ -11,7 +11,7 @@ import { list as rawReactDataSet } from "./data/react";
 import { gtagEvent } from "./utils/gtag.js";
 import { useGoals } from "./utils/hooks/useGoals";
 import { useActiveNode } from "./utils/hooks/useActiveNode";
-import { LOCAL_STORAGE_KEY_CURRENT_PAN } from "./common/constants";
+// import { LOCAL_STORAGE_KEY_CURRENT_PAN } from "./common/constants";
 
 // TODO: make it dynamic
 const reactDataSet = prepareData(rawReactDataSet);
@@ -35,44 +35,46 @@ export const DesktopApp = () => {
   let diagram = React.useRef<Diagram | null>(null);
   let globalNodes = React.useRef<Node<{}>[] | null>(null);
 
-  const setupNodes = () => {
-    window.requestAnimationFrame(() => {
-      if (!containerRef.current || !diagram.current) {
-        return;
-      }
+  const setupNodes = () =>
+    new Promise(resolve => {
+      (window.requestAnimationFrame || window.setTimeout)(() => {
+        if (!containerRef.current || !diagram.current) {
+          return;
+        }
 
-      const nodeContainer = containerRef.current.children[0];
+        const nodeContainer = containerRef.current.children[0];
 
-      const nodes = (Array.from(nodeContainer.children).filter(
-        n => n.classList.contains("record") || n.classList.contains("heading")
-      ) as HTMLElement[]).map((nodeElement, i) => {
-        const categoryIndex = parseInt(
-          nodeElement.dataset["category"] || "0",
-          10
-        );
-        const definition = {
-          id: i.toString(),
-          width: nodeElement.offsetWidth * 2,
-          height: nodeElement.offsetHeight * 2,
-          category: nodeElement.dataset["category"],
-          type: `type${i}`,
-          node: {}
-        };
+        const nodes = (Array.from(nodeContainer.children).filter(
+          n => n.classList.contains("record") || n.classList.contains("heading")
+        ) as HTMLElement[]).map((nodeElement, i) => {
+          const categoryIndex = parseInt(
+            nodeElement.dataset["category"] || "0",
+            10
+          );
+          const definition = {
+            id: i.toString(),
+            width: nodeElement.offsetWidth * 2,
+            height: nodeElement.offsetHeight * 2,
+            category: nodeElement.dataset["category"],
+            type: `type${i}`,
+            node: {}
+          };
 
-        return {
-          definition,
-          x: categoryIndex * 460 * 2,
-          y: nodeElement.offsetTop * 2,
-          id: `node${i}`,
-          options: [],
-          name: ""
-        };
+          return {
+            definition,
+            x: categoryIndex * 460 * 2,
+            y: nodeElement.offsetTop * 2,
+            id: `node${i}`,
+            options: [],
+            name: ""
+          };
+        });
+
+        globalNodes.current = nodes;
+        diagram.current.setNodes(nodes);
+        resolve();
       });
-
-      globalNodes.current = nodes;
-      diagram.current.setNodes(nodes);
     });
-  };
 
   const refreshUI = () => {
     window.requestAnimationFrame(() => {
@@ -110,25 +112,29 @@ export const DesktopApp = () => {
       //   }
       // } catch {}
 
-      diagram.current.on("PanAnimationFinished", () => {
-        if (!diagram.current) {
-          return;
-        }
-        const { panX, panY } = diagram.current.getDirectTransform();
-        localStorage.setItem(
-          LOCAL_STORAGE_KEY_CURRENT_PAN,
-          JSON.stringify({ panX, panY })
-        );
-      });
+      // diagram.current.on("PanAnimationFinished", () => {
+      //   if (!diagram.current) {
+      //     return;
+      //   }
+      //   const { panX, panY } = diagram.current.getDirectTransform();
+      //   localStorage.setItem(
+      //     LOCAL_STORAGE_KEY_CURRENT_PAN,
+      //     JSON.stringify({ panX, panY })
+      //   );
+      // });
 
-      setupNodes();
+      setupNodes().then(() => {
+        centerOnNode(activeNode, true);
+      });
       refreshUI();
     }
   }, []);
 
+  React.useLayoutEffect(() => {});
+
   const setActiveNodeAndCenter = (nodeIndex: number) => {
     setActiveNode(nodeIndex);
-    centerOnActiveNode(nodeIndex);
+    centerOnNode(nodeIndex);
   };
 
   React.useEffect(() => {
@@ -142,7 +148,7 @@ export const DesktopApp = () => {
     gtagEvent(activeNode);
   }, [activeNode]);
 
-  const centerOnActiveNode = (nodeIndex?: number) => {
+  const centerOnNode = (nodeIndex?: number, disableAnimation?: boolean) => {
     if (!diagram.current || !globalNodes.current) {
       return;
     }
@@ -154,12 +160,13 @@ export const DesktopApp = () => {
     diagram.current.centerOnNode(
       globalNodes.current[nodeIndex || activeNode],
       element.offsetWidth * 2,
-      element.offsetHeight * 2
+      element.offsetHeight * 2,
+      disableAnimation
     );
   };
 
   React.useEffect(() => {
-    centerOnActiveNode();
+    centerOnNode();
   }, [activeNode]);
 
   return (

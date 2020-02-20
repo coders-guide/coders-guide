@@ -17,12 +17,10 @@ const render = (Component: React.ComponentType) => {
 Promise.all([font.load("10pt Lato")]).then(() => {
   window.requestAnimationFrame(() => {
     if (!mobileAndTabletCheck()) {
-      document.documentElement.className = "desktop";
-      document.body.className = "desktop";
+      document.documentElement.className = document.body.className = "desktop";
       render(DesktopApp);
     } else {
-      document.documentElement.className = "mobile";
-      document.body.className = "mobile";
+      document.documentElement.className = document.body.className = "mobile";
       render(MobileApp);
     }
   });

@@ -146,13 +146,18 @@ export class UIManager {
     };
   };
 
-  centerOnNode = (n: Node, padX?: number, padY?: number) => {
-    if (!this.autoPanSmoothing) {
+  centerOnNode = (
+    n: Node,
+    padX?: number,
+    padY?: number,
+    disableAnimation?: boolean
+  ) => {
+    if (!this.autoPanSmoothing || disableAnimation) {
       this.state.panX =
-        -(n.x + this.theme.node.width / 2) +
+        -(n.x + (padX || this.theme.node.width) / 2) +
         this.state.areaSize.width / 2 / this.state.scale;
       this.state.panY =
-        -(n.y + this.theme.node.height / 2) +
+        -(n.y + (padY || this.theme.node.height) / 2) +
         this.state.areaSize.height / 2 / this.state.scale;
     } else {
       this.state.targetPanX =

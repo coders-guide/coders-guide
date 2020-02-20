@@ -44,8 +44,13 @@ export class Diagram {
       .sort((a, b) => a.definition.zindex! - b.definition.zindex!);
     this.stateManager.setNodes(sortedNodes);
   }
-  centerOnNode(node: Node, padX?: number, padY?: number) {
-    this.stateManager.centerOnNode(node, padX, padY);
+  centerOnNode(
+    node: Node,
+    padX?: number,
+    padY?: number,
+    disableAnimation?: boolean
+  ) {
+    this.stateManager.centerOnNode(node, padX, padY, disableAnimation);
   }
   selectNode(node: Node) {
     this.stateManager.selectNode(node);
