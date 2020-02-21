@@ -1,7 +1,7 @@
 import * as React from "react";
 import { Diagram, Node } from "./diagram";
 import { NodeList } from "./components/node-list";
-import { Intro } from "./components/intro";
+import { WelcomeScreen } from "./components/welcome-screen";
 import { HelpDisplayMode } from "./types";
 import { prepareData, setScaleIndicator } from "./utils";
 import { TopBar } from "./components/top-bar";
@@ -11,7 +11,10 @@ import { list as rawReactDataSet } from "./data/react";
 import { gtagEvent } from "./utils/gtag.js";
 import { useGoals } from "./utils/hooks/useGoals";
 import { useActiveNode } from "./utils/hooks/useActiveNode";
-// import { LOCAL_STORAGE_KEY_CURRENT_PAN } from "./common/constants";
+import { useIntro } from "./utils/hooks/useIntro";
+
+import noMobileIcon from "./assets/no-mobile.svg";
+import logoTransparent from "./assets/logo_updated_transparent.svg";
 
 // TODO: make it dynamic
 const reactDataSet = prepareData(rawReactDataSet);
@@ -26,11 +29,18 @@ export const DesktopApp = () => {
   const bgRef = React.useRef<HTMLDivElement | null>(null);
   const hasStarted = React.useRef<boolean>(false);
   const currentDataSet = reactDataSet;
+
+  const { runIntro, isIntroShown } = useIntro();
+
+  const isNavigationBlocked = isIntroShown;
+
   const { jumpToNode, changeNode, activeNode, setActiveNode } = useActiveNode(
-    currentDataSet
+    currentDataSet,
+    isNavigationBlocked
   );
+
   const { checkedGoals, isNodeChecked, toggleGoal } = useGoals();
-  const showIntro = activeNode === -1 || helpDisplayMode === "help";
+  const isWelcomeScreenShown = activeNode === -1 || helpDisplayMode === "help";
 
   let diagram = React.useRef<Diagram | null>(null);
   let globalNodes = React.useRef<Node<{}>[] | null>(null);
@@ -95,33 +105,28 @@ export const DesktopApp = () => {
     });
   };
 
+  const onCloseWelcomeScreen = () => {
+    if (helpDisplayMode === "help") {
+      setHelpDisplayMode(undefined);
+      setActiveNode(1);
+
+      runIntro(() => {
+        setActiveNode(activeNode);
+      });
+      return;
+    }
+    setActiveNode(1);
+    runIntro(() => {
+      setActiveNode(0);
+    });
+  };
+
   React.useEffect(() => {
     if (divRef.current) {
       diagram.current = new Diagram(divRef.current);
       diagram.current.setReadOnly(true);
       diagram.current.setNodes([]);
       diagram.current.on("RenderRequested", refreshUI);
-
-      // try {
-      //   const localStoragePan = JSON.parse(
-      //     localStorage.getItem(LOCAL_STORAGE_KEY_CURRENT_PAN) || "null"
-      //   );
-      //   if (localStoragePan) {
-      //     diagram.current.panTo(-localStoragePan.panX, -localStoragePan.panY);
-      //     diagram.current.setShouldRenderCaptions(true);
-      //   }
-      // } catch {}
-
-      // diagram.current.on("PanAnimationFinished", () => {
-      //   if (!diagram.current) {
-      //     return;
-      //   }
-      //   const { panX, panY } = diagram.current.getDirectTransform();
-      //   localStorage.setItem(
-      //     LOCAL_STORAGE_KEY_CURRENT_PAN,
-      //     JSON.stringify({ panX, panY })
-      //   );
-      // });
 
       setupNodes().then(() => {
         centerOnNode(activeNode, true);
@@ -156,6 +161,10 @@ export const DesktopApp = () => {
     const element = document.querySelector(
       `[data-node="${nodeIndex || activeNode}"]`
     ) as HTMLDivElement;
+
+    if (!element) {
+      return;
+    }
 
     diagram.current.centerOnNode(
       globalNodes.current[nodeIndex || activeNode],
@@ -216,21 +225,11 @@ export const DesktopApp = () => {
               />
             </div>
           </div>
-          {/* <div className="vignette" /> */}
+          {/* <div className="vignette" /> */
+          /* Do I need it? */}
         </div>
       </div>
-      {showIntro && (
-        <Intro
-          onClose={() => {
-            if (helpDisplayMode === "help") {
-              setHelpDisplayMode(undefined);
-              return;
-            }
-            setActiveNode(0);
-          }}
-          fadeOut={activeNode === -1}
-        />
-      )}
+      {isWelcomeScreenShown && <WelcomeScreen onClose={onCloseWelcomeScreen} />}
       <div
         className="progressbar"
         onClick={jumpToNode}
@@ -261,6 +260,19 @@ export const DesktopApp = () => {
             } ${node.type === "heading" ? "is-heading" : ""}`}
           />
         ))}
+      </div>
+      <div id="mobile-warning" className="on-desktop">
+        <div id="mobile-warning-logo">
+          <img src={logoTransparent} width="200" />
+        </div>
+        <strong>Hello there!</strong>
+        <br />
+        <br />
+        Viewport is too small. Expand your browser window in order to use the
+        app!
+        <br />
+        <br />
+        <img src={noMobileIcon} width="100" height="100" />
       </div>
     </div>
   );

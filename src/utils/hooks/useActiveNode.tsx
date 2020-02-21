@@ -2,7 +2,10 @@ import * as React from "react";
 import { RoadmapEntry } from "../../types";
 import { LOCAL_STORAGE_KEY_ACTIVE_NODE_INDEX } from "../../common/constants";
 
-export const useActiveNode = (currentDataSet: RoadmapEntry[]) => {
+export const useActiveNode = (
+  currentDataSet: RoadmapEntry[],
+  isNavigationBlocked: boolean = false
+) => {
   const [activeNode, setActiveNode] = React.useState<number>(() => {
     const activeNodeIndexString =
       localStorage.getItem(LOCAL_STORAGE_KEY_ACTIVE_NODE_INDEX) || "";
@@ -15,6 +18,9 @@ export const useActiveNode = (currentDataSet: RoadmapEntry[]) => {
   });
 
   const changeNode = (direction: number = 1) => {
+    if (isNavigationBlocked) {
+      return;
+    }
     if (
       activeNode + direction < 0 ||
       activeNode + direction > currentDataSet.length - 1
@@ -33,6 +39,9 @@ export const useActiveNode = (currentDataSet: RoadmapEntry[]) => {
     }
 
     const listener = (e: KeyboardEvent) => {
+      if (isNavigationBlocked) {
+        return;
+      }
       if (e.key === "ArrowDown" || e.key === "ArrowRight") {
         changeNode();
       }
@@ -43,9 +52,12 @@ export const useActiveNode = (currentDataSet: RoadmapEntry[]) => {
     document.addEventListener("keydown", listener);
 
     return () => document.removeEventListener("keydown", listener);
-  }, [activeNode]);
+  }, [activeNode, isNavigationBlocked]);
 
   const jumpToNode = (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
+    if (isNavigationBlocked) {
+      return;
+    }
     const mouseX = e.clientX;
     const elementWidth = e.currentTarget.getBoundingClientRect().width;
     const percentage = mouseX / elementWidth;

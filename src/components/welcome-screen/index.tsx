@@ -1,30 +1,27 @@
 import * as React from "react";
 import { isInternetExplorer } from "../../utils";
 
-import demoVideo1 from "../../assets/demo1.mp4";
-import demoVideo2 from "../../assets/demo2.mp4";
+// import demoVideo1 from "../../assets/demo1.mp4";
+// import demoVideo2 from "../../assets/demo2.mp4";
 import logo from "../../assets/logo_updated_transparent.svg";
 import { Intro as IntroComponent } from "../intro-animation";
 
 import "./index.scss";
 
-export const Intro: React.FC<{ onClose: () => void; fadeOut?: boolean }> = ({
-  onClose,
-  fadeOut = false
-}) => {
+const CLOSE_WELCOME_SCREEN_TIMEOUT = 120;
+
+export const WelcomeScreen: React.FC<{
+  onClose: () => void;
+}> = ({ onClose /* fadeOut = false */ }) => {
   const [step, setStep] = React.useState(0);
   const [fadingOut, setFadingOut] = React.useState(false);
 
   const close = () => {
-    if (fadeOut) {
-      setFadingOut(true);
-      setStep(3);
-      setTimeout(() => {
-        onClose();
-      }, 250);
-    } else {
+    setFadingOut(true);
+    setStep(1);
+    setTimeout(() => {
       onClose();
-    }
+    }, CLOSE_WELCOME_SCREEN_TIMEOUT);
   };
 
   const getStepClass = (stepIndex: number) => {
@@ -90,16 +87,16 @@ export const Intro: React.FC<{ onClose: () => void; fadeOut?: boolean }> = ({
             </div>
           </div>
           <div className="intro__bottom">
-            <button className="intro__button" onClick={() => setStep(1)}>
-              Continue
+            <button className="intro__button" onClick={() => close()}>
+              Begin
             </button>
           </div>
         </div>
       </div>
-      <div className={`intro__wrapper ${getStepClass(1)}`}>
+      {/* <div className={`intro__wrapper ${getStepClass(1)}`}>
         <div className={`intro__interior is-flex`}>
           <div className="intro__column">
-            {/* <img src={demoImage1} /> */}
+            <img src={demoImage1} />
             <video muted autoPlay loop>
               <source src={demoVideo1} type="video/mp4" />
             </video>
@@ -150,8 +147,8 @@ export const Intro: React.FC<{ onClose: () => void; fadeOut?: boolean }> = ({
             </div>
           </div>
         </div>
-      </div>
-      <div className={`intro__wrapper ${getStepClass(2)}`}>
+      </div> */}
+      {/* <div className={`intro__wrapper ${getStepClass(2)}`}>
         <div className={`intro__interior is-flex`}>
           <div className="intro__column">
             <video muted autoPlay loop>
@@ -206,7 +203,7 @@ export const Intro: React.FC<{ onClose: () => void; fadeOut?: boolean }> = ({
             </div>
           </div>
         </div>
-      </div>
+      </div> */}
     </div>
   );
 };

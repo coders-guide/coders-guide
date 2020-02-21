@@ -350,10 +350,6 @@ export const MobileApp = () => {
   const canRewind = () => activeNode > 0;
   const canForward = () => activeNode < currentDataSet.length - 1;
 
-  // const reset = () => {
-  //   setActiveNode(-1);
-  // };
-
   React.useLayoutEffect(() => {
     if (activeNode === -1) {
       setIntroDisabled(false);
