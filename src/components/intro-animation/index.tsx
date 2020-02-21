@@ -2,7 +2,7 @@ import * as React from "react";
 
 import "./index.scss";
 
-export const Intro: React.FC = () => {
+export const IntroAnimation: React.FC = () => {
   const [step, setStep] = React.useState(0);
 
   React.useEffect(() => {

@@ -1,24 +1,27 @@
 import * as React from "react";
 import { isInternetExplorer } from "../../utils";
 
-// import demoVideo1 from "../../assets/demo1.mp4";
-// import demoVideo2 from "../../assets/demo2.mp4";
 import logo from "../../assets/logo_updated_transparent.svg";
-import { Intro as IntroComponent } from "../intro-animation";
+import { IntroAnimation } from "../intro-animation";
 
 import "./index.scss";
+
+import IconReact from "../../assets/react.svg";
+import IconAngular from "../../assets/angular.svg";
+import IconQuestion from "../../assets/question.svg";
 
 const CLOSE_WELCOME_SCREEN_TIMEOUT = 120;
 
 export const WelcomeScreen: React.FC<{
   onClose: () => void;
-}> = ({ onClose /* fadeOut = false */ }) => {
+  helpOnly: boolean;
+}> = ({ onClose, helpOnly = false }) => {
   const [step, setStep] = React.useState(0);
   const [fadingOut, setFadingOut] = React.useState(false);
 
   const close = () => {
     setFadingOut(true);
-    setStep(1);
+    setStep(step + 1);
     setTimeout(() => {
       onClose();
     }, CLOSE_WELCOME_SCREEN_TIMEOUT);
@@ -56,7 +59,7 @@ export const WelcomeScreen: React.FC<{
           </header>
           <div className="intro__column-set">
             <div className="intro__column-1 intro__animation">
-              <IntroComponent />
+              <IntroAnimation />
             </div>
             <div className="intro__column-1 intro__description">
               <div className="intro__title">
@@ -87,40 +90,36 @@ export const WelcomeScreen: React.FC<{
             </div>
           </div>
           <div className="intro__bottom">
-            <button className="intro__button" onClick={() => close()}>
-              Begin
+            <button
+              className="intro__button"
+              onClick={() => (helpOnly ? close() : setStep(1))}
+            >
+              Continue
             </button>
           </div>
         </div>
       </div>
-      {/* <div className={`intro__wrapper ${getStepClass(1)}`}>
+      <div className={`intro__wrapper ${getStepClass(1)}`}>
         <div className={`intro__interior is-flex`}>
-          <div className="intro__column">
-            <img src={demoImage1} />
-            <video muted autoPlay loop>
-              <source src={demoVideo1} type="video/mp4" />
-            </video>
-          </div>
-          <div className="intro__column intro__description is-wide">
+          <div className="intro__description">
             <div className="intro__title">
-              <span>
-                how to use it&nbsp;&nbsp;&nbsp;
-                <strong className="intro__highlight">(1 of 2)</strong>
-              </span>
+              <span>choose your path</span>
             </div>
-            <p>
-              <br />
-              after the start you will face long, interactive infographic -{" "}
-              <strong>the roadmap for your education</strong>. it is composed of
-              many boxes - each describes <strong>one subject</strong> that is
-              relevant to you at a given moment.
-            </p>
-            <p>
-              the roadmap is linear, so there is only one path - spanning across
-              many categories displayed as columns.
-            </p>
 
-            <section>
+            <div className="intro__path-select">
+              <div className="intro__path-select__option is-selected">
+                <img src={IconReact} alt="React" /> Web full-stack developer
+                specialized in React
+              </div>
+              <div className="intro__path-select__option is-disabled">
+                <img src={IconAngular} alt="Coming soon" /> Coming soon...
+              </div>
+              <div className="intro__path-select__option is-disabled">
+                <img src={IconQuestion} alt="Coming soon" /> Coming soon...
+              </div>
+            </div>
+
+            {/* <section>
               subjects can be marked with following symbols:
               <ul>
                 <li>
@@ -136,74 +135,18 @@ export const WelcomeScreen: React.FC<{
                   and if possible, should not be skipped
                 </li>
               </ul>
-            </section>
+            </section> */}
             <div className="intro__bottom">
               <button className="intro__button" onClick={() => setStep(0)}>
                 back
               </button>
-              <button className="intro__button" onClick={() => setStep(2)}>
-                continue
+              <button className="intro__button" onClick={() => close()}>
+                begin
               </button>
             </div>
           </div>
         </div>
-      </div> */}
-      {/* <div className={`intro__wrapper ${getStepClass(2)}`}>
-        <div className={`intro__interior is-flex`}>
-          <div className="intro__column">
-            <video muted autoPlay loop>
-              <source src={demoVideo2} type="video/mp4" />
-            </video>
-          </div>
-          <div className="intro__column intro__description is-wide">
-            <h1 className="intro__title">
-              <span>
-                how to use it&nbsp;&nbsp;&nbsp;
-                <strong className="intro__highlight">(2 of 2)</strong>
-              </span>
-            </h1>
-            <p>
-              <br />
-              in the each box, you will see a summary of the subject. After
-              clicking on it, few things will appear on the left:
-            </p>
-            <section>
-              <ul className="intro__list">
-                <li>list of topics to cover</li>
-                <li>proposed practices that you should exercise</li>
-                <li>list of curated links to educational material</li>
-              </ul>
-            </section>
-
-            <p>
-              you can{" "}
-              <strong>mark selected topics and practices as done</strong>, so
-              you can track your progress with time.
-            </p>
-            <p>
-              <strong className="intro__highlight">
-                choose "resources" in order to see curated list of useful links
-                related to the subject.
-              </strong>
-            </p>
-            <p>
-              your progress is saved locally in your browser.
-              <br />
-              <strong className="intro__title intro__highlight">
-                have fun!
-              </strong>
-            </p>
-            <div className="intro__bottom">
-              <button className="intro__button" onClick={() => setStep(1)}>
-                back
-              </button>
-              <button className="intro__button" onClick={close}>
-                start
-              </button>
-            </div>
-          </div>
-        </div>
-      </div> */}
+      </div>
     </div>
   );
 };

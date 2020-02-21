@@ -115,7 +115,7 @@ body.mobile {
   position: fixed;
   top: 36px;
   right: 4px;
-  background-color: black;
+  background-color: rgba(76, 76, 156, 0.95);
   color: white;
   z-index: 10;
   padding: 8px 16px 8px 8px;
@@ -134,18 +134,18 @@ body.mobile {
     position: absolute;
     top: 4px;
     right: 4px;
-    background-color: black;
-    border: 1px solid white;
     color: white;
     width: 20px;
     height: 20px;
+    background-color: rgba(#fff, 0);
     padding: 0;
+    border: 1px solid white;
     font-size: 10px;
     font-weight: bold;
     cursor: pointer;
 
     &:hover {
-      background-color: #333;
+      background-color: rgba(#fff, 0.3);
     }
   }
 

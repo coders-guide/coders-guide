@@ -11,7 +11,7 @@ import { list as rawReactDataSet } from "./data/react";
 import { gtagEvent } from "./utils/gtag.js";
 import { useGoals } from "./utils/hooks/useGoals";
 import { useActiveNode } from "./utils/hooks/useActiveNode";
-import { useIntro } from "./utils/hooks/useIntro";
+import { useIntro, DESKTOP_STEPS } from "./utils/hooks/useIntro";
 
 import noMobileIcon from "./assets/no-mobile.svg";
 import logoTransparent from "./assets/logo_updated_transparent.svg";
@@ -30,7 +30,7 @@ export const DesktopApp = () => {
   const hasStarted = React.useRef<boolean>(false);
   const currentDataSet = reactDataSet;
 
-  const { runIntro, isIntroShown } = useIntro();
+  const { runIntro, isIntroShown } = useIntro(DESKTOP_STEPS);
 
   const isNavigationBlocked = isIntroShown;
 
@@ -229,7 +229,12 @@ export const DesktopApp = () => {
           /* Do I need it? */}
         </div>
       </div>
-      {isWelcomeScreenShown && <WelcomeScreen onClose={onCloseWelcomeScreen} />}
+      {isWelcomeScreenShown && (
+        <WelcomeScreen
+          helpOnly={helpDisplayMode === "help"}
+          onClose={onCloseWelcomeScreen}
+        />
+      )}
       <div
         className="progressbar"
         onClick={jumpToNode}

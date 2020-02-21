@@ -271,18 +271,23 @@
   &__button {
     color: white;
     display: inline-block;
-    padding: 12px;
+    padding: 12px 20px;
     border-radius: 10px;
     border: 2px solid rgba(255, 255, 255, 0.4);
     background-color: rgba(76, 76, 156, 1);
     font-size: 20px;
     font-weight: bold;
     pointer-events: all;
-    width: 300px;
+    width: 400px;
     position: relative;
     text-transform: uppercase;
     &:hover {
       background-color: lighten(rgba(76, 76, 156, 1), 10%);
+    }
+    img {
+      width: 20px;
+      height: 20px;
+      vertical-align: middle;
     }
   }
 }

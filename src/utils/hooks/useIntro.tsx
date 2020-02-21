@@ -3,7 +3,31 @@ import IntroJS, { Options } from "intro.js";
 import "intro.js/introjs.css";
 import "../styles/intro-override.scss";
 
-const INTRO_STEPS = [
+export type IntroStep = {
+  text: string;
+  selector?: string;
+  lightHighlight?: boolean;
+  isSidepaneHint?: boolean;
+};
+
+export const MOBILE_STEPS: IntroStep[] = [
+  {
+    text: "Use this arrow to move to the next subject",
+    selector: ".m-subject__button.is-right"
+  },
+  {
+    text:
+      "In this place, you will see what the subject is about. You can expect to see general guidelines and suggestions here.",
+    selector: ".m-current-subject .m-subject__description"
+  },
+  {
+    text:
+      "Each subject contain list of subtopics to cover and <strong>links with educational material</strong>. Many of them also have suggested practices, check them out!",
+    selector: ".m-current-subject .m-goal-list"
+  }
+];
+
+export const DESKTOP_STEPS: IntroStep[] = [
   {
     text:
       '<header>Welcome to the roadmap!</header><p>Click "next" button to start the short tour.</p>',
@@ -12,22 +36,26 @@ const INTRO_STEPS = [
   {
     text:
       "<header>Subject title</header><p>You will see the name of your currently selected subject here.</p>",
-    selector: ".sidepane__header"
+    selector: ".sidepane__header",
+    isSidepaneHint: true
   },
   {
     text:
       "<header>Subject description</header><p>In this place, you will see what the subject is about. You can expect to see general guidelines and suggestions here.</p>",
-    selector: ".sidepane__description"
+    selector: ".sidepane__description",
+    isSidepaneHint: true
   },
   {
     text:
-      "<header>Subject tabs</header><p>Each subject contain list of subtopics to cover and <strong>links with educational material</strong>. Many of them also have suggested practices, check it out!</p>",
-    selector: ".sidepane__nav"
+      "<header>Subject tabs</header><p>Each subject contain list of subtopics to cover and <strong>links with educational material</strong>. Many of them also have suggested practices, check them out!</p>",
+    selector: ".sidepane__nav",
+    isSidepaneHint: true
   },
   {
     text:
       "<header>Subtopics, practices and links</header><p>Depending on selected tab, you will see list of either topics, practices or links in this place.</p><p><strong>In case of topics and practices, you can click on them in order to mark it as completed.</strong></p>",
-    selector: ".sidepane__content"
+    selector: ".sidepane__content",
+    isSidepaneHint: true
   },
   {
     text:
@@ -89,11 +117,9 @@ const waitForElements = (selectorList: string[]) => {
   });
 };
 
-export const useIntro = () => {
+export const useIntro = (steps: IntroStep[]) => {
   const [isIntroShown, setIntroShown] = React.useState(false);
-  const elementList = INTRO_STEPS.map(p => p.selector).filter(
-    Boolean
-  ) as string[];
+  const elementList = steps.map(p => p.selector).filter(Boolean) as string[];
   const runIntro = (closeCallback: () => void) => {
     waitForElements(elementList).then(() => {
       const intro = IntroJS();
@@ -110,12 +136,11 @@ export const useIntro = () => {
       };
       const setSteps = () => {
         intro.setOptions({
-          steps: INTRO_STEPS.map((step, index) => ({
+          steps: steps.map((step, index) => ({
             intro: step.text,
-            position: "right",
             highlightClass: step.lightHighlight ? "is-light" : undefined,
-            tooltipClass:
-              index === INTRO_STEPS.length - 1 ? "is-last" : undefined,
+            tooltipClass: index === steps.length - 1 ? "is-last" : undefined,
+            position: step.isSidepaneHint ? "right" : undefined,
             element: step.selector
               ? document.querySelector(step.selector) || undefined
               : undefined

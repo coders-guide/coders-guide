@@ -6,6 +6,7 @@ import { getUrlDomain, isVideoLink } from "../../utils";
 import targetIcon from "../../assets/target.svg";
 import gymIcon from "../../assets/gym.svg";
 import linkIcon from "../../assets/link2.svg";
+import checkIcon from "../../assets/check-white.svg";
 
 type SidepaneMode = "topics" | "practices" | "links";
 
@@ -13,7 +14,15 @@ const SidepaneNav: React.FC<{
   activeNode: RoadmapEntry;
   sidepaneMode: SidepaneMode;
   setSidepaneMode: (mode: SidepaneMode) => void;
-}> = ({ activeNode, sidepaneMode, setSidepaneMode }) => {
+  topicsDone?: boolean;
+  practicesDone?: boolean;
+}> = ({
+  activeNode,
+  sidepaneMode,
+  setSidepaneMode,
+  topicsDone = false,
+  practicesDone = false
+}) => {
   const tabsCount =
     (activeNode.topics?.length ? 1 : 0) +
     (activeNode.practices?.length ? 1 : 0) +
@@ -25,10 +34,10 @@ const SidepaneNav: React.FC<{
         <button
           className={`is-one-of-${tabsCount} ${
             sidepaneMode === "topics" ? "is-active" : ""
-          }`}
+          } ${topicsDone ? "is-completed" : ""}`}
           onClick={() => setSidepaneMode("topics")}
         >
-          <img src={targetIcon} />
+          <img src={topicsDone ? checkIcon : targetIcon} />
           <span>Topics</span>
         </button>
       )}
@@ -36,10 +45,10 @@ const SidepaneNav: React.FC<{
         <button
           className={`is-one-of-${tabsCount} ${
             sidepaneMode === "practices" ? "is-active" : ""
-          }`}
+          } ${practicesDone ? "is-completed" : ""}`}
           onClick={() => setSidepaneMode("practices")}
         >
-          <img src={gymIcon} />
+          <img src={practicesDone ? checkIcon : gymIcon} />
           <span>Practices</span>
         </button>
       )}
@@ -223,11 +232,17 @@ export const Sidepane: React.FC<{
     goal => goal >= (activeNode.topics?.length || 0)
   );
 
+  const topicsDone = topicsChecked.length === activeNode.topics?.length;
+  const practicesDone =
+    practicesChecked.length === activeNode.practices?.length;
+
   return (
     <>
       {isSubjectNode && (
         <>
-          <h3 className="sidepane__index">subject #{activeNodeIndex}</h3>
+          <div className="sidepane__top-bar">
+            <h3 className="sidepane__index">subject #{activeNodeIndex}</h3>
+          </div>
           <h1 className="sidepane__header">{activeNode.title}</h1>
 
           <div className="sidepane__scrollable">
@@ -254,6 +269,8 @@ export const Sidepane: React.FC<{
               activeNode={activeNode}
               sidepaneMode={sidepaneMode}
               setSidepaneMode={setSidepaneMode}
+              topicsDone={topicsDone}
+              practicesDone={practicesDone}
             />
             <div className="sidepane__content">
               {sidepaneMode === "topics" && (

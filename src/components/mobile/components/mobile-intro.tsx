@@ -1,6 +1,7 @@
 import * as React from "react";
 import logoImageTransparent from "../../../assets/logo_updated_transparent.svg";
 import checkIcon from "../../../assets/check-white.svg";
+import desktopScreenshot from "../../../assets/desktop-screenshot.jpg";
 
 export const MobileIntro: React.FC<{ onFinish: () => void }> = ({
   onFinish
@@ -24,9 +25,9 @@ export const MobileIntro: React.FC<{ onFinish: () => void }> = ({
         <span>
           <img src={logoImageTransparent} className="m-intro__logo" />
           <div className="m-intro__headline">
-            Interactive roadmap
+            open-source interactive roadmap
             <br />
-            helping you learn to code
+            to help you learn <strong>how to code</strong>
           </div>
           <ul className="m-intro__list">
             <li>
@@ -35,11 +36,11 @@ export const MobileIntro: React.FC<{ onFinish: () => void }> = ({
             </li>
             <li>
               <img src={checkIcon} />
-              progress tracker
+              curated resource links
             </li>
             <li>
               <img src={checkIcon} />
-              curated resource links
+              includes progress tracker
             </li>
           </ul>
           <button
@@ -52,22 +53,35 @@ export const MobileIntro: React.FC<{ onFinish: () => void }> = ({
       </div>
       <div className={`m-intro__step ${getStepClass(1)}`}>
         <span>
-          <header className="m-intro__logo" />
-          Interactive roadmap for learning coding, including progress tracker
-          and curated resource links.
+          <div className="m-intro__headline">
+            your developer education in one place, from zero to hero
+          </div>
+          <span>
+            Step by step, you will get guidelines describing what subject should
+            you focus on. Also, you will get a curated list of links to
+            educational material to as well. One topic at once.
+          </span>
           <button
             onClick={() => setStep(2)}
             className={`m-intro__start-button`}
           >
-            Start
+            Next
           </button>
         </span>
       </div>
       <div className={`m-intro__step ${getStepClass(2)}`}>
         <span>
-          <header className="m-intro__logo" />
-          Interactive roadmap for learning coding, including progress tracker
-          and curated resource links.
+          <div className="m-intro__headline">
+            check out desktop version as well
+          </div>
+          <span>
+            open this website on your desktop computer and experience all of the
+            features!
+            <img
+              className="m-intro__desktop-screenshot"
+              src={desktopScreenshot}
+            />
+          </span>
           <button
             onClick={() => setStep(3)}
             className={`m-intro__start-button`}

@@ -9,6 +9,7 @@ import { RoadmapEntry, MobileAnimationState } from "../../types";
 import { useGoals } from "../../utils/hooks/useGoals";
 import logoImage from "../../assets/logo_updated.svg";
 import { MobileIntro } from "./components/mobile-intro";
+import { useIntro, MOBILE_STEPS } from "../../utils/hooks/useIntro";
 
 const MobileListHeader: React.FC<{
   goalsChecked?: number[];
@@ -306,6 +307,7 @@ export const MobileApp = () => {
     currentDataSet
   );
   const [isMenuShown, setMenuShown] = React.useState(false);
+  const { runIntro /* isIntroShown */ } = useIntro(MOBILE_STEPS);
 
   const animateNextNode = (direction?: number) => {
     if (animatedChange !== MobileAnimationState.NONE) {
@@ -317,6 +319,14 @@ export const MobileApp = () => {
     } else {
       setAnimatedChange(MobileAnimationState.LEFT);
     }
+  };
+
+  const introFinished = () => {
+    setWelcomeScreenShown(false);
+    setActiveNode(1);
+    runIntro(() => {
+      setActiveNode(0);
+    });
   };
 
   const animationEnded = () => {
@@ -342,8 +352,12 @@ export const MobileApp = () => {
     }
   };
 
-  const [introShown, setIntroShown] = React.useState(activeNode === -1);
-  const [introDisabled, setIntroDisabled] = React.useState(!introShown);
+  const [welcomeScreenShown, setWelcomeScreenShown] = React.useState(
+    activeNode === -1 || true
+  );
+  const [welcomeScreenDisabled, setWelcomeScreenDisabled] = React.useState(
+    !welcomeScreenShown
+  );
 
   const activeSubject = currentDataSet[activeNode];
 
@@ -352,8 +366,8 @@ export const MobileApp = () => {
 
   React.useLayoutEffect(() => {
     if (activeNode === -1) {
-      setIntroDisabled(false);
-      setIntroShown(true);
+      setWelcomeScreenDisabled(false);
+      setWelcomeScreenShown(true);
     }
 
     if (
@@ -381,22 +395,17 @@ export const MobileApp = () => {
       />
       {
         <div
-          className={`m-intro ${introShown ? "is-visible" : ""} ${
-            introDisabled ? "is-disabled" : ""
+          className={`m-intro ${welcomeScreenShown ? "is-visible" : ""} ${
+            welcomeScreenDisabled ? "is-disabled" : ""
           }`}
           ref={introRef}
           onTransitionEnd={e => {
-            if (!introShown) {
-              setIntroDisabled(true);
+            if (!welcomeScreenShown) {
+              setWelcomeScreenDisabled(true);
             }
           }}
         >
-          <MobileIntro
-            onFinish={() => {
-              setIntroShown(false);
-              setActiveNode(0);
-            }}
-          />
+          <MobileIntro onFinish={introFinished} />
         </div>
       }
       {/* TITLE */}

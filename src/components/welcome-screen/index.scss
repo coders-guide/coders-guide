@@ -177,4 +177,34 @@
   img {
     max-height: 50vh;
   }
+
+  &__path-select {
+    display: flex;
+    flex-direction: column;
+    min-width: 540px;
+    margin-top: 12px;
+
+    &__option {
+      font-size: 16px;
+      padding: 12px;
+      border: 1px solid rgba(255, 255, 255, 0.8);
+      margin-bottom: 8px;
+      cursor: pointer;
+
+      img {
+        max-width: 80px;
+        max-height: 60px;
+      }
+
+      &.is-disabled {
+        cursor: not-allowed;
+        opacity: 0.3;
+        border-style: dotted;
+      }
+
+      &.is-selected {
+        background: rgba(255, 255, 255, 0.1);
+      }
+    }
+  }
 }

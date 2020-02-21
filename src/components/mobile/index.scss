@@ -44,7 +44,7 @@ body.is-scroll-blocked {
     flex: 0 0 auto;
     line-height: 32px;
     font-weight: bold;
-    padding: 2px 0 0 0;
+    padding: 0;
     font-size: 12px;
     color: white;
     position: relative;
@@ -124,10 +124,10 @@ body.is-scroll-blocked {
     font-size: 18px;
     text-align: center;
     font-weight: bold;
-    line-height: 120%;
+    line-height: 150%;
     padding-bottom: 24px;
     border-bottom: 1px dashed rgba(255, 255, 255, 0.3);
-    margin: 12px 0;
+    margin: 12px 0 24px 0;
   }
 
   &__list {
@@ -182,13 +182,20 @@ body.is-scroll-blocked {
     justify-content: center;
     align-items: center;
     transition: transform 0.25s ease;
+    max-width: 600px;
+    margin: 0 auto;
     &.is-hidden-right {
-      transform: translate(100vh, 0);
+      transform: translate(100vw, 0);
     }
 
     &.is-hidden-left {
-      transform: translate(-100vh, 0);
+      transform: translate(-100vw, 0);
     }
+  }
+
+  &__desktop-screenshot {
+    max-width: 100%;
+    margin-top: 12px;
   }
 }
 

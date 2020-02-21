@@ -1,13 +1,21 @@
-html.desktop {
+// html.mobile {
+//   .introjs-helperNumberLayer {
+//     display: none;
+//   }
+// }
+
+html.desktop,
+html.mobile {
   .introjs-helperNumberLayer {
     display: none;
   }
 
   .introjs-helperLayer {
-    background-color: rgba(168, 192, 255, 0.5);
+    // background-color: rgba(168, 192, 255, 0.5);
+    background-color: rgba(192, 192, 192, 0.5); // Because too much blue
     box-shadow: 0 0px 10px 1px rgba(255, 255, 255, 0.6) inset;
     border: 0;
-    border-radius: 8px;
+    border-radius: 0px;
 
     &.is-light {
       background-color: rgba(168, 192, 255, 0.2);
@@ -24,8 +32,8 @@ html.desktop {
     );
   }
   .introjs-button {
-    background: #4c4c9c;
     color: white;
+    background: rgba(#fff, 0.2);
     font-weight: bold;
     border: 0;
     text-shadow: none;
@@ -40,22 +48,33 @@ html.desktop {
       opacity: 0.3;
     }
 
-    &.introjs-prevbutton {
-      margin-right: 5px;
-      background: rgba(#4c4c9c, 0.5);
-    }
-
+    &.introjs-prevbutton,
     &.introjs-skipbutton {
-      background: rgba(#4c4c9c, 0.5);
+      margin-right: 5px;
+      color: white;
+      background: rgba(#fff, 0.1);
     }
 
     &:hover {
       box-shadow: none;
+      background: rgba(#fff, 0.3);
     }
 
     &:focus {
       outline: none;
     }
+
+    &.introjs-nextbutton {
+      flex: 2;
+    }
+  }
+
+  .introjs-progress {
+    background: rgba(#fff, 0.2);
+  }
+
+  .introjs-progressbar {
+    background: rgba(#fff, 0.6);
   }
 
   .introjs-tooltipbuttons {
@@ -77,12 +96,30 @@ html.desktop {
     }
   }
 
+  .introjs-arrow.left {
+    border-right-color: rgba(76, 76, 156, 0.95);
+  }
+  .introjs-arrow.bottom {
+    border-top-color: rgba(76, 76, 156, 0.95);
+  }
+  .introjs-arrow.top-middle {
+    border-bottom-color: rgba(76, 76, 156, 0.95);
+  }
+  .introjs-arrow.top-right {
+    border-bottom-color: rgba(76, 76, 156, 0.95);
+  }
+  .introjs-arrow.top {
+    border-bottom-color: rgba(76, 76, 156, 0.95);
+  }
+
   .introjs-tooltip {
     border-radius: 0;
     box-shadow: none;
     min-width: 400px;
     max-width: 500px;
     margin-left: 20px;
+    background: rgba(76, 76, 156, 0.95);
+    color: white;
 
     &.is-last {
       .introjs-prevbutton {
@@ -91,11 +128,37 @@ html.desktop {
       .introjs-skipbutton {
         flex: 0 0 auto;
         min-width: 200px;
-        background: #4c4c9c;
+        background: rgba(#fff, 0.2);
+
+        &:hover {
+          background: rgba(#fff, 0.3);
+        }
       }
       .introjs-tooltipbuttons {
         justify-content: flex-end;
       }
     }
+  }
+}
+
+html.mobile {
+  .introjs-tooltiptext {
+    font-size: 12px;
+  }
+  .introjs-tooltip {
+    min-width: 50vw;
+    max-width: none;
+
+    margin-right: 20px;
+  }
+  .introjs-button {
+    font-size: 12px;
+    padding: 6px;
+  }
+  .introjs-progress {
+    display: none;
+  }
+  .introjs-tooltip.is-last .introjs-skipbutton {
+    min-width: 100px;
   }
 }

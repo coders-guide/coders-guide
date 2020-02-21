@@ -5,7 +5,7 @@ export const Credits: React.FC<{
 }> = ({ onClose }) => (
   <div className="help-pane">
     <button className="help-pane__close" onClick={onClose}>
-      X
+      ✕
     </button>
     <h2>Credits</h2>
     <ul className="help-pane__list">

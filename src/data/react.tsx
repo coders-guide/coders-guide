@@ -7,7 +7,7 @@ export const list: RoadmapEntry[] = [
     type: "heading",
     title: "Web development with React: from zero to hero!",
     description:
-      "We will start from basic fundamentals of creating simple websites, then - step by step - you will be presented with more and more advanced concepts.\n^Let's start with junior developer level.^\nIn order to move to the first subject, click the button below.",
+      "We will start from basic fundamentals of creating simple websites, then - step by step - you will be presented with more and more advanced concepts.\n^Let's start with junior developer level.^\nIn order to start, click the button below.",
     repeatable: false,
     difficult: false
   },
