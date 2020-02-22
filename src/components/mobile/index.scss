@@ -205,6 +205,17 @@ body.is-scroll-blocked {
   &__wrapper {
     min-height: calc(100vh - 320px);
   }
+  &__first-start-button {
+    background-color: rgba(76, 76, 156, 0.95);
+    color: white;
+    border: 0;
+    font-family: Lato;
+    font-weight: bold;
+    font-size: 14px;
+    margin: 0 auto;
+    display: block;
+    padding: 12px 18px;
+  }
   &__title {
     position: sticky;
     background-color: rgba(0, 0, 0, 0.95);
@@ -560,6 +571,8 @@ $transition-time: 0.2s;
 
   &__item {
     margin-bottom: 12px;
+    font-size: 12px;
+    padding: 6px;
 
     &.has-icon {
       &::before {
@@ -590,10 +603,11 @@ $transition-time: 0.2s;
     }
 
     &:first-child {
-      margin-top: 6px;
+      margin-top: 12px;
     }
 
     &.is-first-level {
+      font-size: 14px;
       margin-bottom: 18px;
       position: relative;
       list-style-type: none;
@@ -605,8 +619,8 @@ $transition-time: 0.2s;
 
     &.is-selectable.is-selected {
       opacity: 1;
-      list-style-type: disc;
       font-weight: bold;
+      background-color: rgba(255, 255, 255, 0.1);
     }
   }
 }

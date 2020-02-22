@@ -12,6 +12,10 @@ export type IntroStep = {
 
 export const MOBILE_STEPS: IntroStep[] = [
   {
+    text: "You can see the current subject here",
+    selector: ".m-subject__title"
+  },
+  {
     text: "Use this arrow to move to the next subject",
     selector: ".m-subject__button.is-right"
   },

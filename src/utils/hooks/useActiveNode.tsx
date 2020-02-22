@@ -11,11 +11,27 @@ export const useActiveNode = (
       localStorage.getItem(LOCAL_STORAGE_KEY_ACTIVE_NODE_INDEX) || "";
     const activeNodeIndex = parseInt(activeNodeIndexString);
     if (!isNaN(activeNodeIndex)) {
+      window.history.replaceState({}, "", `/#${activeNodeIndex}`);
       return activeNodeIndex;
     }
 
     return -1;
   });
+
+  React.useEffect(() => {
+    const hashChangeListener = (ev: HashChangeEvent) => {
+      if (ev.newURL !== ev.oldURL) {
+        const hashNumber = parseInt((window.location.hash || "").substr(1), 10);
+        if (Number.isInteger(hashNumber)) {
+          setActiveNode(hashNumber);
+        }
+      }
+    };
+
+    window.addEventListener("hashchange", hashChangeListener);
+
+    return () => window.removeEventListener("hashchange", hashChangeListener);
+  }, []);
 
   const changeNode = (direction: number = 1) => {
     if (isNavigationBlocked) {
@@ -28,6 +44,7 @@ export const useActiveNode = (
       return;
     }
     setActiveNode(activeNode + direction);
+    window.history.pushState({}, "", `/#${activeNode + direction}`);
   };
 
   React.useEffect(() => {

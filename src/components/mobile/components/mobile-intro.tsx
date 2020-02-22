@@ -92,9 +92,11 @@ export const MobileIntro: React.FC<{ onFinish: () => void }> = ({
       </div>
       <div className={`m-intro__step ${getStepClass(3)}`}>
         <span>
-          <header className="m-intro__logo" />
-          Interactive roadmap for learning coding, including progress tracker
-          and curated resource links.
+          <div className="m-intro__headline">
+            currently only roadmap for becoming{" "}
+            <strong>react-based full stack web developer</strong>
+          </div>
+          <span>come later for more!</span>
           <button onClick={onFinish} className={`m-intro__start-button`}>
             Start
           </button>
