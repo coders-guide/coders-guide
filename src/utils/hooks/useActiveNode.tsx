@@ -43,8 +43,9 @@ export const useActiveNode = (
     ) {
       return;
     }
-    setActiveNode(activeNode + direction);
-    window.history.pushState({}, "", `/#${activeNode + direction}`);
+    // setActiveNode(activeNode + direction);
+    // window.history.pushState({}, "", `/#${activeNode + direction}`);
+    setActiveNodeIndex(activeNode + direction);
   };
 
   React.useEffect(() => {
@@ -83,9 +84,18 @@ export const useActiveNode = (
       Math.ceil(currentDataSet.length * percentage) - 1
     );
     if (currentDataSet[targetNodeIndex]) {
-      setActiveNode(targetNodeIndex);
+      // setActiveNode(targetNodeIndex);
+      // window.history.pushState({}, "", `/#${targetNodeIndex}`);
+      setActiveNodeIndex(targetNodeIndex);
     }
   };
 
-  return { jumpToNode, changeNode, activeNode, setActiveNode };
+  const setActiveNodeIndex = (index: number, useHistory: boolean = true) => {
+    setActiveNode(index);
+    if (useHistory) {
+      window.history.pushState({}, "", `/#${index}`);
+    }
+  };
+
+  return { jumpToNode, changeNode, activeNode, setActiveNodeIndex };
 };

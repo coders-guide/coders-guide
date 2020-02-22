@@ -34,10 +34,12 @@ export const DesktopApp = () => {
 
   const isNavigationBlocked = isIntroShown;
 
-  const { jumpToNode, changeNode, activeNode, setActiveNode } = useActiveNode(
-    currentDataSet,
-    isNavigationBlocked
-  );
+  const {
+    jumpToNode,
+    changeNode,
+    activeNode,
+    setActiveNodeIndex
+  } = useActiveNode(currentDataSet, isNavigationBlocked);
 
   const { checkedGoals, isNodeChecked, toggleGoal } = useGoals();
   const isWelcomeScreenShown = activeNode === -1 || helpDisplayMode === "help";
@@ -108,16 +110,16 @@ export const DesktopApp = () => {
   const onCloseWelcomeScreen = () => {
     if (helpDisplayMode === "help") {
       setHelpDisplayMode(undefined);
-      setActiveNode(1);
+      setActiveNodeIndex(1, false);
 
       runIntro(() => {
-        setActiveNode(activeNode);
+        setActiveNodeIndex(activeNode, false);
       });
       return;
     }
-    setActiveNode(1);
+    setActiveNodeIndex(1, false);
     runIntro(() => {
-      setActiveNode(0);
+      setActiveNodeIndex(0, false);
     });
   };
 
@@ -138,7 +140,7 @@ export const DesktopApp = () => {
   React.useLayoutEffect(() => {});
 
   const setActiveNodeAndCenter = (nodeIndex: number) => {
-    setActiveNode(nodeIndex);
+    setActiveNodeIndex(nodeIndex);
     centerOnNode(nodeIndex);
   };
 

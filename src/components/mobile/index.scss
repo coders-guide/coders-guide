@@ -572,7 +572,12 @@ $transition-time: 0.2s;
   &__item {
     margin-bottom: 12px;
     font-size: 12px;
-    padding: 6px;
+    padding: 2px;
+    line-height: 150%;
+
+    a {
+      color: white;
+    }
 
     &.has-icon {
       &::before {

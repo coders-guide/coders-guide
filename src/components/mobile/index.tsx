@@ -24,7 +24,7 @@ export const MobileApp = () => {
   const currentDataSet = reactDataSet;
 
   const { checkedGoals, toggleGoal } = useGoals();
-  const { activeNode, changeNode, setActiveNode } = useActiveNode(
+  const { activeNode, changeNode, setActiveNodeIndex } = useActiveNode(
     currentDataSet
   );
   const [isMenuShown, setMenuShown] = React.useState(false);
@@ -56,10 +56,10 @@ export const MobileApp = () => {
 
   const onIntroFinish = () => {
     hideWelcomeScreen();
-    setActiveNode(1);
+    setActiveNodeIndex(1, false);
 
     runIntro(() => {
-      setActiveNode(activeNode > -1 ? activeNode : 0);
+      setActiveNodeIndex(activeNode > -1 ? activeNode : 0, false);
     });
   };
 
@@ -194,7 +194,7 @@ export const MobileApp = () => {
             entry => entry.id === subject.id
           );
           if (index > -1) {
-            setActiveNode(index);
+            setActiveNodeIndex(index);
             setMenuShown(false);
           }
         }}

@@ -19,7 +19,11 @@ export const MobileHeader: React.FC<{
           <img src={logoImage} />
         </div>
         <div className="m-header__counter">
-          {currentIndex + 1} / {nodesLength}
+          {currentIndex > 0 && (
+            <>
+              {currentIndex} / {nodesLength}
+            </>
+          )}
         </div>
       </div>
       <div className="m-sub-header">

@@ -316,9 +316,7 @@ export const Sidepane: React.FC<{
 
       {!isSubjectNode && (
         <div className="sidepane__milestone">
-          {!canRewind()
-            ? "click start button to begin"
-            : "select a subject to see its description"}
+          {!canRewind() ? "" : "select a subject to see its description"}
         </div>
       )}
     </>
