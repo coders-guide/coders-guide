@@ -1,8 +1,7 @@
 import * as React from "react";
 import * as ReactDOM from "react-dom";
 import FontFaceObserver from "fontfaceobserver";
-import { DesktopApp } from "./App";
-import { MobileApp } from "./components/mobile";
+
 import { mobileAndTabletCheck } from "./utils";
 
 import "./utils/polyfills";
@@ -15,11 +14,14 @@ const render = (Component: React.ComponentType) => {
 };
 
 Promise.all([font.load("10pt Lato")]).then(() => {
-  window.requestAnimationFrame(() => {
+  window.requestAnimationFrame(async () => {
     if (!mobileAndTabletCheck()) {
+      const { DesktopApp } = await import("./App");
       document.documentElement.className = document.body.className = "desktop";
       render(DesktopApp);
     } else {
+      const { MobileApp } = await import("./components/mobile");
+
       document.documentElement.className = document.body.className = "mobile";
       render(MobileApp);
     }

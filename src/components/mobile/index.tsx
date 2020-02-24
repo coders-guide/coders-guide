@@ -202,3 +202,5 @@ export const MobileApp = () => {
     </div>
   );
 };
+
+export default MobileApp;

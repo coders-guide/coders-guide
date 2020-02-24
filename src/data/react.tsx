@@ -253,7 +253,7 @@ export const list: RoadmapEntry[] = [
     id: 7000,
     category: 0,
     type: "heading",
-    title: "First small milestone: you can code elementary websites!",
+    title: "First milestone: website develoepr!",
     description:
       "Good job, you should be able to utilize your newly acquired skills in order to create simple websites.\nFor instance, you can create a homepage for your or your parents' business. Still, someone will take care of hosting it on the internet - there is a bunch of free services for that purpose. Keep going!"
   },
@@ -1556,34 +1556,35 @@ export const list: RoadmapEntry[] = [
     repeatable: false,
     difficult: false
   },
-  // {
-  //   id: 54001,
-  //   category: 0,
-  //   type: "node",
-  //   title: "Regular expressions",
-  //   description: "TODO:",
-  //   topics: ["TODO:"],
-  //   practices: ["TODO:"],
-  //   links: [
-  //     {
-  //       title: "TODO:",
-  //       url:
-  //         "https://levelup.gitconnected.com/styled-components-essentials-in-three-steps-a61fb9372ded"
-  //     },
-  //     {
-  //       title: "TODO:",
-  //       url:
-  //         "https://www.freecodecamp.org/news/a-5-minute-intro-to-styled-components-41f40eb7cd55/"
-  //     },
-  //     {
-  //       title: "TODO:",
-  //       url:
-  //         "https://dev.to/phizzard/let-s-take-a-look-at-css-in-js-with-react-in-2019-styled-components-1olc"
-  //     }
-  //   ],
-  //   repeatable: false,
-  //   difficult: false
-  // },
+  {
+    id: 54001,
+    category: 0,
+    type: "node",
+    title: "Regular expressions",
+    description:
+      "For an every person working with information systems (e.g. a web developer), sooner or later knowledge of regular expression emerge as a must-have skill. It is a powerful tool used for querying, matching and replacing parts of strings - formalized to a common standard used by many programming languages and platforms.\nYou shouldn't fall behind and learn how (and when) to use them properly.",
+    topics: ["TODO:"],
+    practices: ["TODO:"],
+    links: [
+      {
+        title: "TODO:",
+        url:
+          "https://levelup.gitconnected.com/styled-components-essentials-in-three-steps-a61fb9372ded"
+      },
+      {
+        title: "TODO:",
+        url:
+          "https://www.freecodecamp.org/news/a-5-minute-intro-to-styled-components-41f40eb7cd55/"
+      },
+      {
+        title: "TODO:",
+        url:
+          "https://dev.to/phizzard/let-s-take-a-look-at-css-in-js-with-react-in-2019-styled-components-1olc"
+      }
+    ],
+    repeatable: false,
+    difficult: false
+  },
   {
     id: 55,
     category: 3,
@@ -2073,7 +2074,7 @@ export const list: RoadmapEntry[] = [
           "https://medium.com/@rossbulat/typescript-generics-explained-15c6493b510f"
       }
     ],
-    repeatable: false,
+    repeatable: true,
     difficult: false
   },
 
@@ -2106,7 +2107,7 @@ export const list: RoadmapEntry[] = [
       }
     ],
     repeatable: false,
-    difficult: false
+    difficult: true
   },
   {
     id: 77,
@@ -2141,7 +2142,7 @@ export const list: RoadmapEntry[] = [
       }
     ],
     repeatable: false,
-    difficult: false
+    difficult: true
   },
   {
     id: 79,
@@ -2192,7 +2193,7 @@ export const list: RoadmapEntry[] = [
       }
     ],
     repeatable: false,
-    difficult: true
+    difficult: false
   },
   {
     id: 81,
@@ -2233,7 +2234,7 @@ export const list: RoadmapEntry[] = [
       }
     ],
     repeatable: false,
-    difficult: true
+    difficult: false
   },
   {
     id: 82,
@@ -2263,7 +2264,7 @@ export const list: RoadmapEntry[] = [
       }
     ],
     repeatable: false,
-    difficult: false
+    difficult: true
   },
   {
     id: 83,
@@ -2334,7 +2335,7 @@ export const list: RoadmapEntry[] = [
       }
     ],
     repeatable: false,
-    difficult: false
+    difficult: true
   },
   {
     id: 85,

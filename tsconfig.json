@@ -4,10 +4,11 @@
   "compilerOptions": {
     "target": "es5",
     "outDir": "lib",
+    "moduleResolution": "node",
     "declaration": true,
     "esModuleInterop": true,
     "rootDirs": ["src", "sandbox"],
-    "module": "commonjs",
+    "module": "esnext",
     "lib": ["es6", "dom"],
     "jsx": "react",
     "strict": true,

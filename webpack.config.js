@@ -19,6 +19,7 @@ module.exports = (env, argv) => {
     output: {
       path: outPath,
       filename: "bundle.js",
+      chunkFilename: "[name].bundle.js",
       publicPath: ""
     },
     target: "web",
