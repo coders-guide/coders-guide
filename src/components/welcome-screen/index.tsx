@@ -9,6 +9,7 @@ import "./index.scss";
 import IconReact from "../../assets/react.svg";
 import IconAngular from "../../assets/angular.svg";
 import IconQuestion from "../../assets/question.svg";
+import IconCheckWhite from "../../assets/check-white.svg";
 
 const CLOSE_WELCOME_SCREEN_TIMEOUT = 120;
 
@@ -77,14 +78,28 @@ export const WelcomeScreen: React.FC<{
                 videos and various educational platforms.
               </p>
               <p>
-                this application have another purpose -{" "}
+                {/* this application have another purpose -{" "}
                 <strong className="intro__highlight">
                   it provides you a structured roadmap of learning how to code
                   full-stack apps.
-                </strong>{" "}
+                </strong>{" "} */}
+                <ul className="intro__feature-list">
+                  <li>
+                    <img src={IconCheckWhite} />
+                    educational roadmap
+                  </li>
+                  <li>
+                    <img src={IconCheckWhite} />
+                    interview checklist
+                  </li>
+                  <li>
+                    <img src={IconCheckWhite} />
+                    curated links
+                  </li>
+                </ul>
               </p>
               <p>
-                from the start to the end,{" "}
+                you will have your journey from the very start start to the end,{" "}
                 <strong className="intro__highlight">from zero to hero.</strong>
               </p>
             </div>
@@ -118,24 +133,6 @@ export const WelcomeScreen: React.FC<{
                 <img src={IconQuestion} alt="Coming soon" /> Coming soon...
               </div>
             </div>
-
-            {/* <section>
-              subjects can be marked with following symbols:
-              <ul>
-                <li>
-                  <span className="icon icon-repeat" />
-                  &nbsp;&nbsp;&nbsp;this icon indicates that you should practice
-                  the subject very often - it is particularly recommended to be
-                  cultivated more than others
-                </li>
-                <li>
-                  <span className="icon icon-star" />
-                  &nbsp;&nbsp;&nbsp;this icon indicates that the subject might
-                  be difficult and therefore optional - but certainly worthwile
-                  and if possible, should not be skipped
-                </li>
-              </ul>
-            </section> */}
             <div className="intro__bottom">
               <button className="intro__button" onClick={() => setStep(0)}>
                 back

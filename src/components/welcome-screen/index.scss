@@ -52,6 +52,16 @@
     }
   }
 
+  &__feature-list {
+    font-size: 20px;
+    line-height: 250%;
+    img {
+      width: 30px;
+      height: 30px;
+      margin-right: 20px;
+    }
+  }
+
   &__description {
     font-size: 14px;
     line-height: 32px;

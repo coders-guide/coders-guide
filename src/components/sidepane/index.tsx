@@ -250,7 +250,28 @@ export const Sidepane: React.FC<{
               className="sidepane__description"
               dangerouslySetInnerHTML={{ __html: activeNode.description }}
             />
-
+            {(activeNode.repeatable || activeNode.difficult) && (
+              <p className="sidepane__legend">
+                <ul>
+                  {activeNode.repeatable && (
+                    <li>
+                      <span className="icon icon-repeat small" />
+                      &nbsp;&nbsp;you should practice the subject very often, it
+                      is particularly recommended to be exercised frequently
+                    </li>
+                  )}
+                  {activeNode.difficult && (
+                    <li>
+                      <span className="icon icon-star small" />
+                      &nbsp;&nbsp;consider this subject as an "extra" one - it
+                      might be more difficult than the others, but still it's
+                      certainly worthwile and beneficial for your further
+                      development
+                    </li>
+                  )}
+                </ul>
+              </p>
+            )}
             {activeNode.isSingleGoal && (
               <ul className="sidepane__goal-list is-single">
                 <li
@@ -263,7 +284,6 @@ export const Sidepane: React.FC<{
                 </li>
               </ul>
             )}
-
             <SidepaneNav
               key={activeNodeIndex}
               activeNode={activeNode}

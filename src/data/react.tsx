@@ -7,7 +7,7 @@ export const list: RoadmapEntry[] = [
     type: "heading",
     title: "Web development with React: from zero to hero!",
     description:
-      "We will start from basic fundamentals of creating simple websites, then - step by step - you will be presented with more and more advanced concepts.\n^Let's start with junior developer level.^\nIn order to start, click the button below.",
+      "We will start from basic fundamentals of creating simple websites, then - step by step - you will be presented with more and more advanced concepts.\n^Let's start with junior developer level.^\nClick the button below to begin your journey.",
     repeatable: false,
     difficult: false
   },
@@ -113,7 +113,7 @@ export const list: RoadmapEntry[] = [
     type: "node",
     title: "Start using a specialized text editor",
     description:
-      "Instead of using notepad, you should become familiar with a specialized tool for writing code.\nThose are specially designed applications that speed up development process - the sooner you will make good habits with your tools, the better.",
+      "Instead of using notepad, you should become familiar with a specialized tool for writing code.\nThere are few specially designed applications that significantly speed up development process - the sooner you will make good habits with your tools, the better.",
     customListHeader: "Text editors to check out:",
     customList: ["Visual Studio Code (recommended)", "Sublime Text", "Atom"],
     links: [
@@ -135,14 +135,7 @@ export const list: RoadmapEntry[] = [
     difficult: false,
     isSingleGoal: true
   },
-  {
-    id: 300,
-    category: 0,
-    type: "heading",
-    title: "First small milestone: you can code elementary websites!",
-    description:
-      "Good job, you should be able to utilize your newly acquired skills in order to create simple websites.\nFor instance, you can create a homepage for your or your parents' business. Still, someone will take care of hosting it on the internet - there is a bunch of free services for that purpose. Keep going!"
-  },
+
   {
     id: 5,
     category: 0,
@@ -226,7 +219,10 @@ export const list: RoadmapEntry[] = [
       "Portait and landscape",
       "Concept of mobile-first and desktop-first approaches"
     ],
-    practices: [""],
+    practices: [
+      "Make your personal website responsive - make sure it's usable and elegant on desktop, tablet and handheld phone",
+      "Try to create (or recreate) a website using mobile-first approach: build an app for a handheld phone first, then gradually add features so it becomes usable on a desktop as well"
+    ],
     links: [
       {
         title: "Tutorial Republic: Media Queries and Responsive Web Design",
@@ -248,6 +244,46 @@ export const list: RoadmapEntry[] = [
           "Smashing Magazine: How To Use CSS3 Media Queries To Create a Mobile Version of Your Website",
         url:
           "https://www.smashingmagazine.com/2010/07/how-to-use-css3-media-queries-to-create-a-mobile-version-of-your-website/"
+      }
+    ],
+    repeatable: false,
+    difficult: false
+  },
+  {
+    id: 7000,
+    category: 0,
+    type: "heading",
+    title: "First small milestone: you can code elementary websites!",
+    description:
+      "Good job, you should be able to utilize your newly acquired skills in order to create simple websites.\nFor instance, you can create a homepage for your or your parents' business. Still, someone will take care of hosting it on the internet - there is a bunch of free services for that purpose. Keep going!"
+  },
+  {
+    id: 7001,
+    category: 2,
+    type: "node",
+    title: "Valid HTML semantics",
+    description:
+      "Despite having similar visual effect, many of HTML tags bear significant distinction in their usage.\nThere is a number of specialized HTML tags like `<section>`, `<header>`, `<footer>` or `<aside>`. Learn the differences and when each one of them should be used.",
+    topics: [
+      "Proper using of `<header>`, `<nav>`, `<footer>` and `<aside>` elements",
+      "Proper using of `<main>`, `<article>` and `<section>` elements",
+      "Proper header element grading (`<h1>`...`<h6>`)"
+    ],
+    practices: [
+      "Refactor your personal website so there is as few `<div>` elements as possible - instead, change them to `<main>`, `<articles>` and `<section>` elements"
+    ],
+    links: [
+      {
+        title: "Bitdegree: HTML5 Semantic Tags: What Is Semantic Markup?",
+        url: "https://www.bitdegree.org/learn/html5-semantic-tags"
+      },
+      {
+        title: "Mozilla Developer Network: Semantic elements",
+        url: "https://developer.mozilla.org/en-US/docs/Glossary/Semantics"
+      },
+      {
+        title: "HTML5 Semantic Tags: What are they & how to use them",
+        url: "https://www.semrush.com/blog/semantic-html5-guide/"
       }
     ],
     repeatable: false,
