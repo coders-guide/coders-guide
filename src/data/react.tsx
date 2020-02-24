@@ -1556,6 +1556,34 @@ export const list: RoadmapEntry[] = [
     repeatable: false,
     difficult: false
   },
+  // {
+  //   id: 54001,
+  //   category: 0,
+  //   type: "node",
+  //   title: "Regular expressions",
+  //   description: "TODO:",
+  //   topics: ["TODO:"],
+  //   practices: ["TODO:"],
+  //   links: [
+  //     {
+  //       title: "TODO:",
+  //       url:
+  //         "https://levelup.gitconnected.com/styled-components-essentials-in-three-steps-a61fb9372ded"
+  //     },
+  //     {
+  //       title: "TODO:",
+  //       url:
+  //         "https://www.freecodecamp.org/news/a-5-minute-intro-to-styled-components-41f40eb7cd55/"
+  //     },
+  //     {
+  //       title: "TODO:",
+  //       url:
+  //         "https://dev.to/phizzard/let-s-take-a-look-at-css-in-js-with-react-in-2019-styled-components-1olc"
+  //     }
+  //   ],
+  //   repeatable: false,
+  //   difficult: false
+  // },
   {
     id: 55,
     category: 3,
