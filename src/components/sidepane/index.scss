@@ -129,6 +129,10 @@ $sidepane-padding-right: 24px;
     margin-bottom: 12px;
     font-weight: lighter;
   }
+  &__footer {
+    flex: 0 0 auto;
+  }
+
   &__header {
     flex: 0 0 auto;
     font-size: 32px;
@@ -216,6 +220,28 @@ $sidepane-padding-right: 24px;
     }
     &::-webkit-scrollbar-thumb:window-inactive {
       background-color: rgba(255, 255, 255, 0.25);
+    }
+  }
+
+  &__next-button-container {
+    display: flex;
+    justify-content: flex-end;
+    padding-right: 8px;
+    margin-top: 8px;
+    margin-bottom: 12px;
+  }
+
+  &__next-button {
+    background-color: rgba(76, 76, 156, 0.6);
+    color: white;
+    border: 0;
+    font-family: Lato, sans-serif;
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 12px;
+    padding: 8px 16px;
+    &:hover {
+      background-color: rgba(76, 76, 156, 0.8);
     }
   }
 

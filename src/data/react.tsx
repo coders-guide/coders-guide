@@ -17,7 +17,7 @@ export const list: RoadmapEntry[] = [
     type: "node",
     title: "Basics of HTML markup",
     summary:
-      "Begin with essentials of creating websites.\nLearn how to format text, embed images and create lists.\nUnderstand HTML document structure. See, how your code reflects in the browser's window content.",
+      "Begin with the essentials of website creation.\nLearn how to format text, embed images and create lists using HTML.\nUnderstand document structure. See how your code is being reflected in the browser's window content.",
     description:
       "Start with opening any text editor and creating your first HTML document. Learn text formatting, embedding images and creating lists. Study HTML document structure.\nYou can use online HTML editor so you can immediately see how result changes.",
     topics: [
@@ -27,6 +27,10 @@ export const list: RoadmapEntry[] = [
       "Nesting elements (`<p>`, `<div>`)",
       "Structure of HTML document (`<head>`, `<body>`, `<title>`)",
       "Linking to other documents (`<a>`)"
+    ],
+    practices: [
+      "Create short informational website about yourself, describe your interests and embed your photo",
+      "Expand your website with multiple HTML files and create consistent navigation between them using `<a>` tags"
     ],
     links: [
       {
@@ -71,6 +75,11 @@ export const list: RoadmapEntry[] = [
       "Margins, paddings and units in CSS",
       "Including multimedia in CSS (`background-image`)",
       'Using external CSS file stylesheets (`<link rel="stylesheet">`)'
+    ],
+    practices: [
+      "Enrich your personal website by styling it. Add colors, font sizes, backgrounds. Feel free and give wings to your imagination",
+      "Using `display: flex`, plan and create a layout that will separate your website into logical parts including e.g. header, navigation, footer",
+      "Having multiple HTML files with elements with similar classes, export all your styles to separate `css` file and import it in each one"
     ],
     links: [
       {
@@ -130,9 +139,9 @@ export const list: RoadmapEntry[] = [
     id: 300,
     category: 0,
     type: "heading",
-    title: "First milestone: you can code elementary websites!",
+    title: "First small milestone: you can code elementary websites!",
     description:
-      "Good job, you should be able to utilize your newly acquired skills in order to create simple websites.\nFor instance, you can create a homepage for yourself or your parents' business - as long as someone will take care of hosting it on the internet. Keep going!"
+      "Good job, you should be able to utilize your newly acquired skills in order to create simple websites.\nFor instance, you can create a homepage for your or your parents' business. Still, someone will take care of hosting it on the internet - there is a bunch of free services for that purpose. Keep going!"
   },
   {
     id: 5,
@@ -145,6 +154,9 @@ export const list: RoadmapEntry[] = [
       "Communication between server and browser",
       "Idea and lifecycle of browser request",
       "Serving HTML documents and other assets"
+    ],
+    practices: [
+      'Using your web browserm, open any (your or external) website while having inspector opened. Have a peek at "network" tab and observe what happens with various requests - their statuses, timing, priority.'
     ],
     links: [
       {
@@ -181,6 +193,10 @@ export const list: RoadmapEntry[] = [
       "Named columns and rows",
       "When to use `flex` versus `grid`"
     ],
+    practices: [
+      "Transform `flex`-based layout of your personal website to a `grid` based one - notice the difference in syntax and amount of the code",
+      "Take a screenshot of any popular website and try to re-create its layout scratch using your new skills and `grid` attributes"
+    ],
     links: [
       {
         title: '"A Complete Guide to Grid" on CSS-Tricks',
@@ -210,6 +226,7 @@ export const list: RoadmapEntry[] = [
       "Portait and landscape",
       "Concept of mobile-first and desktop-first approaches"
     ],
+    practices: [""],
     links: [
       {
         title: "Tutorial Republic: Media Queries and Responsive Web Design",

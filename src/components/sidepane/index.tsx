@@ -195,7 +195,7 @@ export const LinkList: React.FC<{
 export const Sidepane: React.FC<{
   activeNode: RoadmapEntry;
   activeNodeIndex: number;
-  changeNode: (n: number) => void;
+  changeNode: (n?: number) => void;
   nodesCount: number;
   onItemChecked: (index?: number) => void;
   goalsChecked: number[];
@@ -221,7 +221,7 @@ export const Sidepane: React.FC<{
   }, [activeNode]);
 
   const canRewind = () => activeNodeIndex > 0;
-  // const canForward = () => activeNodeIndex < nodesCount - 1;
+  const canForward = () => activeNodeIndex < nodesCount - 1;
 
   const isSubjectNode = activeNode.type === "node";
 
@@ -316,7 +316,22 @@ export const Sidepane: React.FC<{
 
       {!isSubjectNode && (
         <div className="sidepane__milestone">
-          {!canRewind() ? "" : "select a subject to see its description"}
+          {!canRewind() || !canForward()
+            ? ""
+            : "select a subject to see its description"}
+        </div>
+      )}
+
+      {canRewind() && canForward() && (
+        <div className="sidepane__footer">
+          <div className="sidepane__next-button-container">
+            <button
+              onClick={() => changeNode()}
+              className="sidepane__next-button"
+            >
+              Next subject
+            </button>
+          </div>
         </div>
       )}
     </>
