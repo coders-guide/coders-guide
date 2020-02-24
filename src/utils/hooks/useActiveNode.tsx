@@ -22,7 +22,7 @@ export const useActiveNode = (
     const hashChangeListener = (ev: HashChangeEvent) => {
       if (ev.newURL !== ev.oldURL) {
         const hashNumber = parseInt((window.location.hash || "").substr(1), 10);
-        if (Number.isInteger(hashNumber)) {
+        if (Number.isInteger(hashNumber) && currentDataSet[hashNumber]) {
           setActiveNode(hashNumber);
         }
       }
@@ -43,8 +43,6 @@ export const useActiveNode = (
     ) {
       return;
     }
-    // setActiveNode(activeNode + direction);
-    // window.history.pushState({}, "", `/#${activeNode + direction}`);
     setActiveNodeIndex(activeNode + direction);
   };
 
@@ -84,16 +82,21 @@ export const useActiveNode = (
       Math.ceil(currentDataSet.length * percentage) - 1
     );
     if (currentDataSet[targetNodeIndex]) {
-      // setActiveNode(targetNodeIndex);
-      // window.history.pushState({}, "", `/#${targetNodeIndex}`);
       setActiveNodeIndex(targetNodeIndex);
     }
   };
 
-  const setActiveNodeIndex = (index: number, useHistory: boolean = true) => {
+  const setActiveNodeIndex = (
+    index: number,
+    useHistory: boolean | "replace" = true
+  ) => {
     setActiveNode(index);
-    if (useHistory) {
-      window.history.pushState({}, "", `/#${index}`);
+    if (activeNode !== index && useHistory) {
+      if (useHistory === "replace") {
+        window.history.replaceState({}, "", `/#${index}`);
+      } else {
+        window.history.pushState({}, "", `/#${index}`);
+      }
     }
   };
 

@@ -24,7 +24,15 @@ export const Node: React.FC<{
   setActiveNode: (n: number) => void;
   index: number;
   checkedGoals?: number[];
-}> = ({ node, activeNode, setActiveNode, index, checkedGoals }) => {
+  searchHighlight?: string;
+}> = ({
+  node,
+  activeNode,
+  setActiveNode,
+  index,
+  checkedGoals,
+  searchHighlight
+}) => {
   const completedChecklistItems = (checkedGoals || []).length;
   const sumChecklistItems =
     (node.topics?.length || 0) + (node.practices?.length || 0);
@@ -32,6 +40,29 @@ export const Node: React.FC<{
     (node.isSingleGoal && (checkedGoals || []).includes(0)) ||
     (completedChecklistItems > 0 &&
       completedChecklistItems === sumChecklistItems);
+
+  const highlightedText = React.useMemo(() => {
+    const sourceText = node.summary || node.description;
+
+    if (!searchHighlight) {
+      return sourceText;
+    }
+
+    var innerHTML = sourceText.toLowerCase();
+    var index = innerHTML.indexOf(searchHighlight);
+    if (index >= 0) {
+      return (
+        sourceText.substring(0, index) +
+        '<span class="is-highlighted">' +
+        sourceText.substring(index, index + searchHighlight.length) +
+        "</span>" +
+        sourceText.substring(index + searchHighlight.length)
+      );
+    }
+
+    return sourceText;
+  }, [searchHighlight]);
+
   return (
     <div
       data-category={node.category}
@@ -74,9 +105,7 @@ export const Node: React.FC<{
           )}
         </div>
 
-        <span
-          dangerouslySetInnerHTML={{ __html: node.summary || node.description }}
-        />
+        <span dangerouslySetInnerHTML={{ __html: highlightedText }} />
       </div>
       <div className="record__bottom">
         {(node.topics || node.practices) && (

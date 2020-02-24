@@ -10,9 +10,16 @@ import { Map } from "immutable";
 export const NodeList: React.FC<{
   nodeList: RoadmapEntry[];
   activeNode: number;
+  searchHighlight?: string;
   setActiveNode: (n: number) => void;
   checkedGoals?: Map<string, number[]>;
-}> = ({ nodeList, activeNode, setActiveNode, checkedGoals }) => {
+}> = ({
+  nodeList,
+  activeNode,
+  setActiveNode,
+  checkedGoals,
+  searchHighlight
+}) => {
   return (
     <>
       {nodeList.map((node, index) => (
@@ -32,6 +39,9 @@ export const NodeList: React.FC<{
               index={index}
               activeNode={activeNode}
               setActiveNode={setActiveNode}
+              searchHighlight={
+                index === activeNode ? searchHighlight : undefined
+              }
               checkedGoals={checkedGoals?.get(node.id.toString()) || []}
             />
           )}

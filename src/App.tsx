@@ -1,26 +1,31 @@
 import * as React from "react";
-import { Diagram, Node } from "./diagram";
+
+import logoTransparent from "./assets/logo_updated_transparent.svg";
+import noMobileIcon from "./assets/no-mobile.svg";
+import { Credits } from "./components/credits";
 import { NodeList } from "./components/node-list";
+import { DesktopSearch } from "./components/search";
+import { Sidepane } from "./components/sidepane";
+import { TopBar } from "./components/top-bar";
 import { WelcomeScreen } from "./components/welcome-screen";
+import { list as rawReactDataSet } from "./data/react";
+import { Diagram, Node } from "./diagram";
 import { HelpDisplayMode } from "./types";
 import { prepareData, setScaleIndicator } from "./utils";
-import { TopBar } from "./components/top-bar";
-import { Sidepane } from "./components/sidepane";
-import { Credits } from "./components/credits";
-import { list as rawReactDataSet } from "./data/react";
 import { gtagEvent } from "./utils/gtag.js";
-import { useGoals } from "./utils/hooks/useGoals";
 import { useActiveNode } from "./utils/hooks/useActiveNode";
-import { useIntro, DESKTOP_STEPS } from "./utils/hooks/useIntro";
-
-import noMobileIcon from "./assets/no-mobile.svg";
-import logoTransparent from "./assets/logo_updated_transparent.svg";
+import { useGoals } from "./utils/hooks/useGoals";
+import { DESKTOP_STEPS, useIntro } from "./utils/hooks/useIntro";
+import { useSearch } from "./utils/hooks/useSearch";
 
 // TODO: make it dynamic
 const reactDataSet = prepareData(rawReactDataSet);
 
 // TODO: break down this component into smaller ones
 export const DesktopApp = () => {
+  const [searchVisible, setSearchVisible] = React.useState(false);
+  const [searchPhrase, setSearchPhrase] = React.useState("");
+
   const [helpDisplayMode, setHelpDisplayMode] = React.useState<
     HelpDisplayMode
   >();
@@ -32,7 +37,7 @@ export const DesktopApp = () => {
 
   const { runIntro, isIntroShown } = useIntro(DESKTOP_STEPS);
 
-  const isNavigationBlocked = isIntroShown;
+  const isNavigationBlocked = isIntroShown || searchVisible;
 
   const {
     jumpToNode,
@@ -139,8 +144,11 @@ export const DesktopApp = () => {
 
   React.useLayoutEffect(() => {});
 
-  const setActiveNodeAndCenter = (nodeIndex: number) => {
-    setActiveNodeIndex(nodeIndex);
+  const setActiveNodeAndCenter = (
+    nodeIndex: number,
+    useHistory?: boolean | "replace"
+  ) => {
+    setActiveNodeIndex(nodeIndex, useHistory);
     centerOnNode(nodeIndex);
   };
 
@@ -179,6 +187,30 @@ export const DesktopApp = () => {
   React.useEffect(() => {
     centerOnNode();
   }, [activeNode]);
+
+  const toggleSearch = (visible: boolean) => {
+    if (isIntroShown) {
+      return;
+    }
+    if (!visible || (visible && helpDisplayMode !== "help")) {
+      if (helpDisplayMode === "credits") {
+        setHelpDisplayMode(undefined);
+      }
+      setSearchVisible(visible);
+    }
+  };
+  const nodeClicked = (n: number) => {
+    setActiveNodeAndCenter(n);
+    setSearchVisible(false);
+  };
+
+  const { searchResults, selectedResultIndex, cycleSearchResults } = useSearch(
+    searchPhrase,
+    currentDataSet,
+    activeNode,
+    setActiveNodeAndCenter,
+    searchVisible
+  );
 
   return (
     <div className="global-wrapper">
@@ -221,8 +253,9 @@ export const DesktopApp = () => {
             <div className="node-list-wrapper">
               <NodeList
                 nodeList={currentDataSet}
+                searchHighlight={searchVisible ? searchPhrase : undefined}
                 activeNode={activeNode}
-                setActiveNode={setActiveNodeAndCenter}
+                setActiveNode={nodeClicked}
                 checkedGoals={checkedGoals}
               />
             </div>
@@ -281,6 +314,14 @@ export const DesktopApp = () => {
         <br />
         <img src={noMobileIcon} width="100" height="100" />
       </div>
+      <DesktopSearch
+        onCycleResults={cycleSearchResults}
+        visible={searchVisible}
+        setVisible={toggleSearch}
+        onSearchChange={setSearchPhrase}
+        selectedResultIndex={selectedResultIndex + 1}
+        searchResultLength={searchResults?.length}
+      />
     </div>
   );
 };

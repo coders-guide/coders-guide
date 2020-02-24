@@ -251,7 +251,7 @@ export const Sidepane: React.FC<{
               dangerouslySetInnerHTML={{ __html: activeNode.description }}
             />
             {(activeNode.repeatable || activeNode.difficult) && (
-              <p className="sidepane__legend">
+              <div className="sidepane__legend">
                 <ul>
                   {activeNode.repeatable && (
                     <li>
@@ -270,7 +270,7 @@ export const Sidepane: React.FC<{
                     </li>
                   )}
                 </ul>
-              </p>
+              </div>
             )}
             {activeNode.isSingleGoal && (
               <ul className="sidepane__goal-list is-single">
