@@ -1562,24 +1562,36 @@ export const list: RoadmapEntry[] = [
     type: "node",
     title: "Regular expressions",
     description:
-      "For an every person working with information systems (e.g. a web developer), sooner or later knowledge of regular expression emerge as a must-have skill. It is a powerful tool used for querying, matching and replacing parts of strings - formalized to a common standard used by many programming languages and platforms.\nYou shouldn't fall behind and learn how (and when) to use them properly.",
-    topics: ["TODO:"],
-    practices: ["TODO:"],
+      "For an every person working with information systems (e.g. a web developer), sooner or later knowledge of regular expression emerges as a must-have skill. It is a powerful tool used for querying, matching and replacing parts of strings - formalized to a common standard used by many programming languages and platforms.\nYou shouldn't fall behind and learn how - and when - to use them.",
+    topics: [
+      "Simple pattern matching by text",
+      "Dots (`.`) and repetitions: pluses (`+`) and stars(`*`)",
+      "Capturing groups, negation",
+      "Special character classes, whitespaces",
+      "Greedy matching and negative lookahead"
+    ],
+    practices: [
+      "Create validation matchers for various values: phone numbers, insurance numbers, e-mail addresses etc.",
+      "Using regular expressions, create a plain parser for a simple HTML code - you can transform it to something else (e.g. markdown) or try to strip particular tags"
+    ],
     links: [
       {
-        title: "TODO:",
-        url:
-          "https://levelup.gitconnected.com/styled-components-essentials-in-three-steps-a61fb9372ded"
+        title:
+          "RegexOne - Learn Regular Expressions with simple, interactive exercises",
+        url: "https://regexone.com/lesson/introduction_abcs"
       },
       {
-        title: "TODO:",
-        url:
-          "https://www.freecodecamp.org/news/a-5-minute-intro-to-styled-components-41f40eb7cd55/"
+        title: "Regular Expressions Tutorial on regular-expressions.info",
+        url: "https://www.regular-expressions.info/tutorial.html"
       },
       {
-        title: "TODO:",
+        title: "Video: How to Match Any Pattern of Text",
+        url: "https://www.youtube.com/watch?v=sa-TUpSx1JA"
+      },
+      {
+        title: "Regex tutorial — A quick cheatsheet by examples",
         url:
-          "https://dev.to/phizzard/let-s-take-a-look-at-css-in-js-with-react-in-2019-styled-components-1olc"
+          "https://medium.com/factory-mind/regex-tutorial-a-simple-cheatsheet-by-examples-649dc1c3f285"
       }
     ],
     repeatable: false,
@@ -2347,4 +2359,13 @@ export const list: RoadmapEntry[] = [
     repeatable: false,
     difficult: false
   }
+];
+
+export const categories = [
+  "Computer science",
+  "JavaScript",
+  "Front-end development",
+  "Frameworks",
+  "Tooling"
+  // "Personal growth" // TODO: new path
 ];

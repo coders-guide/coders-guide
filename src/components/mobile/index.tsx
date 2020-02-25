@@ -2,7 +2,10 @@ import "./index.scss";
 
 import * as React from "react";
 
-import { list as rawReactDataSet } from "../../data/react";
+import {
+  categories as rawReactCategories,
+  list as rawReactDataSet
+} from "../../data/react";
 import { MobileAnimationState } from "../../types";
 import { prepareData } from "../../utils";
 import { useActiveNode } from "../../utils/hooks/useActiveNode";
@@ -13,8 +16,8 @@ import { MobileIntro } from "./components/mobile-intro";
 import { MobileMenu } from "./components/mobile-menu";
 import { MobileSubject } from "./components/mobile-subject";
 import {
-  useMobileWelcomeScreen,
-  useAnimatedNavigation
+  useAnimatedNavigation,
+  useMobileWelcomeScreen
 } from "./hooks/use-mobile-navigation";
 
 const reactDataSet = prepareData(rawReactDataSet);
@@ -22,6 +25,7 @@ const reactDataSet = prepareData(rawReactDataSet);
 export const MobileApp = () => {
   const introRef = React.useRef<HTMLDivElement>(null);
   const currentDataSet = reactDataSet;
+  const currentCategories = rawReactCategories;
 
   const { checkedGoals, toggleGoal } = useGoals();
   const { activeNode, changeNode, setActiveNodeIndex } = useActiveNode(
@@ -83,6 +87,13 @@ export const MobileApp = () => {
       {/* TITLE */}
       {activeSubject && (
         <div className="m-subject__title">
+          {activeSubject.type === "node" && (
+            <div
+              className={`m-subject__category-name category-${activeSubject.category}`}
+            >
+              Category: {currentCategories[activeSubject.category]}
+            </div>
+          )}
           <button
             className="m-subject__button is-left"
             disabled={!canRewind()}

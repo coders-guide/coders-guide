@@ -202,6 +202,32 @@ body.is-scroll-blocked {
 .m-subject {
   position: relative;
 
+  &__category-name {
+    position: absolute;
+    top: 4px;
+    right: 0;
+    left: 0;
+    text-align: center;
+    font-size: 10px;
+    font-weight: bold;
+    color: #9797d6;
+
+    &.category-0 {
+      color: #ff9696;
+    }
+    &.category-1 {
+      color: rgb(84, 230, 133);
+    }
+    &.category-2 {
+      color: rgb(166, 201, 102);
+    }
+    &.category-3 {
+      color: #9797d6;
+    }
+    &.category-4 {
+      color: rgb(84, 230, 133);
+    }
+  }
   &__wrapper {
     min-height: calc(100vh - 320px);
   }
@@ -224,10 +250,9 @@ body.is-scroll-blocked {
     top: 48px;
     display: flex;
     width: 100%;
-    height: 94px;
+    height: 104px;
 
-    // padding: 12px 0;
-    padding: 6px 0;
+    padding: 16px 0 6px 0;
   }
 
   &__button {
@@ -277,7 +302,7 @@ body.is-scroll-blocked {
 
     &.is-sticky {
       position: sticky;
-      top: calc(32px + 16px + 94px);
+      top: calc(32px + 16px + 104px);
     }
 
     &.is-completed {
@@ -459,7 +484,7 @@ $transition-time: 0.2s;
 
 .m-other-subject {
   position: fixed;
-  top: 142px;
+  top: calc(32px + 16px + 104px);
   left: 0;
   width: 100vw;
   height: auto;
