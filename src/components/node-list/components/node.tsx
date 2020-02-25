@@ -3,7 +3,7 @@ import { RoadmapEntry } from "../../../types";
 
 const NODE_CATEGORY_SHIFT = 460;
 
-const Progress: React.FC<{ completed: number; sum: number }> = ({
+const ProgressIndicator: React.FC<{ completed: number; sum: number }> = ({
   completed,
   sum
 }) => (
@@ -12,11 +12,25 @@ const Progress: React.FC<{ completed: number; sum: number }> = ({
   >{`${completed}/${sum}`}</div>
 );
 
-const SingleGoal: React.FC<{ isDone: boolean }> = ({ isDone }) => (
+const SingleGoalIndicator: React.FC<{ isDone: boolean }> = ({ isDone }) => (
   <div className={`record__progress is-single ${isDone ? "is-completed" : ""}`}>
     Done
   </div>
 );
+
+const highlightText = (subject: string, searchedText: string) => {
+  var index = subject.toLowerCase().indexOf(searchedText.toLowerCase());
+  if (index >= 0) {
+    return (
+      subject.substring(0, index) +
+      '<span class="is-highlighted">' +
+      subject.substring(index, index + searchedText.length) +
+      "</span>" +
+      subject.substring(index + searchedText.length)
+    );
+  }
+  return subject;
+};
 
 export const Node: React.FC<{
   node: RoadmapEntry;
@@ -41,26 +55,18 @@ export const Node: React.FC<{
     (completedChecklistItems > 0 &&
       completedChecklistItems === sumChecklistItems);
 
-  const highlightedText = React.useMemo(() => {
+  const [highlightedHeader, highlightedDescription] = React.useMemo(() => {
+    const headerText = node.title;
     const sourceText = node.summary || node.description;
 
     if (!searchHighlight) {
-      return sourceText;
+      return [headerText, sourceText];
     }
 
-    var innerHTML = sourceText.toLowerCase();
-    var index = innerHTML.indexOf(searchHighlight);
-    if (index >= 0) {
-      return (
-        sourceText.substring(0, index) +
-        '<span class="is-highlighted">' +
-        sourceText.substring(index, index + searchHighlight.length) +
-        "</span>" +
-        sourceText.substring(index + searchHighlight.length)
-      );
-    }
-
-    return sourceText;
+    return [
+      highlightText(headerText, searchHighlight),
+      highlightText(sourceText, searchHighlight)
+    ];
   }, [searchHighlight]);
 
   return (
@@ -77,9 +83,8 @@ export const Node: React.FC<{
       <h1
         onClick={() => setActiveNode(index)}
         className={isChecklistCompleted ? "is-completed" : ""}
-      >
-        {node.title}
-      </h1>
+        dangerouslySetInnerHTML={{ __html: highlightedHeader }}
+      />
       <div
         className={`record__content ${
           isChecklistCompleted ? "is-completed" : ""
@@ -105,17 +110,19 @@ export const Node: React.FC<{
           )}
         </div>
 
-        <span dangerouslySetInnerHTML={{ __html: highlightedText }} />
+        <span dangerouslySetInnerHTML={{ __html: highlightedDescription }} />
       </div>
       <div className="record__bottom">
         {(node.topics || node.practices) && (
-          <Progress
+          <ProgressIndicator
             completed={completedChecklistItems}
             sum={sumChecklistItems}
           />
         )}
         {node.isSingleGoal && (
-          <SingleGoal isDone={Boolean((checkedGoals || []).includes(0))} />
+          <SingleGoalIndicator
+            isDone={Boolean((checkedGoals || []).includes(0))}
+          />
         )}
         <button
           className="record__button"
