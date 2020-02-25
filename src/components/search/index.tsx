@@ -77,15 +77,13 @@ export const DesktopSearch: React.FC<{
           !isLoading && internalInputValue.length ? "is-visible" : ""
         }`}
       >
-        {internalInputValue.length < 3 ? (
-          "Minimum 3 characters"
-        ) : searchResultLength ? (
-          <>
-            {selectedResultIndex}/{searchResultLength}
-          </>
-        ) : (
-          "No results"
-        )}
+        {internalInputValue === "borsuk"
+          ? "🦡"
+          : internalInputValue.length < 3
+          ? "Minimum 3 characters"
+          : searchResultLength
+          ? `${selectedResultIndex}/${searchResultLength}`
+          : "No results"}
       </div>
     </div>
   );
