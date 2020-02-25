@@ -44,7 +44,7 @@ export const MobileSubject: React.FC<{
           </div>
         )}
         <div
-          className="m-subject__description"
+          className={`m-subject__description is-type-${subject.type}`}
           dangerouslySetInnerHTML={{ __html: subject.description }}
         />
         {isFirst && (

@@ -253,9 +253,13 @@ export const list: RoadmapEntry[] = [
     id: 7000,
     category: 0,
     type: "heading",
-    title: "First milestone: website develoepr!",
-    description:
-      "Good job, you should be able to utilize your newly acquired skills in order to create simple websites.\nFor instance, you can create a homepage for your or your parents' business. Still, someone will take care of hosting it on the internet - there is a bunch of free services for that purpose. Keep going!"
+    title: "First milestone: website developer!",
+    description: `Good job, you have acquired your first valuable practical skills!
+      - ^using special tools, you can create a structured HTML document from scratch^
+      - ^you are able to apply fundamental styles to the website - both for desktop and mobile!^
+      - ^you have the grasp of the basic mechanisms of the internet^
+      You should be able to utilize your newly acquired skills in order to create simple websites. For instance, you can create a homepage for your or your parents' business. Still, someone will take care of hosting it on the internet - there is a bunch of free services for that purpose.
+      Keep going!`
   },
   {
     id: 7001,

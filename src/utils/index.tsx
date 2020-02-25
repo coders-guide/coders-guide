@@ -10,6 +10,8 @@ export const transformFormattedText = (text: string) =>
     .replace(/\`(.+?)\`/g, "<code>$1</code>")
     .replace(/\_(.+?)\_/g, "<em>$1</em>")
     .replace(/\^(.+?)\^/g, "<h3>$1</h3>")
+    .replace(/\n\s*\-(.*)/g, "<ul><li>$1</li></ul>")
+    .replace(/(<\/ul>)[\r\n]{1,2}(.+)/g, "$1<br/>$2")
     .replace(/\*(.+?)\*/g, "<strong>$1</strong>");
 
 export const preloadImage = (url: string) =>

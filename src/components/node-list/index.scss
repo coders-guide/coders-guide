@@ -234,9 +234,7 @@
   border-radius: 20px;
   background-color: rgba(0, 0, 0, 0.25);
   transition: background-color 0.25s ease;
-  // background-color: rgba(76, 76, 156, 0.55);
   &.is-active {
-    // background-color: rgba(76, 76, 156, 0.85);
     background-color: rgba(0, 0, 0, 0.45);
   }
 
@@ -273,12 +271,26 @@
     font-weight: bold;
   }
 
+  strong {
+    font-weight: bold;
+  }
+
   &__content {
     color: rgba(255, 255, 255, 0.8);
     font-size: 24px;
     line-height: 36px;
     margin: 0 0 18px 0;
     position: relative;
+
+    ul {
+      margin-top: 36px;
+      margin-bottom: 0px;
+      list-style-type: disc;
+      padding-inline-start: 24px;
+    }
+    ul + ul {
+      margin-top: 12px;
+    }
   }
 
   &__button {

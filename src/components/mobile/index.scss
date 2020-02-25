@@ -338,6 +338,18 @@ body.is-scroll-blocked {
       background-color: rgba(255, 255, 255, 0.15);
       margin: 0 3px;
     }
+
+    &.is-type-heading {
+      ul {
+        margin-top: 16px;
+        margin-bottom: 0px;
+        list-style-type: disc;
+        padding-inline-start: 24px;
+      }
+      ul + ul {
+        margin-top: 6px;
+      }
+    }
   }
 }
 
