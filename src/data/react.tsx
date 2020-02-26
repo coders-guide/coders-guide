@@ -2256,7 +2256,7 @@ export const list: RoadmapEntry[] = [
     id: 82,
     category: 0,
     type: "node",
-    title: "Programming in lower-level language",
+    title: "Extra mile: programming in lower-level language",
     description:
       "Take a deep dive and ditch high-level language like JS for a while. It doesn't mean that you will part ways with JavaScript. The reason is that you need to understand how computer treats code and applications - and learning lower-level language is a great way to get closer to the \"core\" of the computer.\nImportant: don't take it too seriously and don't try memorizing all syntax by heart - you need to grasp the idea. You will know how many layers of processing there are underneath JS scripts and understand what are the costs of computation and memory.",
     topics: [
