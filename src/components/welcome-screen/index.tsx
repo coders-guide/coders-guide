@@ -78,11 +78,6 @@ export const WelcomeScreen: React.FC<{
                 videos and various educational platforms.
               </p>
               <p>
-                {/* this application have another purpose -{" "}
-                <strong className="intro__highlight">
-                  it provides you a structured roadmap of learning how to code
-                  full-stack apps.
-                </strong>{" "} */}
                 <ul className="intro__feature-list">
                   <li>
                     <img src={IconCheckWhite} />
@@ -90,11 +85,11 @@ export const WelcomeScreen: React.FC<{
                   </li>
                   <li>
                     <img src={IconCheckWhite} />
-                    interview checklist
+                    useful as interview checklist
                   </li>
                   <li>
                     <img src={IconCheckWhite} />
-                    curated links
+                    includes curated library of links
                   </li>
                 </ul>
               </p>

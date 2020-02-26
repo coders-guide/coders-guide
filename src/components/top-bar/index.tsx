@@ -16,7 +16,6 @@ export const TopBar: React.FC<{
       <div className="top-bar__title">
         interactive roadmap to help you learn{" "}
         <span className="top-bar__subtitle">how to code</span>
-        {/* <span className="top-bar__subtitle">AKA</span> your coding education plan */}
       </div>
 
       <div className="top-bar__plan-select">

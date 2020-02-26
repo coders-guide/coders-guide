@@ -37,16 +37,6 @@ export const MobileMenu: React.FC<{
           <li className="m-menu__item is-first-level" onClick={onHelpClicked}>
             How to use it?
           </li>
-          {/* <li className="m-menu__item is-first-level">
-            Current roadmap:
-            <ul>
-              <li className="m-menu__item">
-                Full-stack web development with React
-              </li>
-              <li className="m-menu__item">(more coming soon)</li>
-            </ul>
-          </li> */}
-
           <li className="m-menu__item is-first-level">
             Subject list (click to jump):
             <ul>
