@@ -25,9 +25,11 @@ export const MobileIntro: React.FC<{ onFinish: () => void }> = ({
         <span>
           <img src={logoImageTransparent} className="m-intro__logo" />
           <div className="m-intro__headline">
-            open-source interactive roadmap
+            free open-source interactive roadmap to
             <br />
-            to help you learn <strong>how to code</strong>
+            <span className="m-intro__highlight">
+              help you become a web developer
+            </span>
           </div>
           <ul className="m-intro__list">
             <li>

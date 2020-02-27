@@ -129,6 +129,7 @@ body.mobile {
     padding-bottom: 24px;
     border-bottom: 1px dashed rgba(255, 255, 255, 0.3);
     margin: 12px 0 24px 0;
+    color: #b3b3d1;
   }
 
   &__list {
@@ -163,6 +164,7 @@ body.mobile {
   &__highlight {
     color: white;
   }
+
   &.is-disabled {
     visibility: hidden;
     pointer-events: none;

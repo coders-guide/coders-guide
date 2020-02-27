@@ -65,8 +65,11 @@ export const WelcomeScreen: React.FC<{
             <div className="intro__column-1 intro__description">
               <div className="intro__title">
                 <span>
-                  interactive roadmap to help you learn{" "}
-                  <strong className="intro__highlight">how to code</strong>
+                  free open-source interactive roadmap to
+                  <br />
+                  <strong className="intro__highlight is-big">
+                    help you become a web developer
+                  </strong>
                 </span>
               </div>
               <p>
