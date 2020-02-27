@@ -15,11 +15,11 @@ export const list: RoadmapEntry[] = [
     id: 2,
     category: 2,
     type: "node",
-    title: "Basics of HTML markup",
+    title: "Basics of the HTML markup",
     summary:
-      "Begin with the essentials of website creation.\nLearn how to format text, embed images and create lists using HTML.\nUnderstand document structure. See how your code is being reflected in the browser's window content.",
+      "Begin with the essentials of website creation.\nLearn how to format text, embed images and create lists using HTML.\nUnderstand the document structure. See how your code is being reflected in the browser's window content.",
     description:
-      "Start with opening any text editor and creating your first HTML document. Learn text formatting, embedding images and creating lists. Study HTML document structure.\nYou can use online HTML editor so you can immediately see how result changes.",
+      "Start with opening any text editor and creating your first HTML document. Learn text formatting, embedding images and creating lists. Study HTML document structure.\nYou can use an online HTML editor so you can immediately see how the result changes.",
     topics: [
       "Formatting text using basic HTML tags (`<strong>`, `<em>`, `<h1>`)",
       "Embedding multimedia (`<img>`)",
@@ -29,7 +29,7 @@ export const list: RoadmapEntry[] = [
       "Linking to other documents (`<a>`)"
     ],
     practices: [
-      "Create short informational website about yourself, describe your interests and embed your photo",
+      "Create a short informational website about yourself, describe your interests and embed your photo",
       "Expand your website with multiple HTML files and create consistent navigation between them using `<a>` tags"
     ],
     links: [
@@ -113,7 +113,7 @@ export const list: RoadmapEntry[] = [
     type: "node",
     title: "Start using a specialized text editor",
     description:
-      "Instead of using notepad, you should become familiar with a specialized tool for writing code.\nThere are few specially designed applications that significantly speed up development process - the sooner you will make good habits with your tools, the better.",
+      "Instead of using notepad, you should become familiar with a specialized tool for writing code.\nThere are few specially designed applications that significantly speed up the development process - the sooner you will make good habits with your tools, the better.",
     customListHeader: "Text editors to check out:",
     customList: ["Visual Studio Code (recommended)", "Sublime Text", "Atom"],
     links: [
@@ -142,14 +142,14 @@ export const list: RoadmapEntry[] = [
     type: "node",
     title: "Basics of the internet",
     description:
-      "Since we are dealing with websites, you should understand the basics of the internet mechanisms.\n Learn about servers and browsers, understand how do requests work and when documents are being served.",
+      "Since we are dealing with websites, you should understand the basics of internet mechanisms.\n Learn about servers and browsers, understand how do requests work and when documents are being served.",
     topics: [
       "Communication between server and browser",
       "Idea and lifecycle of browser request",
       "Serving HTML documents and other assets"
     ],
     practices: [
-      'Using your web browserm, open any (your or external) website while having inspector opened. Have a peek at "network" tab and observe what happens with various requests - their statuses, timing, priority.'
+      'Using your web browser, open any (your or external) website while having the inspector open. Have a peek at the "network" tab and observe what happens with various requests - their statuses, timing, priority.'
     ],
     links: [
       {
@@ -179,7 +179,7 @@ export const list: RoadmapEntry[] = [
     type: "node",
     title: "Improved HTML layouting",
     description:
-      "Enhance visual organization of your HTML website.\nUnderstand basic `grid` constructs, study differences between `flex` and `grid`. Get to know how and when to apply them.",
+      "Enhance the visual organization of your HTML website.\nUnderstand basic `grid` constructs, study differences between `flex` and `grid`. Get to know how and when to apply them.",
     topics: [
       "How does `display: grid` work",
       "Fractions (`fr`) and explicit size values",
@@ -216,12 +216,12 @@ export const list: RoadmapEntry[] = [
     topics: [
       "Media query syntax",
       "`min-width`, `max-width` clauses",
-      "Portait and landscape",
+      "Portrait and landscape",
       "Concept of mobile-first and desktop-first approaches"
     ],
     practices: [
       "Make your personal website responsive - make sure it's usable and elegant on desktop, tablet and handheld phone",
-      "Try to create (or recreate) a website using mobile-first approach: build an app for a handheld phone first, then gradually add features so it becomes usable on a desktop as well"
+      "Try to create (or recreate) a website using the mobile-first approach: build an app for a handheld phone first, then gradually add features so it becomes usable on a desktop as well"
     ],
     links: [
       {
@@ -267,7 +267,7 @@ export const list: RoadmapEntry[] = [
     type: "node",
     title: "Valid HTML semantics",
     description:
-      "Despite having similar visual effect, many of HTML tags bear significant distinction in their usage.\nThere is a number of specialized HTML tags like `<section>`, `<header>`, `<footer>` or `<aside>`. Learn the differences and when each one of them should be used.",
+      "Despite having a similar visual outcome, many HTML tags bear significant distinction in their usage.\nThere is a number of specialized HTML tags like `<section>`, `<header>`, `<footer>` or `<aside>`. Learn the differences and when each one of them should be used.",
     topics: [
       "Proper using of `<header>`, `<nav>`, `<footer>` and `<aside>` elements",
       "Proper using of `<main>`, `<article>` and `<section>` elements",
@@ -299,7 +299,7 @@ export const list: RoadmapEntry[] = [
     type: "node",
     title: "Learn the basics of JavaScript",
     summary:
-      "Now, you will start to learn programming for real.\nTemporarily put aside your current HTML/CSS efforts. Write your first JavaScript code and learn the basics of scripting.\nUnderstand generic concepts and common building blocks of programming languages.",
+      "Now, you will start to learn to program for real.\nTemporarily put aside your current HTML/CSS efforts. Write your first JavaScript code and learn the basics of scripting.\nUnderstand generic concepts and common building blocks of programming languages.",
     description:
       "Start with extending your HTML code with `<script>` tags. Step by step, try to put new code portions in your script and observe how does it work.",
     topics: [
@@ -346,7 +346,7 @@ export const list: RoadmapEntry[] = [
       "`typeof` operator",
       "Primitive types - numbers, strings",
       "Reference types - arrays, objects",
-      "Changing object passed as a parameter inside the function"
+      "Change of an object passed as a parameter inside the function"
     ],
     links: [
       {
@@ -373,7 +373,7 @@ export const list: RoadmapEntry[] = [
     customListHeader: "Try the following challenges:",
     practices: [
       'Try to construct a "database" object that will resemble some real-life information structure: e.g. a book library or a company hierarchy',
-      "Write few functions that will perform useful tasks: finding particular object, filter out something by given criteria"
+      "Write a few functions that will perform useful tasks: finding a particular object, filter out something by given criteria"
     ],
     links: [
       {
@@ -425,7 +425,7 @@ export const list: RoadmapEntry[] = [
     type: "node",
     title: "Basic DOM tree interaction",
     description:
-      "Use JavaScript on the website and grasp its full power: ability to modify website's content.\nLearn about targeting HTML elements, changing their content and styling.",
+      "Use JavaScript on the website and grasp its full power: the ability to modify the website's content.\nLearn about targeting HTML elements, changing their content and styling.",
     topics: [
       "Capturing elements: `querySelector` and `getElementById`",
       "Changing the content statically: `innerText` and `innerHTML`",
@@ -491,9 +491,9 @@ export const list: RoadmapEntry[] = [
     type: "node",
     title: "Forms and form elements",
     summary:
-      "Even more interactivity.\nAllow your website user to change contents of the website and input some data by himself.",
+      "Even more interactivity.\nAllow your website user to change the contents of the website and input some data by himself.",
     description:
-      "Even more interactivity.\nAllow your website user to change contents of the website and input some data by himself.\nLearn about different form building blocks and their possible interactions.",
+      "Even more interactivity.\nAllow your website user to change the contents of the website and input some data by himself.\nLearn about different `<form>` building blocks and their possible interactions.",
     topics: [
       "`<input>` tag",
       "Different `<input>` types",
@@ -556,13 +556,13 @@ export const list: RoadmapEntry[] = [
     type: "node",
     title: "Basic data structures and algorithms: trees and recursion",
     description:
-      "Learn about first abstract data structure: a *tree*. Put it into work, understand algorithms. Understand recursive functions.\nNotice what the DOM tree in the HTML document really is.",
+      "Learn about the first abstract data structure: a *tree*. Put it into work, understand algorithms. Understand recursive functions.\nNotice what the DOM tree in the HTML document really is.",
     topics: [
       "Prerequisite: basics of classes in JavaScript",
       "Theory of trees: nodes, roots, children and parents",
       "Recursive functions (try elementary examples, e.g. Fibonacci sequence generator)",
       "Functions for traversing trees (finding certain value)",
-      "Special type of tree: binary tree"
+      "A special type of tree: binary tree"
     ],
     links: [
       {
@@ -650,9 +650,9 @@ export const list: RoadmapEntry[] = [
     topics: [
       "Revise your information about functions",
       "Differences between arrow and regular functions",
-      "Passing functions as a parameters to another function",
+      "Passing function as a parameter to another function",
       "`call` and `apply` methods",
-      "Variables scoping, hierarchy of variables visibility",
+      "Variables scoping, the hierarchy of variables visibility",
       "Concept of closures"
     ],
     links: [
@@ -692,7 +692,7 @@ export const list: RoadmapEntry[] = [
     type: "node",
     title: "Primitive usage of asynchronous code",
     description:
-      "Understand that not everything in JavaScript is linear and immediate. Learn about asynchronous code - foundation of nearly all dynamic things that happen in modern web applications.",
+      "Understand that not everything in JavaScript is linear and immediate. Learn about asynchronous code - the foundation of nearly all dynamic things that happen in modern web applications.",
     topics: [
       "`setTimeout` function",
       "validity of data in variables after a delay"
@@ -752,7 +752,7 @@ export const list: RoadmapEntry[] = [
       "`async`/`await` syntax"
     ],
     practices: [
-      'Try to "promisify" `setTimeout` function',
+      "Try to turn `setTimeout` function into a Promise",
       "Compare `async` and `await` syntax to promises",
       "Learn to combine multiple promises with `Promise.race` and `Promise.all`"
     ],
@@ -820,7 +820,7 @@ export const list: RoadmapEntry[] = [
     description:
       "Learn GIT and see how to manage your code changes. Read about local and remote repositories, commits, branches and merging.\nGive yourself a test-drive and push some code to the internet.",
     topics: [
-      "Commits and commiting",
+      "Commits and committing",
       "Branches: branching, merging",
       "Local and remote repositories"
     ],
@@ -898,9 +898,9 @@ export const list: RoadmapEntry[] = [
     type: "node",
     title: "Data values in computer memory",
     summary:
-      "Read on how computer store various variables in its memory: strings, integers and real numbers.\nBy expanding your perspective on internal mechanics you will know when and why to use particular data structures, and when to avoid another.",
+      "Read on how computer stores various variables in its memory: strings, integers, and real numbers.\nBy expanding your perspective on internal mechanics you will know when and why to use particular data structures, and when to avoid another.",
     description:
-      "Read on how computer store various variables in its memory: strings, integers and real numbers.\nBy expanding your perspective on internal mechanics you will know when and why to use particular data structures, and when to avoid another.\nThere is no need to memorize everything about IEEE 754, but it's important to grasp the concept of limited precision and memory consumption.",
+      "Read on how computer stores various variables in its memory: strings, integers, and real numbers.\nBy expanding your perspective on internal mechanics you will know when and why to use particular data structures, and when to avoid another.\nThere is no need to memorize everything about IEEE 754, but it's important to grasp the concept of limited precision and memory consumption.",
     topics: [
       "String as a list of characters",
       "Integer numbers (signed, unsigned)",
@@ -1001,7 +1001,7 @@ export const list: RoadmapEntry[] = [
     summary:
       "Notice that while front-end projects grow, developers might eventually encounter problems with class naming. \nUnderstand mechanisms that allow managing your selectors and classes efficiently.",
     description:
-      "Notice that while front-end projects grow, developers might eventually encounter problems with class naming. While names should be understandandable and consise, there is a risk of collision - especially where there are many people simultaneously working on styling.",
+      "Notice that while front-end projects grow, developers might eventually encounter problems with class naming. While names should be understandable and concise, there is a risk of collision - especially where there are many people simultaneously working on styling.",
     practices: [
       "Understand mechanisms that allow managing your selectors and classes efficiently",
       "Read about *BEM* (Block-Element-Modifier) naming technique and try to break your app into blocks using this approach",
@@ -1029,7 +1029,7 @@ export const list: RoadmapEntry[] = [
     type: "node",
     title: "Various JS dialects and transpilation",
     description:
-      "Well, it is not getting easier - you need to know that JavaScript isn't always the same JavaScript.\nRead about ECMA standard and its versions. Understand that there are many JS flavors and various browsers / node runtimes can run different code variants.",
+      "Well, it is not getting easier - you need to know that JavaScript isn't always the same JavaScript.\nRead about the ECMA standard and its versions. Understand that there are many JS flavors and various browsers/node.js runtimes can run different code variants.",
     topics: ["ECMAScript versions: 5 and current", "Process of transpilation"],
     links: [
       {
@@ -1051,7 +1051,7 @@ export const list: RoadmapEntry[] = [
     type: "node",
     title: "Basics of object oriented programming",
     description:
-      "JavaScript is a multi-paradigm language - this means that there are many possible approaches to solving particular problem. One of applied models is *OOP (object-oriented programming)* with classes and objects.\nLearn the basics and decide if it fits you well.",
+      "JavaScript is a multi-paradigm language - this means that there are many possible approaches to solving a particular problem. One of the applied models is *OOP (object-oriented programming)* with classes and objects.\nLearn the basics and decide if it fits you well.",
     topics: [
       "Classes and objects",
       "Class fields and methods",
@@ -1153,7 +1153,7 @@ export const list: RoadmapEntry[] = [
     type: "node",
     title: "React fundamentals",
     description:
-      "It’s time for the real deal.\nBuild front-end applications using one of the most widely used and opinionated platform: *React*.\nLearn the basics of syntax, components and props.",
+      "It’s time for the real deal.\nBuild front-end applications using one of the most widely used and opinionated platforms: *React*.\nLearn the basics of syntax, components, and props.",
     topics: [
       "Syntax of JSX, transpilation to JS",
       "Writing simple components",
@@ -1194,7 +1194,7 @@ export const list: RoadmapEntry[] = [
     summary:
       "Before you take a deeper dive into React, understand an important subject of managing complex data using immutable data structures.\nGrasp the basics and learn useful tools.",
     description:
-      "Before you take a deeper dive into React, understand an important subject of managing complex data using immutable data structures.\nGrasp the basics and learn useful tools. Understand how much data is really changing and which is being rewritten with references. Finally, think on how easy would it be to react to particular subset of changes.",
+      "Before you take a deeper dive into React, understand an important subject of managing complex data using immutable data structures.\nGrasp the basics and learn useful tools. Understand how much data is really changing and which is being rewritten with references. Finally, think about how easy would it be to react to a particular subset of changes.",
     topics: [
       "Refresh your knowledge on JS reference and primitive types",
       "Immutable state concept",
@@ -1238,7 +1238,7 @@ export const list: RoadmapEntry[] = [
     type: "node",
     title: "Functional programming",
     description:
-      "As stated before, JavaScript is a multi-paradigm language. One of possible approaches of composing the code is a functional one - which is tightly related to how the application will behave and how its state and data will be treated.\nLearn concepts behind functional programming and expand your coding possibilities.",
+      "As stated before, JavaScript is a multi-paradigm language. One of the possible approaches to composing the code is a functional one - which is tightly related to how the application will behave and how its state and data will be treated.\nLearn concepts behind functional programming and expand your coding possibilities.",
     topics: [
       "Pure functions and side effects",
       "Currying and function composing, higher-order functions"
@@ -1363,9 +1363,9 @@ export const list: RoadmapEntry[] = [
       "Dealing with asynchronous data in React"
     ],
     practices: [
-      "Read about context, providers and consumers, learn to pass the data downstream and react to its changes",
+      "Read about context, providers, and consumers, learn to pass the data downstream and react to the changes",
       "Fetch external data using component lifecycle methods or hooks, put it in your application's state",
-      "Try to distribute the data across components, think about challenge of request optimization so data isn't being re-fetched when not necessary"
+      "Try to distribute the data across components, think about the challenge of request optimization so data isn't being re-fetched when not necessary"
     ],
     repeatable: false,
     difficult: false
@@ -1379,7 +1379,7 @@ export const list: RoadmapEntry[] = [
       "Learn how to manage your application data in an organized way. Read about *redux* and its data lifecycle: state, actions and reducers.\nIntroduce redux to your code and notice how and when particular application parts react to changes.",
     topics: ["Redux state and reducers", "Redux actions"],
     practices: [
-      "Try to create synchronous application using redux - be it a simple item list",
+      "Try to create a synchronous application using redux - be it a simple item list",
       "Read about presentational and container applications, introduce this pattern to your app"
     ],
     links: [
@@ -1406,7 +1406,7 @@ export const list: RoadmapEntry[] = [
     type: "node",
     title: "Asynchronous redux",
     description:
-      "Think of challenges posed by redux when used in asynchronous environment - e.g. with data originating from server fetch calls.\nDespite redux reducer system being designed as a synchronous machine, it's not impossible to utilize it in asynchronous scenarios. Learn various techniques and libraries to solve it.",
+      "Think of challenges posed by redux when used in an asynchronous environment - e.g. with data originating from server fetch calls.\nDespite redux reducer system being designed as a synchronous machine, it's not impossible to utilize it in asynchronous scenarios. Learn various techniques and libraries to solve it.",
     topics: [
       "Using generators in JavaScript",
       "`redux-thunk` library",
@@ -1436,7 +1436,7 @@ export const list: RoadmapEntry[] = [
     type: "node",
     title: "Mobx as a state manager",
     description:
-      "Change your perspective on a data management and give *mobx* a try.\nInstead of using plain immutable objects, you will witness the power of class-based observable objects and boost up your coding speed.",
+      "Change your perspective on data management and give *mobx* a try.\nInstead of using plain immutable objects, you will witness the power of class-based observable objects and boost up your coding speed.",
     topics: [
       "mobx observables and actions",
       "mobx observers from `mobx-react` library"
@@ -1466,9 +1466,9 @@ export const list: RoadmapEntry[] = [
     type: "node",
     title: "Mobx state tree basics",
     summary:
-      "Broaden your knowledge with even more organized data structures powered by mobx: `mobx-state-tree`.\nLearn how to strongly type your data and how to reference one object to another while retaining simplicity of using plain observers.",
+      "Broaden your knowledge with even more organized data structures powered by mobx: `mobx-state-tree`.\nLearn how to strongly type your data and how to reference one object to another while retaining the simplicity of using plain observers.",
     description:
-      "Broaden your knowledge with even more organized data structures powered by mobx: `mobx-state-tree`.\nLearn how to strongly type your data and how to reference one object to another while retaining simplicity of using plain observers.\nVisit mobx-state-tree website and introduce this library to your web application.",
+      "Broaden your knowledge with even more organized data structures powered by mobx: `mobx-state-tree`.\nLearn how to strongly type your data and how to reference one object to another while retaining the simplicity of using plain observers.\nVisit mobx-state-tree website and introduce this library to your web application.",
     topics: [
       "Data schema with `mobx-state-tree`",
       "Integrating MST with react using `mobx-react`"
@@ -1503,7 +1503,7 @@ export const list: RoadmapEntry[] = [
     type: "node",
     title: "CSS Modules",
     summary:
-      "Now when you are used to component-based systems thanks to React, you can see if it's feasible to utilize similar ideas when styling.\nUse CSS modules and discover new way to structure styles in your project.",
+      "Now when you are used to component-based systems thanks to React, you can see if it's feasible to utilize similar ideas when styling.\nUse CSS modules and discover a new way to structure styles in your project.",
     description:
       "Now when you are used to component-based systems thanks to React, you can see if it's feasible to utilize similar ideas when styling.\nConfigure parcel to use CSS modules. Next, try to style a component and create CSS classes named with any general words. Import them to the react component and notice the magic.",
     links: [
@@ -1530,13 +1530,13 @@ export const list: RoadmapEntry[] = [
     type: "node",
     title: "CSS-in-JS: Styled Components",
     description:
-      "Maybe it's time to ditch CSS overall? Learn to use Styled Components and see how it is possible to create beautiful styles with JavaScript, while new possibilities appear: style props, variants and theming.",
+      "Maybe it's time to ditch CSS overall? Learn to use Styled Components and see how it is possible to create beautiful styles with JavaScript, while new possibilities appear: style props, variants and themes.",
     topics: [
       "Basics: exporting styled components",
       "Styled components configurable with props"
     ],
     practices: [
-      "Configure styled components and introduce it to your app",
+      "Configure `styled-components` and introduce it to your app",
       "Implement few variants of a single component using styled components props"
     ],
     links: [
@@ -1566,7 +1566,7 @@ export const list: RoadmapEntry[] = [
     type: "node",
     title: "Regular expressions",
     description:
-      "For an every person working with information systems (e.g. a web developer), sooner or later knowledge of regular expression emerges as a must-have skill. It is a powerful tool used for querying, matching and replacing parts of strings - formalized to a common standard used by many programming languages and platforms.\nYou shouldn't fall behind and learn how - and when - to use them.",
+      "For every person working with information systems (e.g. a web developer), sooner or later knowledge of regular expression emerges as a must-have skill. It is a powerful tool used for querying, matching and replacing parts of strings - formalized to a common standard used by many programming languages and platforms.\nYou shouldn't fall behind and learn how - and when - to use them.",
     topics: [
       "Simple pattern matching by text",
       "Dots (`.`) and repetitions: pluses (`+`) and stars(`*`)",
@@ -1575,7 +1575,7 @@ export const list: RoadmapEntry[] = [
       "Greedy matching and negative lookahead"
     ],
     practices: [
-      "Create validation matchers for various values: phone numbers, insurance numbers, e-mail addresses etc.",
+      "Create validation matchers for various values: phone numbers, insurance numbers, e-mail addresses, etc.",
       "Using regular expressions, create a plain parser for a simple HTML code - you can transform it to something else (e.g. markdown) or try to strip particular tags"
     ],
     links: [
@@ -1607,7 +1607,7 @@ export const list: RoadmapEntry[] = [
     type: "node",
     title: "History and routing in web applications",
     description:
-      "Learn to structure your application into meaningful and readable set of routes attached to particular page components.\nSee your application's structure from a time-wise point of view where user can navigate backward and forward.",
+      "Learn to structure your application into a meaningful and readable set of routes attached to particular page components.\nSee your application's structure from a time-wise point of view where user can navigate backward and forward.",
     topics: [
       "`react-router` basics, routes",
       "Browser history: push and pop state",
@@ -1640,7 +1640,7 @@ export const list: RoadmapEntry[] = [
     type: "node",
     title: "Basics of website optimization",
     description:
-      "Internet is not only fiber-based and broadband connections.\nThere are a bunch of users that use mobile 3G/4G connections and still want to use your app - you're the one that needs to keep it in mind and make your websites as optimized as possible.",
+      "The internet is not only fiber-based and broadband connections.\nThere are a bunch of users that use mobile 3G/4G connections and still want to use your app - you're the one that needs to keep it in mind and make your websites as optimized as possible.",
     topics: [
       "Code minification and bundling",
       "Responsive image `srcset`s",
@@ -1713,7 +1713,7 @@ export const list: RoadmapEntry[] = [
     type: "node",
     title: "Code linting",
     description:
-      'If you will start coding professionally, there is a very small chance that you will work alone. More probably, you will be a part of a team consisting of other developers as well - which means that you will need to work on the same codebase.\nThis is why industry established certain rules for code style so it becomes more consistent and clear. It\'s not only a philosophy - there are number of tools that help with the process of maintaining well-written and understandable code - learn them and become a "better human" to your future co-workers.',
+      'If you will start coding professionally, there is a very small chance that you will work alone. More probably, you will be a part of a team consisting of other developers as well - which means that you will need to work on the same codebase.\nThis is why industry established certain rules for code style so it becomes more consistent and clear. It\'s not only a philosophy - there is a number of tools that help with the process of maintaining well-written and understandable code - learn them and become a "better human" to your future co-workers.',
     topics: ["`eslint`: concept and configuration"],
     practices: [
       "Install some opinionated set of `eslint` rules (e.g. `airbnb`). Introduce them to your project using webpack loaders and code editor plugins."
@@ -1753,7 +1753,7 @@ export const list: RoadmapEntry[] = [
     type: "node",
     title: "Networking basics",
     description:
-      "Web and websites sit on the top of pretty complex networking system. While it's not crucial (or even possible) to know literally everything about the technical details and underlying mechanics, it's essential to understand a few things like addressing and protocol layers.\nThis way, you will be able to understand your applications better and debug them faster.",
+      "Web and websites sit on the top of a pretty complex networking system. While it's not crucial (or even possible) to know literally everything about the technical details and underlying mechanics, it's essential to understand a few things like addressing and protocol layers.\nThis way, you will be able to understand your applications better and debug them faster.",
     topics: [
       "IP addresses, LAN/WAN networks",
       "Ports",
@@ -1790,17 +1790,17 @@ export const list: RoadmapEntry[] = [
     id: 62,
     category: 1,
     type: "node",
-    title: "Introduction to full stack development in JS",
+    title: "Introduction to full-stack development in JS",
     description:
-      '_Never criticize an expert of a field that you do not fully understand._ - Steven Magee\nYour path is to be a well-versed front-end developer, but it can be difficult to do so without covering the fundamentals of back-end development. *The more you will know what happens on the "other side", the better understanding of the system as a whole you will have.*\nIt is pretty convenient to get into, considering you already know JavaScript, which node.js already uses and which is suitable environment to create server applications.',
+      '_Never criticize an expert of a field that you do not fully understand._ - Steven Magee\nYour path is to be a well-versed front-end developer, but it can be difficult to do so without covering the fundamentals of back-end development. *The more you will know what happens on the "other side", the better understanding of the system as a whole you will have.*\nIt is pretty convenient to get into, considering you already know JavaScript, which node.js already uses and which is a suitable environment to create server applications.',
     topics: [
       "Basics of `express.js`: routes, handlers",
       "HTTP headers",
       "Using `Postman` for debugging"
     ],
     practices: [
-      "Create simple server application that will serve dummy data using REST flavor. Send the data using JSON.",
-      "Allow changing the data on the server side via proper HTTP requests. You can keep the data in variables to persist it between requests."
+      "Create a simple server application that will serve dummy data using REST flavor. Send the data using JSON.",
+      "Allow changing the data on the server-side via proper HTTP requests. You can keep the data in variables to persist it between requests."
     ],
     links: [
       {
@@ -1836,7 +1836,7 @@ export const list: RoadmapEntry[] = [
     type: "node",
     title: "Database basics",
     description:
-      "Similarly to data being held in stores in your redux or mobx applications, larger systems on the server need to keep their vast amounts of data in an organized way: they use databases for this purposes. While it is an enourmous domain where specialized experts work, the basics are common programming knowledge that everyone should learn sooner or later.\nLearn the basics of relational databases and be able to understand data handling better. Also, you will be able to use this knowledge to prototype your systems in the future.",
+      "Similarly to data being held in stores in your redux or mobx applications, larger systems on the server need to keep their vast amounts of data in an organized way: they use databases for these purposes. While it is an enormous domain where specialized experts work, the basics are common programming knowledge that everyone should learn sooner or later.\nLearn the basics of relational databases and be able to understand data handling better. Also, you will be able to use this knowledge to prototype your systems in the future.",
     topics: [
       "Basics of relational databases: tables and records",
       "Basics of SQL syntax: `select`, `insert`, `update`",
@@ -1844,7 +1844,7 @@ export const list: RoadmapEntry[] = [
       "Basic joins in SQL select"
     ],
     practices: [
-      "Install small database server on your local computer (mysql, sqlite).",
+      "Install a small database server on your local computer (mysql, sqlite).",
       "Connect your simple REST node.js server with the database."
     ],
     links: [
@@ -1875,10 +1875,10 @@ export const list: RoadmapEntry[] = [
     type: "node",
     title: "Full-stack coding: practice",
     description:
-      "Now that you have a complete overview on the web applications, it is important to practice your abstract thinking and designing systems.\nImagine a web app with a given functionality - it can be anything - then let your creativity on the loose while designing code structure and outlining proper architecture.",
+      "Now that you have a complete overview of the web applications, it is important to practice your abstract thinking and designing systems.\nImagine a web app with a given functionality - it can be anything - then let your creativity on the loose while designing code structure and outlining proper architecture.",
     practicesHeader: "Steps for the practice",
     practices: [
-      "Think of the app idea. It can be anything, for example a database for some items, a web store or a simplified clone of a well known portal like Twitter or Pinterest. One important thing: it should consist of both front-end app and back-end server.",
+      "Think of the app idea. It can be anything, for example a database for some items, a web store or a simplified clone of a well-known portal like Twitter or Pinterest. One important thing: it should consist of both a front-end app and a back-end server.",
       "Before jumping in the code itself, design all the important building blocks. Start with thinking about the data structure. Try to make it consistent in both front-end and back-end. Next, move on to the communication - outline the shape of JSON data that will flow back and forth. Think about edge cases and possible errors.",
       "Gradually start coding application, view by view and feature by feature. While coding back-end, assist yourself using Postman for debugging.",
       "While creating the front-end part, keep in mind that it is not necessary to communicate with real back-end app: you can help your self with temporary data in mocked objects, so you can experiment with different variations (and edge cases).",
@@ -1893,12 +1893,12 @@ export const list: RoadmapEntry[] = [
     type: "node",
     title: "Basics of security: authorization in the web applications",
     description:
-      "While tightly securing a system is usually a responsibility of a specialized back-end engineer, even front-end engineers are obligated to know how the security is being handled and understand fundamental mechanism.\nLearn most common methods for authenticating in the client-server method and practice it a bit in your own solution.",
+      "While tightly securing a system is usually a responsibility of a specialized back-end engineer, even front-end engineers are obligated to know how the security is being handled and understand the fundamental mechanisms.\nLearn the most common methods for authenticating in the client-server method and practice it a bit in your own solution.",
     topics: ["Token-based authentication", "OAuth basics"],
     practices: [
-      "Restrict the access to your application. In the database, add a table with users. Add a token authentication system to your application. Test it using Postman.",
+      "Restrict access to your application. In the database, add a table with users. Add a token authentication system to your application. Test it using Postman.",
       "Use your created token-based authentication back-end and create a front-end application that will communicate with it. Implement features of logging in and logging out.",
-      "Using OAuth, create a sample app that will authenticate user with one of established identity providers, e.g. Google Account, GitHub or Facebook."
+      "Using OAuth, create a sample app that will authenticate the user with one of the established identity providers, e.g. Google Account, GitHub or Facebook."
     ],
     links: [
       {
@@ -1938,13 +1938,13 @@ export const list: RoadmapEntry[] = [
     type: "node",
     title: "WebSockets",
     description:
-      "Traditionally, communication in most web apps represents request-response model: the client (browser) requests for the data and the server responds with something.\nHowever, there are scenarios where the server must asynchronously provide its client(s) with some information - without prior asking. For those scenarios, there is a standarized mechanism named WebSocket - learn how to use it, it's not difficult.",
+      "Traditionally, communication in most web apps represents a request-response model: the client (browser) requests for the data and the server responds with something.\nHowever, there are scenarios where the server must asynchronously provide its client(s) with some information - without prior asking. For those scenarios, there is a standardized mechanism named WebSocket - learn how to use it, it's not difficult.",
     topics: [
       "Pure WebSockets and their JavaScript API",
       "Assisting library: `socket.io`"
     ],
     practices: [
-      'Create or extend your node.js app with WebSocket capabilities. For example, it can be a chat feature that will push messages to all participants. Another idea is a "map walking" mechanism that will update front-end app with new geographical coordinates every few seconds. You can test both classic WebSocket and `socket.io` approaches.'
+      'Create or extend your node.js app with WebSocket capabilities. For example, it can be a chat feature that will push messages to all participants. Another idea is a "map walking" mechanism that will update the front-end app with new geographical coordinates every few seconds. You can test both classic WebSocket and `socket.io` approaches.'
     ],
     links: [
       {
@@ -1967,17 +1967,17 @@ export const list: RoadmapEntry[] = [
     type: "node",
     title: "Test types and testing principles",
     description:
-      "_\"Testing applications is like sex in high school - everybody is talking about it, but in reality most of the people don't do it or do it really bad.\"_\nTesting isn't only for QA engineers - well-versed developers know how to test their code and know all the theory behind it. Despite front-end development being more visually focused than other development fields, tests in website code are still important. Learn theory and tools.",
+      "_\"Testing applications is like sex in high school - everybody is talking about it, but in reality, most of the people don't do it or do it really bad.\"_\nTesting isn't only for QA engineers - well-versed developers know how to test their code and know all the theory behind it. Despite front-end development being more visually focused than other development fields, tests in website code are still important. Learn theory and tools.",
     topics: [
-      "Concept behind unit tests, black box testing",
+      "The concept behind unit tests, black box testing",
       "Definition of regression",
       "End-to-end tests",
       "Testing framework for JavaScript applications: Jest, Cypress"
     ],
     practices: [
       "Take certain portions of your front-end application - the more data-related, the better. A data store is a good candidate. Next, write some unit tests that will assert both successful and failing scenarios.",
-      "Using Cypress, create an end-to-end test that will cover particular scenario of your application.",
-      "Try to create something using Test Driven Development approach: write a complete test of a particular functionality first, then try to write the code that will cover it."
+      "Using Cypress, create an end-to-end test that will cover a particular scenario of your application.",
+      "Try to create something using the Test Driven Development approach: write a complete test of a particular functionality first, then try to write the code that will cover it."
     ],
     links: [
       {
@@ -2014,7 +2014,7 @@ export const list: RoadmapEntry[] = [
     type: "node",
     title: "Operating systems basics",
     description:
-      "As you will get deeper into web development, you will need to get know more and more about applications configuration and deployment. Since this subject is tightly related to various scripts and tools, you will need to perform effortlesly in the OS environment - and more and more often it will not be your personal machine.\nLearn how tu squeeze out the maximum from the shell and scripting engines too boost your productivity - and because this way, you won't be surprised in the future.",
+      "As you will get deeper into web development, you will need to get to know more and more about application configuration and deployment. Since this subject is tightly related to various scripts and tools, you will need to perform effortlessly in the OS environment - and more and more often it will not be your personal machine.\nLearn how tu squeeze out the maximum from the shell and scripting engines to boost your productivity - and because this way, you won't be surprised in the future.",
     topics: [
       "Bash shell: basic commands for moving around the filesystem",
       "Environment variables",
@@ -2052,7 +2052,7 @@ export const list: RoadmapEntry[] = [
     type: "node",
     title: "TypeScript",
     description:
-      "You will work with more and more complex application, so you need a superweapon to dramatically increase your code quality.\n*TypeScript* is a strongly typed language that will greatly help you writing more robust and organized code. While being superset of JavaScript syntax, it compiles directly to JS.\nSince it is _de facto_ standard in the industry, you should learn and adapt it as soon as possible.",
+      "You will work with more and more complex applications, so you need a superweapon to dramatically increase your code quality.\n*TypeScript* is a strongly typed language that will greatly help you write more robust and organized code. While being a superset of JavaScript syntax, it compiles directly to JS.\nSince it is _de facto_ standard in the industry, you should learn and adapt it as soon as possible.",
     topics: [
       "Primitive types (string, number), assigning types to variables and parameters",
       "Interfaces and assigning them as types to objects",
@@ -2061,11 +2061,11 @@ export const list: RoadmapEntry[] = [
       "Classes and class fields encapsulation"
     ],
     practices: [
-      "Read few simplest Typescript examples and notice what are the additions in contrast to pure JS. Learn primitive types in variables and class fields. Learn to distinguish between values and types. ",
+      "Read a few simplest Typescript examples and notice what are the additions in contrast to pure JS. Learn primitive types in variables and class fields. Learn to distinguish between values and types. ",
       "Change your JS(X) files into TS(X) files and gradually introduce types. Introduce interfaces for common data schemas.",
       "Read about the basics of templating (generics). See how your code editor helps you with autocompletion. Gradually rewrite your code to TypeScript.",
       "If you're working with React application, add TypeScript to your data layer and state management system (mobx, redux).",
-      "Add more and more types, eventually turn `strict` mode on and get rid of all `any` types. Eliminate all TS warnings.",
+      "Add more and more types, eventually, turn `strict` mode on and get rid of all `any` types. Eliminate all TS warnings.",
       "Notice how TS is being transpiled to JS."
     ],
     practicesHeader: "Proposed steps for learning TypeScript",
@@ -2100,10 +2100,10 @@ export const list: RoadmapEntry[] = [
     type: "node",
     title: "CI/CD basics",
     description:
-      "As you will create more complex apps and application stacks, you will see that more time is consumed for tooling and maintaining the configuration. Most of processes revolving around the code (but not the coding itself) - compilation or transpilation, testing and deployment - can be delegated out to remote machines. Using determined process description, they can take all the mundane work from you - learn basic concepts behind it and start automating your work.",
+      "As you will create more complex apps and application stacks, you will see that more time is consumed for tooling and maintaining the configuration. Most of the processes revolving around the code (but not the coding itself) - compilation or transpilation, testing and deployment - can be delegated out to remote machines. Using a determined process description, they can take all the mundane work from you - learn basic concepts behind it and start automating your work.",
     topics: ["Concept of continuous integration and continuous deployment"],
     practices: [
-      "Create an account on BitBucket pipelines or CircleCI. try to create simplest CI/CD process that will build your front-end project."
+      "Create an account on BitBucket pipelines or CircleCI. try to create the simplest CI/CD process that will build your front-end project."
     ],
     links: [
       {
@@ -2131,7 +2131,7 @@ export const list: RoadmapEntry[] = [
     type: "node",
     title: "Software architecture and basics of UML modelling",
     description:
-      "More complex applications mean more difficulties in understanding all the processes within - especially, where it comes to communication between developers.\nThis is why developers invented formal descriptions of various software parts. One of them is UML - Unified Modeling Language. It can be used to describe virtually all parts of any application, which helps explaining why, where and how particular code works.",
+      "More complex applications mean more difficulties in understanding all the processes within - especially, where it comes to communication between developers.\nThis is why developers invented formal descriptions of various software parts. One of them is UML - Unified Modeling Language. It can be used to describe virtually all parts of any application, which helps explain why, where and how particular code works.",
     topics: [
       "Application sequence diagrams",
       "Class diagrams",
@@ -2139,8 +2139,8 @@ export const list: RoadmapEntry[] = [
     ],
     practices: [
       "Try to gather all possible scenarios in your front-end application and try to describe them using sequence diagrams.",
-      "Take a full-stack application and try to describe its architecture using class diagram.",
-      "Get any complex component from your app and try to describe all of its possible states using state diagram."
+      "Take a full-stack application and try to describe its architecture using a class diagram.",
+      "Get any complex component from your app and try to describe all of its possible states using a state diagram."
     ],
     links: [
       {
@@ -2166,7 +2166,7 @@ export const list: RoadmapEntry[] = [
     type: "heading",
     title: "Milestone: self-sufficent full-stack developer",
     description:
-      "Congratulations! Right now you should be capable of independently architecturing and developing rich web applications. If you don't know something, you should already be swift in finding missing information on the internet - which is much more important skill than learning everything by heart. What's next? There are still subjects that are not directly related to the website coding - they will help you with not with creating software, but also putting it in the production state.\nCarry on!",
+      "Congratulations! Right now you should be capable of independently architecting and developing rich web applications. If you don't know something, you should already be swift in finding missing information on the internet - which is a much more important skill than learning everything by heart. What's next? There are still subjects that are not directly related to the website coding - they will help you with not with creating software, but also putting it in the production state.\nCarry on!",
     repeatable: false,
     difficult: false
   },
@@ -2176,16 +2176,16 @@ export const list: RoadmapEntry[] = [
     type: "node",
     title: "Advanced website optimization",
     description:
-      'Now as you know all the foundations for coding complex React applications, you need to get back at the subject of making them really efficient.\nIf you\'re coding websites that will go "public" on the internet, you need to take care about optimizing them so search engines will rank them as high as possible. There are many challenges and many solutions in this field - one of them is pre-rendering portions of your website on the server side using node.js. Master server-side React coding and the concept of isomorphic applications.',
+      'Now as you know all the foundations for coding complex React applications, you need to get back at the subject of making them really efficient.\nIf you\'re coding websites that will go "public" on the internet, you need to take care of optimizing them so search engines will rank them as high as possible. There are many challenges and many solutions in this field - one of them is pre-rendering portions of your website on the server-side using node.js. Master server-side React coding and the concept of isomorphic applications.',
     topics: [
       "Requirements for SEO-optimized websites",
       "Dynamic `import()` and code splitting",
       "Server-side rendering and isomorphic apps"
     ],
     practices: [
-      "Write a node.js application that will render simple React components on the server side and send the HTML to the client.",
+      "Write a node.js application that will render simple React components on the server-side and send the HTML to the client.",
       "Learn about dynamic imports in JavaScript. Setup your webpack or parcel to separate bundle into chunks. Notice their sizes basing on code. Try to separate code basing on routes.",
-      "Try to move portions of your front-end React application to SSR. Notice all the problems with asynchronous data handling. Try to separate your app in two parts: static (server-side rendered) and dynamic (browser-side rendered). Think of a method of fetching data on the server side. Gradually, try to fully transition your React application to the SSR approach."
+      "Try to move portions of your front-end React application to SSR. Notice all the problems with asynchronous data handling. Try to separate your app in two parts: static (server-side rendered) and dynamic (browser-side rendered). Think of a method of fetching data on the server-side. Gradually, try to fully transition your React application to the SSR approach."
     ],
     links: [
       {
@@ -2217,7 +2217,7 @@ export const list: RoadmapEntry[] = [
     type: "node",
     title: "Basics of cryptography",
     description:
-      "As you sail through the internet, majority of your data is secured by a HTTPS protocol. It sits on the top of the computer science field of cryptography - which means that your information is secured by various keys and mathematical ciphers.\nYou need to know essential topics of this area - better understanding of internet security will result in more robust applications that you will architecture and develop in the future.",
+      "As you sail through the internet, the majority of your data is secured by an HTTPS protocol. It sits on the top of the computer science field of cryptography - which means that your information is secured by various keys and mathematical ciphers.\nYou need to know the essential topics of this area - a better understanding of internet security will result in more robust applications that you will architecture and build in the future.",
     topics: [
       "Symmetric key algorithms (e.g. DES, AES)",
       "Asymmetric key algorithms (e.g. RSA)",
@@ -2258,7 +2258,7 @@ export const list: RoadmapEntry[] = [
     type: "node",
     title: "Extra mile: programming in lower-level language",
     description:
-      "Take a deep dive and ditch high-level language like JS for a while. It doesn't mean that you will part ways with JavaScript. The reason is that you need to understand how computer treats code and applications - and learning lower-level language is a great way to get closer to the \"core\" of the computer.\nImportant: don't take it too seriously and don't try memorizing all syntax by heart - you need to grasp the idea. You will know how many layers of processing there are underneath JS scripts and understand what are the costs of computation and memory.",
+      "Take a deep dive and ditch high-level language like JS for a while. It doesn't mean that you will part ways with JavaScript. The reason is that you need to understand how the computer treats code and applications - and learning a lower-level language is a great way to get closer to the \"core\" of the computer.\nImportant: don't take it too seriously and don't try memorizing all syntax by heart - you need to grasp the idea. You will know how many layers of processing there are underneath JS scripts and understand what are the costs of computation and memory.",
     topics: [
       "Basics of C syntax",
       "Variable pointers",
@@ -2267,7 +2267,7 @@ export const list: RoadmapEntry[] = [
       "Program code, assembly code and machine code"
     ],
     practices: [
-      "Try to create a simple application that reads/writes some data to files using few threads. Notice all challenges and problems. Read about solutions: mutexes and semaphores."
+      "Try to create a simple application that reads/writes some data to files using a few threads. Notice all challenges and problems. Read about solutions: mutexes and semaphores."
     ],
     links: [
       {
@@ -2288,15 +2288,15 @@ export const list: RoadmapEntry[] = [
     type: "node",
     title: "Containerisation",
     description:
-      "As you will venture deeper in the software development, you should be more interested in the subject of putting applications into production.\nIn modern times, many applications that are processed on the server side are running in secured sandboxes resembling virtualized computers. This approach was dubbed *containerisation* and is heavily dominated by a tool named Docker - learn how to wrap your node.js application in a container and run it locally.",
+      "As you will venture deeper into software development, you should be more interested in the subject of putting applications into production.\nIn modern times, many applications that are processed on the server-side are running in secured sandboxes resembling virtualized computers. This approach was dubbed *containerization* and is heavily dominated by a tool named Docker - learn how to wrap your node.js application in a container and run it locally.",
     topics: [
       "Containers and virtualization",
       "Basics of Docker",
       "Creating a `Dockerfile`"
     ],
     practices: [
-      "Install docker. Try to run some any container from the Docker hub, e.g. a database engine.",
-      "Define and run your own container image - wrap your node application. Read about `docker-compose`. Run your node.js application with database using `docker-compose`."
+      "Install docker. Try to run some any given container from the Docker hub, e.g. a database engine.",
+      "Define and run your own container image - wrap your node application. Read about `docker-compose`. Run your node.js application with a database using `docker-compose`."
     ],
     links: [
       {
@@ -2322,7 +2322,7 @@ export const list: RoadmapEntry[] = [
     type: "node",
     title: "Moving to the cloud",
     description:
-      "Times when web applications were hosted in large server rooms may not be long gone, but it's a fact that majority of them are being deployed to the cloud. This process removes the heavy burden of maintaining and upgrading hardware, configuration and many more other challenges.\nModern cloud systems provide many kinds of different services - and both front-end and back-end web applications can take advantage from it.\nPick a cloud provider and learn how to use most popular services to expand your knowledge about delivering software.",
+      "Times, when web applications were hosted in large server rooms may not be long gone, but it's a fact that the majority of them are being deployed to the cloud. This process removes the heavy burden of maintaining and upgrading hardware, configuration and many more other challenges.\nModern cloud systems provide many kinds of different services - and both front-end and back-end web applications can take advantage of it.\nPick a cloud provider and learn how to use the most popular services to expand your knowledge about delivering software.",
     customListHeader: "Cloud providers to check out",
     customList: [
       "Amazon Web Services (AWS)",
@@ -2330,9 +2330,9 @@ export const list: RoadmapEntry[] = [
       "Google Cloud Platform"
     ],
     practices: [
-      "Create an account on one of the most popular cloud services providers listed above. Research basic service types: virtual machines, container engines, application runner engines. Learn how to store files and data using cloud's API. Study how its CDN (Content Delivery Network) system work.",
-      "Configure your CI/CD process to put your app in the cloud application engine (e.g. EBS or Google App Engine). Next, configure your CI/CD process to containerize your app and deploy it to cloud's container engine.",
-      "Imagine creating large portal application. Mentally plan the architecture - how your front-end application should react to large volume of users. Think how and where data should be handled and cached, then plan SEO optimization.",
+      "Create an account on one of the most popular cloud services providers listed above. Research basic service types: virtual machines, container engines, application runner engines. Learn how to store files and data using the cloud's API. Study how its CDN (Content Delivery Network) system work.",
+      "Configure your CI/CD process to put your app in the cloud application engine (e.g. EBS or Google App Engine). Next, configure your CI/CD process to containerize your app and deploy it to the cloud's container engine.",
+      "Imagine creating a large portal application. Mentally plan the architecture - how your front-end application should react to a large volume of users. Think about how and where data should be handled and cached, then plan SEO optimization.",
       "Read about scaling. Try to auto-scale your app. Wire up your front-end application to a CDN. Notice how and when it’s cached. Think of how and when the cache should be invalidated."
     ],
     links: [
@@ -2359,7 +2359,7 @@ export const list: RoadmapEntry[] = [
     type: "heading",
     title: "Finish line - towards seniority and beyond!",
     description:
-      "Whew. We're at the end - that's it for know.\nIf you are at this point with your knowledge, you should already be self-sufficent and experienced developer that is capable of developing great web applications. Should you call yourself a senior developer? It depends - if you know all of the stuff above, can work independently and use your knowledge with *confidence*, then I would say yes. But it's up to you - don't focus on titles, aim your attention at being better developer. Don't even think of settling down - development is pretty dynamic industry where you need to keep up with latest technologies all the time.\nBe up-to-date and cautious. Be smart and never stop learning. *Be a better developer every day.*\n^Good luck!^",
+      "Whew. We're at the end - that's it for know.\nIf you are at this point with your knowledge, you should already be a self-sufficent and experienced delopment is a pretty dynamic industry where you neveloper that is capable of developing great web applications. Should you call yourself a senior developer? It depends - if you know all of the stuff above, can work independently and use your knowledge with *confidence*, then I would say yes. But it's up to you - don't focus on titles, aim your attention at being a better developer. Don't even think of settling down - development is pretty dynamic industry where you need to keep up with the latest technologies all the time.\nBe up-to-date and cautious. Be smart and never stop learning. *Be a better developer every day.*\n^Good luck!^",
     repeatable: false,
     difficult: false
   }

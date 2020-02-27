@@ -223,7 +223,7 @@ export const DesktopApp = () => {
       />
       <div className="main-wrapper">
         <div className="background-container" ref={bgRef} />
-        <div
+        <aside
           onWheel={e => {
             e.nativeEvent.stopImmediatePropagation();
           }}
@@ -246,8 +246,8 @@ export const DesktopApp = () => {
               />
             </>
           )}
-        </div>
-        <div className="diagram-container">
+        </aside>
+        <section className="diagram-container">
           <div ref={divRef} className="diagram-element" />
           <div ref={containerRef} className="markup-container">
             <div className="node-list-wrapper">
@@ -260,9 +260,8 @@ export const DesktopApp = () => {
               />
             </div>
           </div>
-          {/* <div className="vignette" /> */
-          /* Do I need it? */}
-        </div>
+          <div className="vignette" />
+        </section>
       </div>
       {isWelcomeScreenShown && (
         <WelcomeScreen
